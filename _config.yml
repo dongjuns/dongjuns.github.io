@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "dongjun's IT emergency room"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Dongjun Jeong"
+description              : "Python, Git, ROOT, TMVA and Trouble Shooting"
 url                      : "https://dongjuns.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -103,13 +103,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Dongjun Jeong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  bio              : "Graduate Student : University of Seoul, Physics."
+  location         : "Seoul, South Korea"
   email            :
   links:
-    - label: "Email"
+    - label: "dongjun.jeong@cern.ch"
       icon: "fas fa-fw fa-envelope-square"
       # url: mailto:your.name@email.com
     - label: "Website"
