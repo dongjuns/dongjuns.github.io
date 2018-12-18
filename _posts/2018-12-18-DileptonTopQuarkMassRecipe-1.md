@@ -3,10 +3,12 @@ title: "recipe : top quark mass in dilepton channel"
 date: 2018-12-18 14:11:00 +0900
 categories: TopQuarkMass
 ---
-Github repository  : CPLUOS           https://github.com/CPLUOS/nano 
-                     Dongjun Jeong    https://github.com/dongjuns/nano 
-
-I use nanoAOD, so you need to set up the nanoAOD.
+Github repository : 
+```
+CPLUOS           https://github.com/CPLUOS/nano 
+Dongjun Jeong    https://github.com/dongjuns/nano 
+```
+I use nanoAOD, and you need to set up the nanoAOD.
 
 fork and clone it to your work station. such as gate, ui servers.
 
@@ -22,19 +24,22 @@ scram b -j 20
 getFiles
 ```
 
-*if you have a problem at "git clone git@github.com:CPLUOS/nano.git" ,
+*if you have a problem at
+"git clone git@github.com:CPLUOS/nano.git" ,
 
-just use 
+use
 ```
-#instead of git clone git@github.com:CPLUOS/nano.git,
-#use        git clone https://github.com/CPLUOS/nano.git
+#instead of 
+git clone git@github.com:CPLUOS/nano.git
+#use        
+git clone https://github.com/CPLUOS/nano.git
 ```
 
 (2) dataset update
 
 for update dataset,
 ```
-In the work station,
+#In the work station
 cd /cms/scratch/yourusername/nanoAOD/slc6_amd64_gcc630/
 ./getDatasetInfo
 ```
