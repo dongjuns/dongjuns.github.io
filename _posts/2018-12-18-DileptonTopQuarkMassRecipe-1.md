@@ -1,5 +1,5 @@
 ---
-title: "recipe : top quark mass in dilepton channel"
+title: "recipe : top quark mass in dilepton channel(1)"
 date: 2018-12-18 14:11:00 +0900
 categories: TopQuarkMass
 ---
@@ -24,7 +24,7 @@ scram b -j 20
 getFiles
 ```
 
-*if you have a problem at
+*if you have a problem at \
 "git clone git@github.com:CPLUOS/nano.git" ,
 
 use
