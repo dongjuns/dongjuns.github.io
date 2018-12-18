@@ -15,7 +15,7 @@ topDraw.py  cmeson.py  plotMass.py  fitMass.py
 
 I wll introduce them.
 
-(1) topDraw.py & cmeson.py
+(1) topDraw.py & cmeson.py:
 
 After ttbar event selecton and charmed meson selection,
 I can make a control plots for Data/MC agreement check.
@@ -32,7 +32,7 @@ python topDraw.py
 
 but you have same samples,you don't need that process.
 
-(2) plotMass.py
+(2) plotMass.py:
 
 There are various top quark mass MC samples, from 166.5 to 178.5
 plotMass.py is used to make a binned histogram root file and json file.
@@ -47,7 +47,8 @@ python plotMass.py
 root -l invmass/ResultOfPlotmass.root
 ```
 
-(3) fitMass.py
+(3) fitMass.py:
+
 Using "ResultOfPlotmass.json",
 you can fit to the data and MC.
 result of fit will be located into fres directory
