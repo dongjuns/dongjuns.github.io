@@ -3,7 +3,7 @@ title: "recipe : top quark mass in dilepton channel (2)"
 date: 2018-12-18 14:40:00 +0900
 categories: TopQuarkMass
 ---
-all dra files are in the
+all draw files are in the
 ```
 cd /cms/scratch/jdj0715/nanoAOD/src/nano/analysis/test/topMass/
 ```
@@ -16,6 +16,7 @@ topDraw.py  cmeson.py  plotMass.py  fitMass.py
 I wll introduce them.
 
 (1) topDraw.py & cmeson.py
+
 After ttbar event selecton and charmed meson selection,
 I can make a control plots for Data/MC agreement check.
 
@@ -29,10 +30,10 @@ python topDraw.py
 #brand new DYFactor.json will be made, also.
 ```
 
-but you have same samples,
-you don't need that process.
+but you have same samples,you don't need that process.
 
 (2) plotMass.py
+
 There are various top quark mass MC samples, from 166.5 to 178.5
 plotMass.py is used to make a binned histogram root file and json file.
 so please make a invmass directory.
