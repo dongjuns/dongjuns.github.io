@@ -1,5 +1,5 @@
 ---
-title: "recipe : top quark mass in dilepton channel(1)"
+title: "recipe : top quark mass in dilepton channel (1)"
 date: 2018-12-18 14:11:00 +0900
 categories: TopQuarkMass
 ---
@@ -24,8 +24,8 @@ scram b -j 20
 getFiles
 ```
 
-*if you have a problem at \
-"git clone git@github.com:CPLUOS/nano.git" ,
+*if you have a problem at,
+*"git clone git@github.com:CPLUOS/nano.git",
 
 use
 ```
@@ -44,7 +44,7 @@ cd /cms/scratch/yourusername/nanoAOD/slc6_amd64_gcc630/
 ./getDatasetInfo
 ```
 
-brand new dataset .txt files will be located, 
+brand new dataset .txt files will be made, 
 ```
 /cms/scratch/yourusername/nanoAOD/src/nano/nanoAOD/data/dataset/
 ```
