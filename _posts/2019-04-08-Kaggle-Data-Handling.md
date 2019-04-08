@@ -47,6 +47,15 @@ easy wat to check the Null check in python,
 trainSet.agg(lambda x: sum(x.isnull()) / x.shape[0])
 ```
 
+and we can see the multiple columns at the same time,
+```
+trainSet[['column1', 'column2']].groupby(['column1'], as_index=True).count()
+```
+also pandas support the good option 'crosstab'
+```
+pd.crosstab(trainSet['column1'], trainSet['column2'], margins=True).style.background_gradient()
+```
+
 
 [1] Classification
 - Binary Classification : Classify the data to 0 or 1, True or False.
