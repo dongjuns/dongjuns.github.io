@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "dongjun's IT self-help-desk"
+title                    : "dongjun's Data Factory"
 title_separator          : "-"
 name                     : "Dongjun Jeong"
-description              : "Python, Git, ROOT"
+description              : "Python, Git, Kaggle, ROOT"
 url                      : "https://dongjuns.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
