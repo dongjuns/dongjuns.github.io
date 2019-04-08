@@ -1,5 +1,5 @@
 ---
-title: "Data Science : Rush Hour"
+title: "Data Science : Data Handling"
 date: 2019-04-08 13:03:00 +0900
 categories: Data Science
 ---
