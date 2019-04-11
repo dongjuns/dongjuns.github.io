@@ -11,7 +11,7 @@ categories: Machine Learning
 []Hyper-parameterization, Fine-tuning
 
 
-[1] Cost Function, Loss function, 손실 함수, 비용 함수
+[] Cost Function, Loss function, 손실 함수, 비용 함수
 cost(W, b) = 1/n(H(x) - y)
 cost function : data와 hypothesis 간에 차이가 얼마나 나는 지를 측정한다.
 Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight, 가중치 이다.
@@ -19,7 +19,7 @@ model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해
 그렇기 때문에, cost function is the optimization objective.
 그러면 cost function을 어떻게 줄이냐 ->  Gradient Descent.
 
-[3] Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
+[] Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
 Minimize(cost function)을 위한 방법. 미분을 이용한다.
 이때, cost function이 convex 하지 않으면, optimize minimize가 잘 안된다, 잘 못 할 수 있다.
 cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고자 하고, 계속 반복적으로 수행 = Iterative algorithm.
@@ -39,9 +39,19 @@ Classification, Logistic Regression 에서 자주 쓰임
 
 
 
-[2] Sigmoid Function, Logistic Function
+[] Sigmoid Function, Logistic Function
 z = f(x) = 1 / (1 + e^{-x})
 값을 0~1 사이의 값으로 transfromation 해줌, 그렇기 때문에 확률처럼 결과를 이용할 수 있음.
+
+
+[] Softmax
+결과값을 0~1 사이의 값으로 바꿔줌.
+ex) 결과값이 (A, B, C) = (3.0, 1.2, 0.4) 였고, A로 분류했다면,
+(3.0, 1.2, 0.4)를 값 / Sum 으로 해줘서 -> (0.65, 0.26, 0.09) 로 맞춰줌. 이러면, 확률적으로 결과를 고려할 수 있게됨.
+
+[]One-Hot encoding
+softmax 를 통해서 나온 0~1 숫자들을 하나의 class에 대해서만 값을 준다.
+softmax 후에 (0.65, 0.26, 0.09) -> One-Hot encoding 해서 (1, 0, 0).
 
 
 
