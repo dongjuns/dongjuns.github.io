@@ -5,6 +5,16 @@ categories: Machine Learning
 ---
 
 
+[]Outlier, Novel data
+Outlier, 이상한 값. 뭔가 어떠한 이유로 인해, distribution에서 나올 수 없는데, dataset에 있는 값.
+Outlier와 Noise는 다르다. Outlier의 경우, 패턴 내에서 특이한 양상을 보이기 때문에, 이런 특성은 도난 방지에도 사용할 수 있다.
+
+[]Novelty Detection
+Global outlier : general dataset과 꽤 다른 모습을 나타냄. 얼마나 떨어져 있는 가를 측정해서 손쉽게 구별가능.
+Local outlier : 특정 부분에서만 다른 모습을 나타냄.
+Collective outlier : outlier가 아닌 정상적인 data인데, dataset 전체를 보면 차이가 심함. bug로 인해서, 같은 데이터가 수십번 반복생성.
+
+
 
 []AutoML
 
