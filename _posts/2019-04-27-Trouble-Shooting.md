@@ -18,3 +18,24 @@ Matplotlib is building the font cache using fc-list. This may take a moment.
 $cd ~/.matplotlib
 $rm -rf tex.cache
 ```
+
+#jupyter에서 tensorflow import 에러
+```
+In []import tensorflow as tf
+
+Out [] ---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+<ipython-input-1-88d96843a926> in <module>
+----> 1 import tensorflow as tf
+
+ModuleNotFoundError: No module named 'tensorflow'
+
+In []conda install tensorflow
+#and restart the jupyter notebook
+```
+
+```
+In []import tensorflow as tf
+In []tf.__version__
+Out []'1.13.1'
+```
