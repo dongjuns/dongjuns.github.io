@@ -44,12 +44,10 @@ That is all.
 이어서,
 
 #Jupyter
-
-If you follow this step, it means that you already have a jupyter.
-
 In the Anaconda work space,
 ```
 (base) -MacBook-Pro:~ $conda activate ws
+(ws) -MacBook-Pro:~ $conda install jupyter notebook
 (ws) -MacBook-Pro:~ $jupyter noteobook
 
 #to set a default starting path
