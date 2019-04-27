@@ -28,7 +28,7 @@ bit의 갯수를 나타내고, 한번에 처리하는 데이터량을 의미한�
 Program(passive entity) > Process(active entity, 실행중인 프로그램) > Thread
 
 1 Process = code + data + heap + stack(thread) 으로 이루어지며,
-thread는 process 안에서 stack으로 존재하며, 여러가지 작업들을 순서대로 수행한다. 
+thread는 process 안에서 stack으로 존재하며, 여러가지 작업들을 순서대로 수행한다.    
 1 Process를 multi thread 로 이용하면, 내부의 code&data&heap 를 공유해서 작업하기 때문에 빠르다. 
 (thread-thread context switching 빠름)
 But, multi process 에 비해 접근성 및 구조가 까다롭고, 디버그가 어렵다.
