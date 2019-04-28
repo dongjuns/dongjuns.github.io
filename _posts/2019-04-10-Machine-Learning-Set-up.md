@@ -4,18 +4,20 @@ date: 2019-04-10 20:59:00 +0900
 categories: Machine Learning
 ---
 
-#Anaconda
-go to -> https://www.anaconda.com/distribution/
+### Anaconda
+아나콘다 홈페이지에 들어가서 다운로드한다.   
+(1) click -> <https://www.anaconda.com/distribution/>
 
-click that box which 'Download'
+(2) 아나콘다 홈페이지에서 Download 버튼을 누른다.
 
-and Select your OS,
+(3) 운영체제를 선택한다. (Windows / macOS / Lunux)
 
-click the Download button for Python 3.7 version
+(4) Python 3.7 version의 Download 버튼을 누른다.
 
-Double-click the pkg file to unzip.
+(5) Anaconda 패키지를 푼다.
 
-and have a version check,
+(6) 아나콘다 설치가 완료되었는지 확인한다.
+
 ```
 (base) -MacBook-Pro:~ $conda --version
 conda 4.6.11
@@ -23,67 +25,64 @@ conda 4.6.11
 Python 3.7.3
 ```
 
-If we need, can update the anaconda to current version.
+필요하면, 아나콘다를 최신버전으로 업데이트한다.
 ```
 (base) -MacBook-Pro:~ $conda update -n base conda
 ```
-then, make a nickname for starting conda.
 
+아나콘다를 사용할 가상환경의 이름을 지어준다.
 ```
-(base) -MacBook-Pro:~ $conda create -n 하고싶은이름 python=3.7 anaconda
-(base) -MacBook-Pro:~ $source activate 하고싶은이름
+(base) -MacBook-Pro:~ $conda create -n 가상환경이름 python=3.7 anaconda
+(base) -MacBook-Pro:~ $source activate 가상환경이름
 
-#Ex)
+#Ex) 가상환경의 이름을 ws라고 짓는다면,
+(base) -MacBook-Pro:~ $conda create -n ws python=3.7 anaconda
 (base) -MacBook-Pro:~ $conda activate ws
 (ws) -MacBook-Pro:~ $conda deactivate
 (base) -MacBook-Pro:~ $ 
 ```
-That is all.
+끝.
 
 
 이어서,
 
-#Jupyter
-In the Anaconda work space,
+### Jupyter
+아나콘다 설치를 완료하였으면, 사실 Jupyter를 사용할 수는 있다.   
+하지만, jupyter notebook의 원활한 세팅을 위하여 Jupyter를 설치한다.   
+설치 과정은 아나콘다의 가상환경 안에서 진행한다.
 ```
 (base) -MacBook-Pro:~ $conda activate ws
 (ws) -MacBook-Pro:~ $conda install jupyter notebook
 (ws) -MacBook-Pro:~ $jupyter noteobook
 
-#to set a default starting path
+#여러가지 옵션 설정을 위한 config.py 생성.
 (ws) -MacBook-Pro:~ $jupyter noteobook --generate-config
 Writing default config to: /Users/jeongdongjun/.jupyter/jupyter_notebook_config.py
 
-#set the default path.
+#기본경로를 설정해준다.
 (ws) -MacBook-Pro:~ $vi /Users/jeongdongjun/.jupyter/jupyter_notebook_config.py
-(in the jupyter_notebook_config.py, find a #c.NotebookApp.notebook_dir = '' <- this line.)
+(jupyter_notebook_config.py 안에서 #c.NotebookApp.notebook_dir = '' 라고 쓰여져있는 라인을 찾아준다.)
 ...
 ## The directory to use for notebooks and kernels.
 #c.NotebookApp.notebook_dir = ''
-delete # and fill the form into ''
+...
+#이렇게 되어있을 텐데, 앞에 #을 지우고 ''안에다가 기본경로를 적어준다. 이렇게,
+...
 c.NotebookApp.notebook_dir = '/Users/jeongdongjun/work'
 ...
 ```
-This will be your default path at jupyter notebook.
+끝.
 
 
-
-```
-#many advices for using jupyter
-(ws) -MacBook-Pro:~ $jupyter noteobook --help
-```
-
-
-#TensorFlow
-
-In the Anaconda work space,
+### Tensorflow
+아나콘다 가상환경 안에서 Tensorflow를 설치한다.
 ```
 #Install the tensorflow
 (base) -MacBook-Pro:~ $conda activate ws
 (ws) -MacBook-Pro:~ $conda install tensforflow
 ```
 
-and check the installation of tensorflow.
+Tensorflow의 설치를 확인한다.
 ```
 (ws) -MacBook-Pro:~ $python
 Python 3.7.3 (default, Mar 27 2019, 16:54:48) 
@@ -94,7 +93,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 '1.13.1'
 ```
 
-super same to install the keras,
+### Keras
+Tensorflow를 설치할 때와 똑같다.
 ```
 #Install the tensorflow
 (base) -MacBook-Pro:~ $conda activate ws
@@ -106,4 +106,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import keras
 Using TensorFlow backend.
 ```
-That is all.
+끝.
