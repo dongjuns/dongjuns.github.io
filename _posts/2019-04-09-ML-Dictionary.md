@@ -42,7 +42,7 @@ W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 �
 
 
 ### Sum Squared Error (SSE) = sum(x - m)^{2}
-회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
+Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
 ### Cross Entropy = (-x*log(m) - (1-x)*log(1-m))
 
@@ -94,7 +94,9 @@ X = (x11, x12, x13)으로 두고, W = (w1, w2, w3)에 대해서 matrix 연산을
 
 - Random Forest regression
 
-- SGD
+- SGD, Stochastic Gradient Descent
+optimizer. loss fucntion의 기울기가 0인 값을 찾아 Weight값을 optimize하는 역할.   
+Gradient Descent를 반복적으로 수행하며 찾아간다.
 
 - Bayesian regression
 
@@ -127,7 +129,6 @@ non-convex & 여러개의 local minimum을 가질 수 있음
 
 - DT, BDT : Decision Tree, Boosted Decision Tree
 
-- SGD
 
 ### Clustering
 비슷한 feautres를 갖는 target value들을 Clustering. Unsupervised Learning에서 사용,   
