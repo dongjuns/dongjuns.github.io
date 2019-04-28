@@ -33,19 +33,18 @@ model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해
 
 ### Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
 Minimize(cost function)을 위한 방법. 미분을 이용한다.   
-이때, cost function이 convex 하지 않으면, optimize minimize가 잘 안된다, 잘 못 할 수 있다.   
+이때, cost function이 convex 하지 않으면 optimize minimize가 잘 안된다, 잘못할 수도 있다.   
 cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고자 하고, 계속 반복적으로 수행 = Iterative algorithm.    
-최종적으로는 미분 0으로, 수렴하는 방향으로 나아가고자 함.   
-W와 b에 대해서 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
-실제로 계산할 때는 방정식이 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
+최종적으로는 기울기가 0으로, 미분값이 0으로, function이 수렴하는 방향으로 찾아가고자 함.   
+W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
+실제로 계산할 때의 방정식은 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
 
 
 
 ### Sum Squared Error (SSE) = sum(x - m)^{2}
 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
-
-Cross Entropy = (-x*log(m) - (1-x)*log(1-m))
+### Cross Entropy = (-x*log(m) - (1-x)*log(1-m))
 
 Classification, Logistic Regression 에서 자주 쓰임
 
