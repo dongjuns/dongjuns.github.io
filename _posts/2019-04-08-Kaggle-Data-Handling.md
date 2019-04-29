@@ -4,7 +4,7 @@ date: 2019-04-08 13:03:00 +0900
 categories: Data Science
 ---
 
-Data Science procedure
+### Data Science procedure
 1. Data Check: Find the Null, NaN, non-reasonable data at the bunch of dataset.
 2. Data Visualization: Make a plot which people can understand easily, using matplotlib, seaborn and pandas...etc.
 3. Data Feature Engineering: Change the type or distribution of data, Make a much more good feature.
@@ -23,7 +23,7 @@ sns.set(font_size=2.5)
 %matplotlib inline
 ```
 
-PANDAS
+### PANDAS
 read & load the csv datset
 ```
 pd.read_csv('path/name.csv')
@@ -56,6 +56,29 @@ also pandas support the good option 'crosstab'
 pd.crosstab(trainSet['column1'], trainSet['column2'], margins=True).style.background_gradient()
 ```
 
+- - -
+### Numpy
+```
+import numpy as np
+a = np.array([1,2,3,4,5])
+a[-1]
+
+b = np.array([
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12]
+])
+b[-1]
+b[1]
+b[:, -1]
+b[:, 1]
+b[0:2, :]
+```
+1행x5열, 1rowx5columns, (1, 5) 짜리 array a,   
+3행x4열, 3rowx4columns, (3, 4) 짜리 array b.    
+b[행, 열] 임. 
+
+- - -
 
 [1] Classification
 - Binary Classification : Classify the data to 0 or 1, True or False.
@@ -74,3 +97,5 @@ Predict the survival passenger on the titanic.
 (2) Posco AI 사내식당 식사인원 예측
 
 - Logistic Regression
+
+- - -
