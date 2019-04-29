@@ -42,3 +42,27 @@ In []tf.__version__
 Out []'1.13.1'
 ```
 - - -
+### Tensorflow 
+```
+Linear regression의 descent 관련,
+...
+update = W.assign(descent)
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-18-3aca239bc8a4> in <module>
+----> 1 update = W.assign(descent)# Launch the graph in a session.
+      2 with tf.Session() as sess:
+      3     # Initializes global variables in the graph.
+      4     sess.run(tf.global_variables_initializer())
+      5 
+
+AttributeError: 'Tensor' object has no attribute 'assign'
+...
+```
+W를 Tensor로 지정해서 그렇다. variable로 선언해줘야한다.
+```
+W = tf.placeholder(tf.float32)
+#변경
+W = tf.Variable(tf.random_normal([1]), name="weight")
+```
+random_normal([$]) 에서 0:스칼라, 1:벡터, 2:행렬
