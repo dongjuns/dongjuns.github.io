@@ -16,24 +16,41 @@ Local outlier : 특정 부분에서만 다른 모습을 나타냄.
 Collective outlier : outlier가 아닌 정상적인 data인데, dataset 전체를 보면 차이가 심함.    
 Ex) bug로 인해서, 같은 데이터가 수십번 반복생성.
 
+### Regularization
+Lasso : L1 norm
 
+Ridge : L2 norm
+
+ElasticNet : Lasso + Ridge
 
 ### AutoML
 
-### Hyper-parameterization, Fine-tuning
 
+### Hyper-parameterization, Fine tuning
+Hyperparameter : model을 training하기 전에, 사람이 먼저 정해줘야하는 값들.    
+hidden layer의 갯수, learning rate, batch size, epochs 등등.   
+algorithm에 따라서 필요한 hyperparameter의 종류도 다를 수 있다.   
+그리고 최적의 Hyperparameter 값을 찾는 것을 Hyper-parameterization or Fine tuning 이라고 하며,   
+값을 계속 바꿔가며 찾는 try and error 방법, Bayesian optimization 방법 등등이 있다.
+
+### Weight, 가중치
+Hypothesis H(x) = xW + b 일 때, data의 x값에 가중치 W를 이용하여,    
+target값과 최대한 비슷한 값을 예측해내는 Hypothesis를 만듦.
 
 ### Cost Function, Loss function, 손실 함수, 비용 함수
-cost(W, b) = 1/n(H(x) - y)
+cost(W, b) = (1/n)Sum(H(x) - y)^2
 cost function : data와 hypothesis 간에 차이가 얼마나 나는 지를 측정한다.   
-Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight 가중치 이다.    
+Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight 가중치 이다. b = bias.    
 model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해가면서 minimum error를 가진 정확한 모델을 만들고자 함.   
 그렇기 때문에, cost function is the optimization objective.   
 그러면 cost function을 어떻게 줄이냐 ->  Gradient Descent.    
 
 ### Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
 Minimize(cost function)을 위한 방법. 미분을 이용한다.   
-이때, cost function이 convex 하지 않으면 optimize minimize가 잘 안된다, 잘못할 수도 있다.   
+W := W - r * a/aW 1/2m Sum(xW - Y)^2
+W := W - r * 1/2m 2Sum(xW - Y)x
+W := W - r * 1/m Sum(xW - Y)x
+이때, cost function이 convex (밥그릇 모양 함수) 하지 않으면 optimize minimize가 잘 안된다, 잘못할 수도 있다.   
 cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고자 하고, 계속 반복적으로 수행 = Iterative algorithm.    
 최종적으로는 기울기가 0으로, 미분값이 0으로, function이 수렴하는 방향으로 찾아가고자 함.   
 W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
