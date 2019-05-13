@@ -43,8 +43,8 @@ Out []'1.13.1'
 ```
 - - -
 ### Tensorflow 
-```
 Linear regression의 descent 관련,
+```
 ...
 update = W.assign(descent)
 ---------------------------------------------------------------------------
@@ -65,4 +65,22 @@ W = tf.placeholder(tf.float32)
 #변경
 W = tf.Variable(tf.random_normal([1]), name="weight")
 ```
-random_normal([$]) 에서 0:스칼라, 1:벡터, 2:행렬
+
+### Linux
+directory를 지우다가 Input/output error로 삭제가 안될 때가 있다.           
+```
+$rm -rf directory/
+rm: cannot remove `directory': Input/output error
+```
+차분하게 막힌 곳을 뚫어서 해결한다.
+```
+$cd directory/
+$losf +D .
+COMMAND     PID    USER   FD   TYPE DEVICE  SIZE/OFF  NODE NAME
+bash    4022366 jdj0715  cwd    DIR  0,114        49 69113 .
+hadd    4102206 jdj0715    5r   REG  0,114 490708992 77997 ./.fuse_hidden000130ad00000001
+lsof    4105633 jdj0715  cwd    DIR  0,114        49 69113 .
+lsof    4105634 jdj0715  cwd    DIR  0,114        49 69113 .
+$kill -9 4102206
+$rm -rf directory/
+```
