@@ -130,8 +130,27 @@ Y가 관찰되었을 때, Y가 이렇게 관찰될 확률을 가장 크게 만�
 Regularization을 쓰는 이유 : 모델이 너무 복잡해지지 않도록 하기 위해서.    
 complex model에 쉽게 노출되어 있다, simple model이 설명하기 좋다. 
 
+\theta^{hat} = argmin_{theta}(loss(y, f(X;theta)) + \lambda \psi(\theta))
 
-(1) Lasso
-(2) Ridge
-(3) Elastic Net
-(4)
+
+
+(1) Lasso : L-1 regularization, Least Absolute Shrinkage and Selection Operator.
+덜 중요한 feature들을 0으로 축소시켜서 sparse modeling 시킴. But, feautre >> data samples 인 경우에는 convex하지 않고 eigenfunction을 못 찾을 수 있음.
+
+(2) Ridge : L-2 regularization
+
+(3) Elastic Net : L-1 + L-2 regularization
+
+(4) Group Lasso
+
+
+# Causal : 인과  
+수많은 feature로 이루어진 관계속에서 원인과 결과를 연결, cause & effect  
+Association != Causation  
+causal effect는, X가 Y를 야기할 때 X의 변화가 Y의 변화에 미치는 영향력을 뜻한다.  
+Causal의 3단계 : Association 연관 < Intervention 조정 < Counterfactuals 반사실  
+
+시계열 데이터에서
+(1) Granger Causality : G -> X & G -> Y : causality 일 때, 이것을 X->Y : Granger causality 로 봄. 정확한 인과 관계를 찾는 것은 아님.  
+
+
