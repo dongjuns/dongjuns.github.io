@@ -56,8 +56,6 @@ cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고�
 W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
 실제로 계산할 때의 방정식은 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
 
-
-
 ### Sum Squared Error (SSE) = sum(x - m)^{2}
 Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
@@ -65,17 +63,28 @@ Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, S
 
 Classification, Logistic Regression 에서 자주 쓰임
 
+### Non-Linearity
+- 데이터의 확률 분포를 알맞게 그려낼 수 있다면, 꽤 괜찮은 성능의 모델을 만들었다고 볼 수 있음.    
+But, 데이터에 포함된 feature의 갯수가 많고 복잡한 차원으로 표현된다면 선형이 아닌 비선형으로 나타남.    
+Multi-layer에서 모델을 activation function으로 나타내면, Non-linearity를 갖는 합성 함수의 성질을 갖게 됨.    
 
 
-### Sigmoid Function, Logistic Function
+### Activation function, 활성 함수
+- Sigmoid Function, Logistic Function
 z = f(x) = 1 / (1 + e^{-x})   
-값을 0~1 사이의 값으로 transfromation 해줌, 그렇기 때문에 확률처럼 결과를 이용할 수 있음.
+값을 0~1 사이의 값으로 transfromation 해줌, 그렇기 때문에 결과를 확률처럼 이용할 수 있음.
+safety zone 이상에서는 아웃풋이 0, 1로 saturate됨, gradient가 0으로 계산됨.    
+
+
+- ReLU (Rectified Linear Unit)   
+y = max(0, x), 아주 간단한 공식이기 떄문에 계산이 매우 쉽고 빠름.    
 
 
 ### Softmax
 결과값을 0~1 사이의 값으로 바꿔줌.   
 ex) 결과값이 (A, B, C) = (3.0, 1.2, 0.4) 였고, A로 분류했다면,    
 (3.0, 1.2, 0.4)를 값 / Sum 으로 해줘서 -> (0.65, 0.26, 0.09) 로 맞춰줌. 이러면, 확률적으로 결과를 고려할 수 있게됨.
+
 
 ### One-Hot encoding
 softmax 를 통해서 나온 0~1 숫자들을 하나의 class에 대해서만 값을 준다.    
