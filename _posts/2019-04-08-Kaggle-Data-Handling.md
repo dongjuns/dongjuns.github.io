@@ -149,6 +149,7 @@ trainSet["label_name"].value_counts()
 data = pd.read_csv("파일이름"), data.head(), data.info(), data.describe(), data["variable"].value_counts() 만 기억하자.
 
 
+
 ## pandas + seaborn,
 
 target class별로 갯수 확인가능.
@@ -164,9 +165,17 @@ sns.distplot(column)
 
 input variable과 target variable scatter 확인,
 ```
-data = pd.concat([dataset['target'], dataset['feature']], axis=1)
+data = pd.concat([dataset['target'], dataset['feature']], axis=1) #axis=1 빼면 안됨.
 data.plot.scatter(x='feature', y='target')
 ```
+
+
++@ 2D scatter plot에서 Outlier 찾았을 때, feature별로 sort_values 해서 찾거나 제거 가능.
+```
+dataset.sort_values(by='feature 이름', ascending=False)[:n]
+dataset = dataset.drop(dataset[dataset['Id'] == 인덱스넘버].index)
+```
+
 
 input variable 2개 두고, target 분포 확인가능.
 
