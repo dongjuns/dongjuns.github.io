@@ -161,8 +161,18 @@ non-convex & 여러개의 local minimum을 가질 수 있음
 only input features만 가지고 target value를 이해하는데에 사용한다.   
 Ex) 토마토 in vegetable, Personal customers clustering
 
-### k-means
+### CNN
+Convolutional layer + Pooling layer를 relu와 Dropout으로 Non-linearty network를 만들고,     
+fully connected-layer를 이용하여 ANN claasifier를 구성한다.
+Convolutional layer를 learnable filter로 보면, image에 kernel filter matrix를 적용하여 feature maps를 뽑아내는 것으로 볼 수 있다.     
+여기에 Pooling layer를 이용해서 Down sampling을 해주는데, 계산적인 cost를 줄이고 overfitting을 피할 수 있게 해준다.
+결국 CNN은 Convolutional layer + Pooling layer로 image의 local feature 들을 뽑아내고, 이것으로 이미지의 전체적인 특성을 파악하는 것으로 볼 수 있다. 그렇기 때문에 filter의 갯수와 size가 매우 중요하다.     
+Dropout을 이용하여 layer의 nodes을 트레이닝에서 randomly 사용하지 않음으로써 network를 regularization해주는 효과가 있고,     
+generalization을 해주고 overfitting을 피할 수 있게 해준다. 당연히 test에서는 모든 network를 사용해준다.      
 
-()gaussian mixtures
+relu는 rectifier activation function, rectifier는 정류기! 물리 실험 시간에 사용했던 그 정류기... 특정 threshold 전에는 0, 그 이후에는 값이 인가된다.      
+이 특성을 이용하여, input의 값이 x일 때, max(0, x) function을 이용하여 neural network에 non-linearity를 준다.     
+Flatten layer가 있음으로 인해 feature maps를 1D vector로 flatten하고 이것을 이용하여 classification을 할 수 있게 된다.     
+마지막으로, class에 대해 classification probability를 나타내주는 softmax를 이용한다.
 
-()mean shift
+
