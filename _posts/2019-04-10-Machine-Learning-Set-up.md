@@ -5,7 +5,7 @@ categories: Machine Learning
 ---
 
 ### Anaconda
-아나콘다 홈페이지에 들어가서 다운로드한다.   
+1. 아나콘다 홈페이지에 들어가서 다운로드한다.   
 (1) click -> <https://www.anaconda.com/distribution/>
 
 (2) 아나콘다 홈페이지에서 Download 버튼을 누른다.
@@ -17,6 +17,50 @@ categories: Machine Learning
 (5) Anaconda 패키지를 푼다.
 
 (6) 아나콘다 설치가 완료되었는지 확인한다.
+
+
+2. 아나콘다 아카이브: <https://repo.continuum.io/archive/> 
+Python+OS를 알맞게 고려하여, 원하는 Anaconda 설치가능.
+
+
+3. 초간단, Linux Server에서 내 워크스페이스에 설치할 때
+```
+$wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+$sh Anaconda3-5.3.1-Linux-x86_64.sh
+```
+
+설치 경로는 /home/username/anaconda3 정도가 적당.
+
+
+
+맨마지막에 MS 스폰서 광고 들어있네요...
+```
+...
+For this change to become active, you have to open a new terminal.
+
+Thank you for installing Anaconda3!
+
+===========================================================================
+
+Anaconda is partnered with Microsoft! Microsoft VSCode is a streamlined
+code editor with support for development operations like debugging, task
+running and version control.
+
+To install Visual Studio Code, you will need:
+  - Administrator Privileges
+  - Internet connectivity
+
+Visual Studio Code License: https://code.visualstudio.com/license
+
+Do you wish to proceed with the installation of Microsoft VSCode? [yes|no]
+>>> Please answer 'yes' or 'no':
+>>> no
+```
+
+그리고, PATH 경로 잡아주면 완료
+```
+$source ~/.bashrc
+```
 
 ```
 (base) -MacBook-Pro:~ $conda --version
@@ -41,10 +85,14 @@ Python 3.7.3
 (ws) -MacBook-Pro:~ $conda deactivate
 (base) -MacBook-Pro:~ $ 
 ```
-끝.
+
+아나콘다 가상환경 지우기
+```
+$conda remove --name 가상환경이름 --all
+```
 
 
-이어서,
+
 
 ### Jupyter
 아나콘다 설치를 완료하였으면, 사실 Jupyter를 사용할 수는 있다.   
@@ -107,3 +155,49 @@ Type "help", "copyright", "credits" or "license" for more information.
 Using TensorFlow backend.
 ```
 끝.
+
+
+### CUDA
+nvidia 웹페이지에서 GPU의 architecture에 맞는 CUDA tool-kit을 다운로드합니다.     
+<https://developer.nvidia.com/cuda-toolkit-archive>
+
+아마 Downloads 디렉토리에 받아져있을텐데, CUDA를 설치합니다.
+
+정상적으로 설치가 되었다면, nvidia-smi 명령어로 확인가능합니다.
+```
+(설치전)
+[dojeong@gate analysis]$ nvidia-smi
+-bash: nvidia-smi: command not found
+```
+
+```
+(설치후)
+[dojeong@gate2 analysis]$ nvidia-smi
+Mon Jul 29 15:30:06 2019       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  Off  | 00000000:04:00.0 Off |                    0 |
+| N/A   33C    P0    28W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla V100-PCIE...  Off  | 00000000:08:00.0 Off |                    0 |
+| N/A   32C    P0    24W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla V100-PCIE...  Off  | 00000000:0C:00.0 Off |                    0 |
+| N/A   34C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla V100-PCIE...  Off  | 00000000:0F:00.0 Off |                    0 |
+| N/A   32C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
+
