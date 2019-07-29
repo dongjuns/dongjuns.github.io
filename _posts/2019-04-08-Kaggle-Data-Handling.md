@@ -39,6 +39,11 @@ values = {"featur1":0, "feature2":3}
 dataset.fillna(value=values) # feature 이름에 따라서 지정된 values 로 채우기
 ```
 
+null 버리기
+```
+dataset = dataset.drop(dataset.loc['버리려는feature'].isnull()].index)
+```
+
 그 외에 mean 값, 근처 값, 자주 나오는 값 등등 많은 방법이 있음.
 
 (5) feature값 Normalization [0, 1]           
@@ -147,10 +152,21 @@ data = pd.read_csv("파일이름"), data.head(), data.info(), data.describe(), d
 
 ## pandas + seaborn,
 
-target distribution 확인가능.
+target class별로 갯수 확인가능.
 ```
 g = sns.countplot(y_train)
 y_train.value_conuts()
+```
+
+확률적인 분포를 보고 싶다면,
+```
+sns.distplot(column)
+```
+
+input variable과 target variable scatter 확인,
+```
+data = pd.concat([dataset['target'], dataset['feature']], axis=1)
+data.plot.scatter(x='feature', y='target')
 ```
 
 input variable 2개 두고, target 분포 확인가능.
@@ -170,6 +186,14 @@ plt.show()
 인풋변수 별로 target이 어떻게 나오는 지에 대해서 바이올린 플랏도 확인가능,
 ```
 g = sns.violinplot(y="target", x="input_variable", data=dataset, inner="quartile")
+```
+
+feature별로 Missing value 갯수와 Percentage 확인,
+```
+misiingTotal = df.isnull().sum().sort_values(ascending=False)
+missingPercent = (df.isnull().sum() / df.isnull().count()).sort_values(ascending=False)
+missingData = pd.concat([total, percent], axis=1, keys=['missingTotal', 'missingPercent'])
+missingData.head()
 ```
 
 # Normalization
