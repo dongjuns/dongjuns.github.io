@@ -53,7 +53,6 @@ Normalization을 해줌으로써, 조명에 따른 영향을 덜 받을 수 있�
 x_train = x_train / 255.0
 test = test / 255.0
 ```
-주의: 라벨값을 Normalization하지 않게 조심.
 
 + 필요한 경우에 Scaling 가능.
 Log transformation, Standardization, Min-Max Scaling 등등.
