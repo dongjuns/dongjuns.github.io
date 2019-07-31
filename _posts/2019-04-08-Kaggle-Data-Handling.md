@@ -191,6 +191,15 @@ sns.heatmap(data.corr(), annot=True) #annot show you the number of correlation o
 plt.show()
 ```
 
+and number of k variables multivariate correlation check,
+```
+k = 10
+cols = corrmatrix.nlargest(k, 'target_name')['target_name'].index
+cm = np.corrcoef(dataset[cols].values.T)
+hm = sns.heatmap(cm, cbar=True, annot=True, xticklabels=cols.values, yticklabels = cols.values)
+plt.show()
+```
+
 인풋변수 별로 target이 어떻게 나오는 지에 대해서 바이올린 플랏도 확인가능,
 ```
 g = sns.violinplot(y="target", x="input_variable", data=dataset, inner="quartile")
@@ -203,6 +212,14 @@ missingPercent = (df.isnull().sum() / df.isnull().count()).sort_values(ascending
 missingData = pd.concat([total, percent], axis=1, keys=['missingTotal', 'missingPercent'])
 missingData.head()
 ```
+
+# log transformation
+혹시, variable distribution에 skewness가 있다면 log transformation을 해주어서 normal distribution의 shape을 얻을 수도 있다.
+
+```
+dataset['target_name'] = np.log(dataset['target_name'])
+```
+
 
 # Normalization
 ```
