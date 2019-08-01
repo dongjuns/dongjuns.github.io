@@ -112,12 +112,35 @@ plt.title('The title whatever you want')
 plt.show()
 ```
 
+때때로 image가 어떻게 생겼는지 직접 확인하고 싶을 때도 있습니다.
+```
+# 1 image
+idx = np.random.randint(trainImages.shape[0])
+plt.figure()
+plt.imshow(trainImages[idx])
+plt.title('This image is #{} '.format(trainLabels[idx]))
+plt.show()
+```
+
+```
+# many images
+fig = plt.figure(figsize=(10,10))
+fig.suptitle('Sample images of the dataset', fontsize=12)
+for i in range(9):
+    plt.subplot(3, 3, i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(trainImages[i])
+    plt.xlabel(train_labels[i])
+plt.show()
+```
 
 ### 3. Preprocessing images
+Scaling
 
 ### 4. Modeling
 
-### 5. Augmentation
+### 5. Image Data Augmentation
 
 ### 6. Hyper-parameter optimization
 
