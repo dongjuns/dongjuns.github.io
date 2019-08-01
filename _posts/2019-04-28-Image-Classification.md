@@ -62,32 +62,32 @@ dataset = pd.read_csv("path/dataset.txt", usecols=())
 
 ```
 # Computer Vision style, import cv2
-def load_data():
-    datasets = ['seg_train/seg_train', 'seg_test/seg_test']
-    size = (150, 150)
-    output = []
+def loadData():
+    result = []
+    datasets = ['trainPath', 'testPath']
+   
     for dataset in datasets:
-        directory = "../input/" + dataset
+        directory = dataset
         images = []
         labels = []
+        
         for folder in os.listdir(directory):
-            curr_label = class_names_label[folder]
+            currentLabel = folder
+       
             for file in os.listdir(directory + "/" + folder):
-                img_path = directory + "/" + folder + "/" + file
-                curr_img = cv2.imread(img_path)
-                curr_img = cv2.resize(curr_img, size)
-                images.append(curr_img)
-                labels.append(curr_label)
+                imgPath = directory + "/" + folder + "/" + file
+                currentImg = cv2.imread(imgPath)
+                currentImg = cv2.resize(currentImg, (120, 120))
+                images.append(currentImg)
+                labels.append(currentLabel)
+                
         images, labels = shuffle(images, labels)
-        images = np.array(images, dtype='float32')
-        labels = np.array(labels, dtype = 'int32')
+        result.append((images, labels))
             
-        output.append((images, labels))
-            
-    return output
+    return result
 ```
 ```
-(train_images, train_labels), (test_images, test_labels) = load_data()    
+(trainImages, trainLabels), (testImages, testLabels) = loadData()    
 ```
 
 
