@@ -5,7 +5,7 @@ categories: Machine Learning
 ---
 
 This is recipe of image classification, also contains general knowledge about techniques.     
-이미지 인식에 대한 러닝 레시피입니다. 특정 기술들에 대한 설명도 포함합니다.
+이미지 인식에 대한 딥러닝 레시피입니다. 특정 기술들에 대한 설명도 포함합니다.
 
 ### 0. Import Libraries
 I think in the image classification, there are special libraries which have almost always used.     
