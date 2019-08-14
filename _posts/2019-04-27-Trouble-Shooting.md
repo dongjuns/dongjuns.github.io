@@ -84,3 +84,33 @@ lsof    4105634 jdj0715  cwd    DIR  0,114        49 69113 .
 $kill -9 4102206
 $rm -rf directory/
 ```
+
+- - -
+
+### dlib install on OS X
+맥 환경에서 dlib 설치할 때,
+```
+pip install dlib
+
+Collecting dlib
+  Using cached https://files.pythonhosted.org/packages/05/57/e8a8caa3c89a27f80bc78da39c423e2553f482a3705adc619176a3a24b36/dlib-19.17.0.tar.gz
+Building wheels for collected packages: dlib
+  Building wheel for dlib (setup.py) ... error
+           ...
+           
+    RuntimeError:
+    *******************************************************************
+     CMake must be installed to build the following extensions: dlib
+    *******************************************************************
+    
+    
+    ----------------------------------------
+Command "/Users/jeongdongjun/anaconda3/envs/ws/bin/python -u -c "import setuptools, tokenize;__file__='/private/var/folders/72/6zzm6mtx1mz13dhzq2w41rdw0000gn/T/pip-install-_gz5a81x/dlib/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /private/var/folders/72/6zzm6mtx1mz13dhzq2w41rdw0000gn/T/pip-record-6ute8pnc/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /private/var/folders/72/6zzm6mtx1mz13dhzq2w41rdw0000gn/T/pip-install-_gz5a81x/dlib/
+```
+
+Solution                
+CMake를 설치해주고 다시 dlib을 설치한다.
+```
+pip install cmake
+pip install dlib
+```
