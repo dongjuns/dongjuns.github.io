@@ -57,3 +57,24 @@ cv2.drawContours(imgMask, contours=contours, contourIdx=-1, color=(255,255,255))
 plt.figure(figsize=(12,12))
 plt.imshow(imgMask)
 ```
+
+then draw all the contour from saved contours in findContours.
+```
+contours = []
+
+for contour in contours:
+    x, y, w, h = cv2.boundingRect(contour)
+    cv2.rectangle(temp_result, pt1=(x,y), pt2=(x+w, y+h), color=(255,255,255), thickness=2)
+    
+    contours_dict.append({
+        'contour':contour,
+        'x':x,
+        'y':y,
+        'w':w,
+        'h':h,
+        'cx':x+(w/2),
+        'cy':y+(h/2)
+    })
+    
+plt.imshow(temp_result)
+```
