@@ -112,5 +112,32 @@ Let's consider what a character looks like...about number plate.
 It consists of "### ####" in Korea.
 
 ```
-def matchPlate():
+maxTheta = 20.0
+def matchPlate(contourList):
+    matchedIdx = []
+    for c1 in contourList:
+        matchedTempIdx = []
+        for c2 in contourList:
+            if c1['idx'] == c2['idx']:
+                continue
+            else:
+                dx = abs(c1['cx'] - c2['cx'])
+                dy = abs(c1['cy'] - c2['cy'])
+                
+                diagonal = np.sqrt(c1['w']*c1['w'] + c1['h']*c1['h'])
+                distance = np.linalg.norm(np.array([c1['cx'], c1['cy']]) - np.array([c2['cx'], c2['cy']]))
+                if dx == 0:
+                    theta = -1
+                else:
+                    theta = np.degrees(np.arctan(dy/dx))
+                    
+                if theta == -1 or theta > maxTheta:
+                    continue
+                    #matchedTempIdx.append(c2['idx'])
+                    
+        matchedTempIdx.append(c1['idx'])
+        
+        
+                    
+        
 ```
