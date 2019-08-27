@@ -43,7 +43,8 @@ imgThresholdBlur = cv2.GaussianBlur(imgThreshold, ksize=(5,5), sigmaX=0)
 
 
 Build a mask (0, 0, 0, ..., 0) and extract the contours.      
-It retrieves all the contours using the image of binary pixels.
+It retrieves all the contours using the image of binary pixels.     
+then draw all the contour as a box from saved contours in findContours.
 ```
 imgMask = np.zeros((height, width, channel), dtype=np.uint8)
 
@@ -53,28 +54,56 @@ contours, _ = cv2.findContours(imgThresholdBlur,
 
 cv2.drawContours(imgMask, contours=contours, contourIdx=-1, color=(255, 255, 255))
 
-plt.figure(figsize=(12,12))
 plt.imshow(imgMask)
 ```
 
-then draw all the contour as a box from saved contours in findContours.
+We now have a many contours,      
+and save all the contour to contours {} for box processing.
 ```
 imgMask = np.zeros((height, width, channel), dtype=np.uint8)
 contours = []
 
 for contour in contours:
     x, y, w, h = cv2.boundingRect(contour)
-    cv2.rectangle(imgMask, pt1=(x, y), pt2=(x+w, y+h), color=(255, 255, 255), thickness=1)
+    cv2.rectangle(imgMask, pt1=(x, y), pt2=(x+width, y+height), color=(255, 255, 255), thickness=1)
     
-    contours_dict.append({
+    contours.append({
         'contour':contour,
-        'x':x,
-        'y':y,
         'w':w,
         'h':h,
+        'x':x,
+        'y':y,
         'cx':(w/2)+x,
         'cy':(h/2)+y
     })
     
 plt.imshow(imgMask)
 ```
+
+It's time to clean the boxes up.      
+Think of size of box, 
+```
+minSize = 100
+minWidth, minHeight = 1, 12
+minRatio, maxRatio = 0.5, 1.0
+
+possibleContours = []
+
+cnt = 0
+for c in contours:
+    area = c['w'] * c['h']
+    ratio = c['w'] / c['h']
+    
+    if (c['w'] > minWidth) and (c['h'] > minHeight) and (minRatio < ratio < maxRatio):
+        c['idx'] = cnt
+        cnt += 1
+        possibleContours.append(c)
+        
+imgMask = np.zeros((height, width, channel), dtype=np.uint8)
+
+for c in possibleContours:
+    cv2.rectangle(imgMask, pt1=(c['x'], c['y']), pt2=(c['w']+c['x'], c['h']+c['y']), color=(255, 255, 255), thickness=1)
+
+plt.imshow(imgMask)
+```
+
