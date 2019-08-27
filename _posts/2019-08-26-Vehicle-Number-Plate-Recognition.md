@@ -33,7 +33,7 @@ imgThreshold = cv2.adaptiveThreshold(imgGray,
                                   blockSize=19,
                                   C=9)
                                   
-imgThresholdBlur = cv2.GaussianBlur(imgThreshold, ksize=(5,5), sigmaX=0)                          
+imgThresholdBlur = cv2.GaussianBlur(imgThreshold, ksize=(5,5), sigmaX=1)                         
 ```
 
 *adaptiveMethod, T(x,y) is related to the blockSizeXblockSize - C      
@@ -41,6 +41,7 @@ imgThresholdBlur = cv2.GaussianBlur(imgThreshold, ksize=(5,5), sigmaX=0)
 
 *threshholdType, THRESH_BINARY or THRESH_BINACRY_INV
 
+*GaussianBlur is the kernel consists of pixel values of Gaussian distribution.
 
 Build a mask (0, 0, 0, ..., 0) and extract the contours.      
 It retrieves all the contours using the image of binary pixels.     
@@ -83,7 +84,6 @@ plt.imshow(imgMask)
 It's time to clean the boxes up.      
 Think of size of box, 
 ```
-minSize = 100
 minWidth, minHeight = 1, 12
 minRatio, maxRatio = 0.5, 1.0
 
@@ -107,3 +107,10 @@ for c in possibleContours:
 plt.imshow(imgMask)
 ```
 
+But we have many unecessary boxes...contours.     
+Let's consider what a character looks like...about number plate.      
+It consists of "### ####" in Korea.
+
+```
+def matchPlate():
+```
