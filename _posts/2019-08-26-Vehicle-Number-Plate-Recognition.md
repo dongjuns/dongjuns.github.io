@@ -51,20 +51,20 @@ contours, _ = cv2.findContours(imgThresholdBlur,
                                   mode=cv2.RETR_LIST,
                                   method=cv2.CHAIN_APPROX_SIMPLE)
 
-
-cv2.drawContours(imgMask, contours=contours, contourIdx=-1, color=(255,255,255))
+cv2.drawContours(imgMask, contours=contours, contourIdx=-1, color=(255, 255, 255))
 
 plt.figure(figsize=(12,12))
 plt.imshow(imgMask)
 ```
 
-then draw all the contour from saved contours in findContours.
+then draw all the contour as a box from saved contours in findContours.
 ```
+imgMask = np.zeros((height, width, channel), dtype=np.uint8)
 contours = []
 
 for contour in contours:
     x, y, w, h = cv2.boundingRect(contour)
-    cv2.rectangle(temp_result, pt1=(x,y), pt2=(x+w, y+h), color=(255,255,255), thickness=2)
+    cv2.rectangle(imgMask, pt1=(x, y), pt2=(x+w, y+h), color=(255, 255, 255), thickness=1)
     
     contours_dict.append({
         'contour':contour,
@@ -72,9 +72,9 @@ for contour in contours:
         'y':y,
         'w':w,
         'h':h,
-        'cx':x+(w/2),
-        'cy':y+(h/2)
+        'cx':(w/2)+x,
+        'cy':(h/2)+y
     })
     
-plt.imshow(temp_result)
+plt.imshow(imgMask)
 ```
