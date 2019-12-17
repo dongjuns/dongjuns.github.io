@@ -9,10 +9,11 @@ https://cupjoo.tistory.com/53
 ```
 
 The most important thing: Check your keyboard   
-Depend on your keyboard type, such as English, Danish, Korean...,   
-Your user ID and password can be different from your think.   
+Depend on your keyboard type,   
+such as English, Danish, Korean...,   
+*Your user ID and password can be different from your think.   
 
-Windows 10, hot key
+Windows 10, hot key   
 window + x: Command Prompt    
 window + i: Window Settings   
 window + r: Run
@@ -26,4 +27,6 @@ Windows Settings > Update & Security > Recovery > Restart now (in Advanced start
 
 ### 3. Install the Ubuntu
 
-### 4. Check the Grub for using both Ubuntu and Windows
+### 4. Check the Grub for using both Ubuntu and Windows   
+If there are problems like as Bitlocker, Recovery key, Account locked so on,    
+Go to IT help desk. (They are so so kind.)    
