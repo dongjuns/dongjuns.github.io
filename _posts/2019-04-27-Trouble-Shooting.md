@@ -65,7 +65,7 @@ W = tf.placeholder(tf.float32)
 #변경
 W = tf.Variable(tf.random_normal([1]), name="weight")
 ```
-
+- - -
 ### Linux
 directory를 지우다가 Input/output error로 삭제가 안될 때가 있다.           
 ```
@@ -84,9 +84,7 @@ lsof    4105634 jdj0715  cwd    DIR  0,114        49 69113 .
 $kill -9 4102206
 $rm -rf directory/
 ```
-
 - - -
-
 ### dlib install on OS X
 맥 환경에서 dlib 설치할 때,
 ```
@@ -111,6 +109,23 @@ Command "/Users/jeongdongjun/anaconda3/envs/ws/bin/python -u -c "import setuptoo
 Solution                
 CMake를 설치해주고 다시 dlib을 설치한다.
 ```
-pip install cmake
-pip install dlib
+$pip install cmake
+$pip install dlib
+```
+- - -
+### ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+```
+img_to_array(load_img(fileName), dtype=uint)
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+```
+
+(1) re-install PIL
+```
+$pip install PIL
+...
+from PIL import Image
+```
+(2) upgrade some packages
+```
+$pip install --upgrade tensorflow keras numpy pandas sklearn pillow
 ```
