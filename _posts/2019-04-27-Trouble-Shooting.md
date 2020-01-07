@@ -129,3 +129,63 @@ from PIL import Image
 ```
 $pip install --upgrade tensorflow keras numpy pandas sklearn pillow
 ```
+- - -
+
+### OpenCV installation error
+In Ubuntu 18.04, OpenCV 4.1.0             
+
+## make -j8
+```
+#include <hdf5.h> ^~~~~~~~ compilation terminated. modules/hdf/cmakefiles/opencv_hdf.dir/build.make:62: recipe for target 'modules/hdf/cmakefiles/opencv_hdf.dir/src/hdf5.cpp.o' failed make[2]: *** [modules/hdf/cmakefiles/opencv_hdf.dir/src/hdf5.cpp.o] error 1 cmakefiles/makefile2:3606: recipe for target 'modules/hdf/cmakefiles/opencv_hdf.dir/all' failed make[1]: *** [modules/hdf/cmakefiles/opencv_hdf.dir/all] error 2 make[1]: *** waiting for unfinished jobs.... [ 30%] built target opencv_ml [ 30%] built target opencv_surface_matching [ 33%] built target opencv_imgproc makefile:162: recipe for target 'all' failed
+```
+
+```
+collect2: error: ld returned 1 exit status modules/core/cmakefiles/opencv_test_core.dir/build.make:1092: recipe for target 'bin/opencv_test_core' failed make[2]: *** [bin/opencv_test_core] error 1 cmakefiles/makefile2:2758: recipe for target 'modules/core/cmakefiles/opencv_test_core.dir/all' failed make[1]: *** [modules/core/cmakefiles/opencv_test_core.dir/all] error 2 makefile:162: recipe for target 'all' failed
+```
+
+solutions               
+Remove the build directory and re-try to follow it.               
+If you are anaconda user, work in conda environment instead of workon virtualenv.              
+
+```
+conda activate your_workspace
+cd ~/Desktop/opencv
+rm -rf build
+mkdir build
+cd build
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D INSTALL_C_EXAMPLES=ON \
+      -D INSTALL_PYTHON_EXAMPLES=ON \
+      -D WITH_TBB=ON \
+      -D WITH_V4L=ON \
+      -D WITH_QT=ON \
+      -D WITH_OPENGL=ON \
+      -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+      -D BUILD_EXAMPLES=ON \
+      -D OPENCV_GENERATE_PKGCONFIG=YES ..
+      
+make -j8
+
+# go to 100 %
+sudo make install
+```
+
+To check the c++ opencv file,
+```
+vi main.cpp
+
+#include "opencv.hpp"
+ 
+using namespace cv;
+using namespace std;
+ 
+int main(int argc, char** argv) {
+  cout << "OpenCV version : " << CV_VERSION << endl;
+}
+
+g++ main.cpp `pkg-config --libs --cflags opencv4`
+./a.out
+```
+- - -
