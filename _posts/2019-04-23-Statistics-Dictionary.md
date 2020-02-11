@@ -1,11 +1,10 @@
 ---
 title: "Statistics Dictionary"
 date: 2019-04-23 16:10:00 +0900
-categories: Computer
+categories: Statistics
 ---
 
-0. 
-평균 average = sum(Xi)/n
+0. 평균 average = sum(Xi) / n     
 기대값 mean = sum(Pi*Xi), E[average] = mu
 
 
