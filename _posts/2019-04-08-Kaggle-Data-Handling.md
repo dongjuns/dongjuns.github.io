@@ -150,7 +150,7 @@ data = pd.read_csv("파일이름"), data.head(), data.info(), data.describe(), d
 
 
 
-## pandas + seaborn,
+### pandas + seaborn,
 
 target class별로 갯수 확인가능.
 ```
@@ -213,7 +213,7 @@ missingData = pd.concat([total, percent], axis=1, keys=['missingTotal', 'missing
 missingData.head()
 ```
 
-# log transformation
+### log transformation
 혹시, variable distribution에 skewness가 있다면 log transformation을 해주어서 normal distribution의 shape을 얻을 수도 있다.
 
 ```
@@ -221,12 +221,12 @@ dataset['target_name'] = np.log(dataset['target_name'])
 ```
 
 
-# Normalization
+### Normalization
 ```
 train = train / 255.0 #make it [0, 1] from [0, 255]
 ```
 
-# Reshape
+### Reshape
 Even, we can do "reshape" using pandas,
 ```
 train = train.values.reshape(-1,가로,세로,채널(컬러))
