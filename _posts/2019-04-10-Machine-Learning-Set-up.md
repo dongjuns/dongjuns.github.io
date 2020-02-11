@@ -91,8 +91,7 @@ Python 3.7.3
 $conda remove --name 가상환경이름 --all
 ```
 
-
-
+---
 
 ### Jupyter
 아나콘다 설치를 완료하였으면, 사실 Jupyter를 사용할 수는 있다.   
@@ -121,6 +120,7 @@ c.NotebookApp.notebook_dir = '/Users/jeongdongjun/work'
 ```
 끝.
 
+---
 
 ### Tensorflow
 아나콘다 가상환경 안에서 Tensorflow를 설치한다.
@@ -140,6 +140,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> tf.__version__
 '1.13.1'
 ```
+---
 
 ### Keras
 Tensorflow를 설치할 때와 똑같다.
@@ -156,6 +157,7 @@ Using TensorFlow backend.
 ```
 끝.
 
+---
 
 ### CUDA
 nvidia 웹페이지에서 GPU의 architecture에 맞는 CUDA tool-kit을 다운로드합니다.     
@@ -201,3 +203,13 @@ Mon Jul 29 15:30:06 2019
 +-----------------------------------------------------------------------------+
 ```
 
+You can checkt the nvidia graphic driver & CUDA Version.      
+If you want to monitor that on real-time,     
+'''
+watch -n -d 0.5 nvidia-smi
+'''
+
+And If there is a big zombie job to die,      
+'''
+top & kill -9 pid
+'''
