@@ -24,11 +24,3 @@ categories: Machine Learning
 ## 4.2 Confusion matrix
 ### 5. Prediction and submition
 ## 5.1 Predict and Submit results
-
-
-create LinearRegression class
-define model from this LinearRegression class
-MSE: Mean squared error
-Optimization (SGD:stochastic gradient descent)
-Backpropagation
-Prediction
