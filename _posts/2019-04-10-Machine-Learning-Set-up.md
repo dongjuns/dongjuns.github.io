@@ -205,11 +205,13 @@ Mon Jul 29 15:30:06 2019
 
 You can checkt the nvidia graphic driver & CUDA Version.      
 If you want to monitor that on real-time,     
-'''
+```
 watch -n -d 0.5 nvidia-smi
-'''
+```
 
 And If there is a big zombie job to die,      
-'''
+```
 top & kill -9 pid
-'''
+```
+
+---
