@@ -5,19 +5,19 @@ categories: Data Science
 ---
 
 ### Standard Process of data preprocessing
-케글의 kernel들을 보았을 때, 거의 왠만하면         
-(1) 데이터 로드 (pandas)
+거의 케글 공식입니다.         
+(1) 데이터 로드 (Load the dataset with Pandas)
 ```
-train = pd.read_csv("filename.csv")
-test = pd.read_csv("filename.csv")
+train = pd.read_csv("nameOfTrainDataset.csv")
+test = pd.read_csv("nameOfTestDataset.csv")
 ```
-(2) 전체 데이터셋 확인 및 shape 체크
+(2) 전체 데이터셋 확인 및 shape 체크 (Check the dataset)
 ```
-train.shape  # (행, 열) 로 print out됨
-train.head() # head(행 갯수) 가능
+train.head() # .head(행 갯수) 가능, head(10) -> 10개만 보여줌
+train.shape  # (row, columns) 형태로 print out됨
 
-test.shape
 test.head()
+test.shape
 ```
 (3) train set -> features + target column vector 들로 나누기
 ```
@@ -39,7 +39,7 @@ values = {"featur1":0, "feature2":3}
 dataset.fillna(value=values) # feature 이름에 따라서 지정된 values 로 채우기
 ```
 
-null 버리기
+Null value 버리기
 ```
 dataset = dataset.drop(dataset.loc['버리려는feature'].isnull()].index)
 ```
@@ -82,7 +82,7 @@ test_size를 잡아줄때, 0.2 처럼 20%를 나타내는 형식으로 넣지않
 random_state는 reproducible results를 위하여 사용하며, 같은 데이터셋 같은 option 값으로 trian_test_split 해주면 같은 결과를 얻을 수 있다.         
 random값을 얻어낼 때 random.seed(값)으로 볼 수 있겠다.
 random_state를 사용하지 않으면, np.random number generator에 의해 split 결과가 달라진다.          
-균형잡힌 target distribution을 유지하여 split하고 싶다면, stratify=True option을 추가로 사용한다.
+label distribution 비율을 지키면서 split하고 싶다면, stratify=True option을 추가로 사용한다.
 
 
 ### Data Science procedure
@@ -90,7 +90,7 @@ random_state를 사용하지 않으면, np.random number generator에 의해 spl
 2. Data Visualization: Make a plot which people can understand easily, using matplotlib, seaborn and pandas...etc.
 3. Data Feature Engineering: Change the type or distribution of data, Make a much more good feature.
 
-only for dataset, This is a start package.
+only for dataset, this is a start package.
 
 ```
 import numpy as np
