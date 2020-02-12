@@ -134,7 +134,7 @@ $pip install --upgrade tensorflow keras numpy pandas sklearn pillow
 ### OpenCV installation error
 In Ubuntu 18.04, OpenCV 4.1.0             
 
-## make -j8
+### make -j8
 ```
 #include <hdf5.h> ^~~~~~~~ compilation terminated. modules/hdf/cmakefiles/opencv_hdf.dir/build.make:62: recipe for target 'modules/hdf/cmakefiles/opencv_hdf.dir/src/hdf5.cpp.o' failed make[2]: *** [modules/hdf/cmakefiles/opencv_hdf.dir/src/hdf5.cpp.o] error 1 cmakefiles/makefile2:3606: recipe for target 'modules/hdf/cmakefiles/opencv_hdf.dir/all' failed make[1]: *** [modules/hdf/cmakefiles/opencv_hdf.dir/all] error 2 make[1]: *** waiting for unfinished jobs.... [ 30%] built target opencv_ml [ 30%] built target opencv_surface_matching [ 33%] built target opencv_imgproc makefile:162: recipe for target 'all' failed
 ```
@@ -189,3 +189,10 @@ g++ main.cpp `pkg-config --libs --cflags opencv4`
 ./a.out
 ```
 - - -
+
+### opencv installation
+If you can not import the opencv, after install the opencv even in the conda environment.             
+This works to me.
+```
+conda install -c conda-forge opencv
+```
