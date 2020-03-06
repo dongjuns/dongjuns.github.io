@@ -69,18 +69,18 @@ $||X||$ 는 vertor norm이고, "Length" of vector를 뜻한다.
 $||X||_p$ = $$(\sum{|x_i|^p})^\frac{1}{p} = (|x_1|^p + |x_2|^p + |x_3|^p)^\frac{1}{p}$$
 
 이 때, p값을 기준으로 $L_p$ Norm을 정의할 수 있고,   
-p = 1, $L_1$ Norm = $(|x_1|+|x_2|+...+|x_n|)$: 벡터의 모든 요소들의 절대값의 합.    
-p = 2, $L_2$ Norm = $(|x_1|^2+|x_2|^2+...+|x_n|^2)^\frac{1}{2}$: 벡터의 모든 요소들의 절대값의 제곱합의 제곱근.       
+p = 1, L1 Norm = $(|x_1|+|x_2|+...+|x_n|)$: 벡터의 모든 요소들의 절대값의 합.    
+p = 2, L2 Norm = $(|x_1|^2+|x_2|^2+...+|x_n|^2)^\frac{1}{2}$: 벡터의 모든 요소들의 절대값의 제곱합의 제곱근.       
 p = $\infinity = max(x_i)$: 벡터의 모든 요소들 중에서 가장 큰 값.  
-p = 0, $L_0$ Norm = number(Non-zero element) 벡터 내의 모든 요소들 중에서 0이 아닌 것들의 갯수를 값으로 씀.    
+p = 0, L0 Norm = number(Non-zero element) 벡터 내의 모든 요소들 중에서 0이 아닌 것들의 갯수를 값으로 씀.    
 ex) 벡터 X는 K-Sparse, K-희소이고, 만약 X = (0, 0, 1, 0, 3)일 때, non-zero element의 갯수는 2개이므로,   
-이 때 $L_0$ Norm = 2이고, 2-Sparse이다.    
+이 때 L0 Norm = 2이고, 2-Sparse이다.    
 
 Vector X의 element가 0인 것들이 많을수록(more sparse), Vector X의 존재감이 작아지면서 자연스럽게 regularization term의 값도 작아진다.    
 그러므로 sparse vector X를 더더더더 much more sparse 만들어서, equation의 값을 최소화 시킨다.   
 Sparse modeling을 Loss function + Regularization term 으로 보겠음.   
-$min(Loss + Regularization) $\rightarrow$ min(||Y - WX||^2 +r||X||)$   
-Loss function: Dictionary matrix와 Sparse vector로 만든 수식값이, 실제값 Y와 얼마나 비슷한가?    
+$min(Loss + Regularization), min(||Y - WX||^2 +r||X||)$   
+Loss function: Dictionary matrix와 Sparse vector로 만든 수식값이 실제값 Y와 얼마나 비슷한가?    
 Regularization term: Sparse vector와 Dictionary maxtrix의 sparsity를 평가.    
 - - -
 
@@ -89,10 +89,10 @@ Regularization term: Sparse vector와 Dictionary maxtrix의 sparsity를 평가.
 그리고 행렬 W와 X에 대한 constraints에 따른 4가지의 행렬 분해 방법이 있음.   
 
 ### (1) Sparse Coding (SC)
-$Y(m x n) = W(m x d) X(d x n)$임. 이 때, Sparse coding에서는 W가 m < d 여야 한다고 제약1을 줌.   
+Y(m x n) = W(m x d) X(d x n)임. 이 때, Sparse coding에서는 W가 m < d 여야 한다고 제약1을 줌.   
 이러면 행렬 W에서 데이터의 갯수(m, 행)보다 각각의 feauture들의 갯수(n, 열)가 훨씬 많게됨.  
 이 때, Overcomplete 행렬 W가 있을텐데, 여기에다가 element가 거의 다 0인, 최대한의 sparse vector를 곱해서 Y를 표현하자는 것임.   
-제약1 받고 제약2 더. $Y = WX$를 계산할 때, $||X||$가 작아야 함. 이 때에는 $L_0$ Norm or $L_1$ Norm 으로 사용함.   
+제약1 받고 제약2 더. $Y = WX$를 계산할 때, $||X||$가 작아야 함. 이 때에는 L0 Norm or L1 Norm 으로 사용함.   
 하지만, D가 이미 overcomplete하기 때문에 X가 Y에 대해 그닥 의미가 없어지는 경우를 방지하기 위해서,    
 $||D||^2 <= C$ 제약을 통하여, D의 요소가 너무 커지는 것을 다시 막는다.
 
@@ -106,7 +106,7 @@ feature들간의 Covariance matrix 공분산 행렬을 고려하여, feature1과
 그래서 공분산 행렬의 eigenvector와 eigenvalue를 계산하고, eigenvector에 대해 projection하는 작업을 반복해 나간다.    
 feature들의 variance를 제대로 확인하기 위해서, feature값들에 대해 그것들의 평균을 빼주어서 모든 feature들이 각각 평균값이 0이 되도록 맞춰주어야 한다.    
 PCA는 $min||Y - WX||^2 +||D^T D - L||^2 + ||X^T X - Sum||^2$ 로 나타낼 수 있고,
-$L_2$ Norm, D가 column full-rank, D와 X가 orthonormal matrix라는 제약을 갖는다.
+L2 Norm, D가 column full-rank, D와 X가 orthonormal matrix라는 제약을 갖는다.
 
 ### (3) Independent Component Analysis (ICA)   
 Y: Observation Matrix, independent sources로부터 관측됨.   
@@ -117,10 +117,10 @@ observation matrix Y를 기반으로, source matrix X를 찾아냄.
 Mean Shift: $Y = Y - E[Y]$ 로 해줌. Y 값에서 Y 평균값 빼줘서, Y의 평균을 0으로 만듦.    
 그리고 $Cov(Y)=E[YY^T]=WE[XX^T]W^T=WW^T$로 Covariance Matrix 하고,   
 Eigen Analysis를 통해 $UrU^T$ 고유벡터와 고유값 행렬을 얻음.    
-그리고 whitening matrix Q와 obervation matrix Y를 곱해서, whtened data Y' 을 얻음.    
+그리고 whitening matrix Q와 obervation matrix Y를 곱해서, whitened data Y' 을 얻음.    
 마지막으로, Y'를 optimization시켜서 데이터를 회전시키고, Source matrix를 예측함.   
 $\rightarrow$ Y를 Whitening, Y'을 optimization, Source를 예측.    
-ICA에서는 $L_2$ Norm을 제약으로 사용.
+ICA에서는 L2 Norm을 제약으로 사용.
 
 ### (4) Non-negative Matrix Factorization (NMF)
 Y(m x n) = W(m x d)X(d x n) 임. 중요 regularization 포인트는 Y,D,X 모두 음수가 아니어야 한다는 것임.   
@@ -132,14 +132,14 @@ Y(m x n) = W(m x d)X(d x n) 임. 중요 regularization 포인트는 Y,D,X 모두
 Regression은, y를 맞추기 위한 $f(X;W) = x_1 w_1 + x_2 w_2 + ... + x_n w_n + error(bias)$를 찾는 것임.   
 그래서 dataset X가 주어지면, 적절한 W값을 곱해서 예측값 $f(X;W)$을 얻어내고, Y와 비교함.   
 이 과정에서 예측값과 Y값의 차이를 최소화시킬 수 있는 Matrix W를 찾는 것이 목표임.   
-Least Square 최소제곱법 : $\hat{W-hat_{LS}} =  min(Sum(y - f(X;W)))^2$, 제곱의 합을 줄이자!    
-Maximum likelihood : $\hat{W-hat_{ML}} = max(Sum(log p(y|X;W)))$,    
+Least Square 최소제곱법 : $\hat{W}_{LS} =  min(Sum(y - f(X;W)))^2$, 제곱의 합을 줄이자!    
+Maximum likelihood : $\hat{W}_{ML} = max(Sum($log$p(y|X;W)))$,    
 Y가 관찰되었을 때, Y가 이렇게 관찰될 확률을 가장 크게 만드는 parameter를 찾자!     
 
 Regularization을 쓰는 이유: 모델이 너무 복잡해지지 않도록 하기 위해서, variance를 줄이기 위해서, 일반성을 높이기 위해서.       
 complex model에 쉽게 노출되어 있다, simple model이 설명하기 좋다.   
 
-$\theta^{hat} = argmin_{theta}(loss(y, f(X;theta)) + \lambda \psi(\theta))$
+$\hat{\theta} = argmin_{\theta}(loss(y, f(X;\theta)) + \lambda \psi(\theta))$
 
 (1) Lasso : L-1 regularization, Least Absolute Shrinkage and Selection Operator.
 덜 중요한 feature들을 0으로 축소시켜서 sparse modeling 시킴. But, feautre >> data samples 인 경우에는 convex하지 않고 eigenfunction을 못 찾을 수 있음.
