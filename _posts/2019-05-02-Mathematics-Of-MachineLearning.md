@@ -57,14 +57,17 @@ $\rightarrow$ f(x)를 잡을 때는 sparse model이 도움이 될 수 있다!
 결국 이 모든 것은, 실제값 Y가 어떻게 나오는 지를 정확히 설명하고 예측할 수 있는 함수 f(x)를 만들고자 함임.   
 Y를 WX로 나타낼 수 있음, $Y = WX$,   
 사전행렬과 sparse vector의 곱으로 나타냄: Dictionary matrix * Sparse vector    
-$Min||Y - WX||^2$ 의 form을 나타냄.   (Loss function의 냄새가 살짝 나고 있음)   
+$min||Y - WX||^2$ 의 form을 나타냄.   (Loss function의 냄새가 살짝 나고 있음)   
 
-Problem : 수많은 사전행렬xSparse Matrix의 조합 중에서 어떤Sparse Matrix를 어떻게 잡을 것인가?   
--> Regularization term 추가.    
+Question: 수많은 Dictionary matrix * Sparse matrix의 조합 중에서, 어떤 Sparse matrix를 어떻게 잡을 것인가?   
+Answer: $\rightarrow$ Regularization term 추가.    
 
-그래서 Min||Y - WX||^2 +r ||X|| 로 표현하게 되고, r은 람다. 가중치. 이게 커지면, Model의 성과보다는 희소값을 증가시키고자 함.   
-||X|| 는 vertor Norm이고, "Length" of vector를 뜻한다.   
-||X||_p = (Sum|x_i|^p)^(1/p) = (|x1|^p+|x2|^p+...+|xn|^p)^(1/p)
+그래서 $min||Y - WX||^2 +r||X||$ 로 표현하게 되고, r은 regularization term, 람다, 가중치.   
+이게 커지면 Model의 성능보다 희소값을 증가시키고자 함.   
+||X|| 는 vertor norm이고, "Length" of vector를 뜻한다.   
+$||X||_p$ = $$(\sum{|x_i|^p})^\frac{1}{p} = (|x_1|^p + |x_2|^p + |x_3|^p)^\frac{1}{p}$$
+
+(Sum|x_i|^p)^(1/p) = (|x1|^p+|x2|^p+...+|xn|^p)^(1/p)
 
 이 때 p의 값을 기준으로 L_p Norm을 정의할 수 있게 되고,   
 p = 1, L1 Norm = (|x1|+|x2|+...+|xn|) : 벡터의 모든 요소들의 절대값의 합.    
