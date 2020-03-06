@@ -132,8 +132,8 @@ Y(m x n) = W(m x d)X(d x n) 임. 중요 regularization 포인트는 Y,D,X 모두
 Regression은, y를 맞추기 위한 $f(X;W) = x_1 w_1 + x_2 w_2 + ... + x_n w_n + error(bias)$를 찾는 것임.   
 그래서 dataset X가 주어지면, 적절한 W값을 곱해서 예측값 $f(X;W)$을 얻어내고, Y와 비교함.   
 이 과정에서 예측값과 Y값의 차이를 최소화시킬 수 있는 matrix W를 찾는 것이 목표임.   
-Least Square 최소제곱법: $\hat{W}_LS = min(\sum{(y - f(X;W))})^2$, 제곱의 합을 줄이자!    
-Maximum likelihood : $\hat{W}_ML = max(\sum{(logp(y|X;W)))}$,    
+Least Square 최소제곱법: $\hat{W}_ls = min(\sum{(y - f(X;W))})^2$, 제곱의 합을 줄이자!    
+Maximum likelihood : $\hat{W}_ml = max(\sum{($log$p(y|X;W)))}$,    
 Y가 관찰되었을 때, Y가 이렇게 관찰될 확률을 가장 크게 만드는 parameter를 찾자!     
 
 Regularization을 쓰는 이유: 모델이 너무 복잡해지지 않도록 하기 위해서, variance를 줄이기 위해서, 일반성을 높이기 위해서.       
