@@ -2,8 +2,9 @@
 title: "Mathematics of ML"
 date: 2019-05-02 14:33:00 +0900
 categories: Machine Learning
+use_math: true
 ---
-
+$f(x) = x^2$
 Based on the Mathematicl principles in Machine Learning   
 <https://www.edwith.org/2019090-aip2-advanced/joinLectures/22436>
 - - -
