@@ -27,8 +27,8 @@ Class 1과 class 2를 잘 분류하는, 차이가 가장 작은 hyperplane을 �
 hyperplane을 찾기 어려워지고 계산시간이 증가한다.    
 그리고 이때부터 딥러닝(수학계의 노가다 김씨)의 진가가 발휘된다.    
 
-Perceptron 기반의 구조를 만들고,    
-인풋을 넣고 layer마다 non-linear function을 사용하여 아웃풋을 얻어내고,   
+Perceptron 기반의 구조를 만들고, 인풋이 들어가고    
+layer마다 non-linear function을 사용하여 아웃풋을 얻어내고,   
 이전 layer의 아웃풋이 다음 layer의 input이 되어 non-linear function...   
 이와 같은 과정을 정해진 layer 수만큼 반복하여,    
 일반적인 사람은 풀 수 없는,(또는 풀기 귀찮은, 또는 오래걸리는)    
@@ -40,12 +40,12 @@ Sparse: 희소한,
 Sparse vector & Sparse Matrix: Vector의 element가 거의 다 0임. 값을 갖고 있는 요소가 sparse, 희소하다.   
 ex) sparse matrix = $[0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0]$
 
-변수 1개인 Regression 문제를 생각해보면, $y = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + ... + a_n x^n$ 으로 나타낼 수 있다.    
+변수 1개인 Regression 문제를 생각해보면, $y = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + ... + a_n x^n$ 로 나타낼 수 있다.    
 이 때 함수 y를 설명하는 f(x;a)가 몇개의 다항식에 연관되어있느냐를 고려해볼 수 있는데, sparse model은 계수가 0인 변수들을 사용하지 않는다.   
 (1) 1~2개 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 약간 부실해보임.(언더피팅)    
 (2) 적당한 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 y를 매우 잘 설명함,(Good 피팅) But 특정 포인트들에서는 조금 아쉬움.   
 (3) 모든 x가 이용되어 y를 기술할 때 -> f(x)가 y 그 자체. 그러나, 매우 복잡한 모델을 갖게 되기 때문에 새로 들어오는 데이터셋들에 대해서는 정확하지 않을 수 있다.(오버피팅)    
--> Sparse Model이 오버피팅에 대한 위험도를 감소시킬 수 있다. -> f(x)를 잡을 때는 적당히 sparse한 모델이 좋겠다!    
+$\rightarrow$ Sparse Model이 오버피팅에 대한 위험도를 감소시킬 수 있다. -> f(x)를 잡을 때는 적당히 sparse한 모델이 좋겠다!    
 
 - - -
 
