@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Data Lab"
+title                    : "Secret Data Lab"
 title_separator          : "-"
 name                     : "Dongjun Jeong"
 description              : "Statistics, DeepLearning, ComputerVision, Python, C++"
