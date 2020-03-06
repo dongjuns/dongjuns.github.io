@@ -8,7 +8,7 @@ use_math: true
 Based on the Mathematicl principles in Machine Learning   
 <https://www.edwith.org/2019090-aip2-advanced/joinLectures/22436>
 - - -
-## Concept of Machine Learning in the mathematics
+### Concept of Machine Learning in the mathematics
 머신러닝은 수많은 데이터들을 가지고, 각각의 class들을 잘 분류할 때 좋은 결과를 보여준다.   
 
 feature와 class에 대한 정보를 담고있는 dataset을 평면위에 연이어 찍어보면,   
@@ -35,27 +35,27 @@ layer마다 non-linear function을 사용하여 아웃풋을 얻어내고,
 Hyperplane을 찾아낸다.    
 - - -
 
-## Sparse Model    
+### Sparse Model    
 Sparse: 희소한,    
 Sparse vector & Sparse Matrix: Vector의 element가 거의 다 0임. 값을 갖고 있는 요소가 sparse, 희소하다.   
 ex) sparse matrix = $[0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0]$
 
 변수 1개인 Regression 문제를 생각해보면, $y = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + ... + a_n x^n$ 로 나타낼 수 있다.    
-이 때 함수 y를 설명하는 f(x;a)가 몇개의 다항식에 연관되어있느냐를 고려해볼 수 있는데, sparse model은 계수가 0인 변수들을 사용하지 않는다.   
-(1) 1~2개 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 약간 부실해보임.(언더피팅)    
-(2) 적당한 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 y를 매우 잘 설명함,(Good 피팅) But 특정 포인트들에서는 조금 아쉬움.   
-(3) 모든 x가 이용되어 y를 기술할 때 -> f(x)가 y 그 자체. 그러나, 매우 복잡한 모델을 갖게 되기 때문에 새로 들어오는 데이터셋들에 대해서는 정확하지 않을 수 있다.(오버피팅)    
-$\rightarrow$ Sparse Model이 오버피팅에 대한 위험도를 감소시킬 수 있다. -> f(x)를 잡을 때는 적당히 sparse한 모델이 좋겠다!    
-
+이 때 함수 y를 설명하는 $f(x;a)$가 몇 차의 다항식에 연관되어있느냐를 고려해볼 수 있는데, sparse model이면 계수가 0인 변수들을 사용하지 않는다.   
+(1) 1~2개 차원의 x가 이용되어 y를 기술할 때 $\rightarrow$ 전체적으로 $f(x)$가 약간 부실해보임.(언더피팅)    
+(2) 적절한 갯수의 차원의 x가 이용되어 y를 기술할 때 $\rightarrow$ f(x)가 y를 매우 잘 설명함,(Good 피팅), But 특정 포인트들에서는 조금 아쉬움.   
+(3) 모든 차원의 x가 이용되어 y를 기술할 때 $\rightarrow$ $f(x) = y$ 그 자체. 그러나, training dataset의 모든 variance를 반영하고 매우 복잡한 모델을 갖게 되기 때문에, 새로 들어오는 데이터셋들에 대해서는 정확하지 않을 수 있다.(오버피팅)    
+$\rightarrow$ Sparse Model이 오버피팅에 대한 위험도를 감소시킬 수 있다.   
+$\rightarrow$ f(x)를 잡을 때는 sparse model이 도움이 될 수 있다!    
 - - -
 
 ### 이득 of Sparse Modeling   
-오버피팅을 줄이고, 어느정도 Regularization을 갖을 수 있다. 
+오버피팅의 가능성을 줄이고, 모델에 Regularization을 줄 수 있다.   
 
-(1) Sparsity -> Polynomial Function으로 solution이 나올 때, 계수가 거의 0이므로 Regularization -> 간단하다, 안복잡하다 -> Less overfitting -> Good prediction    
-(2) Sparsity -> Variable Selection에서 계수가 거의 0이므로 사용하는 feature들이 적다 -> 모델에 대해서 설명하기가 용이하다. Model interpretability        
-결국, 실제값 Y가 어떻게 나오는 지를 정확히 예측하는 함수를 만들고자 함임.
-Y를 WX로 나타낼 수 있음. -> 사전행렬과 Sparse Vector의 곱으로 나타냄 ->Dictionary Matrix * Sparse Vector    
+(1) Sparsity $\rightarrow$ Polynomial Function으로 solution이 나올 때, 계수가 거의 0이므로 Regularization $\rightarrow$ 간단하고 안복잡하다 $\rightarrow$ Less overfitting $\rightarrow$ Good prediction    
+(2) Sparsity $\rightarrow$ Variable Selection에서 계수가 거의 0이므로 사용하는 feature들이 적다 $\rightarrow$ 모델에 대해서 설명하기가 용이하다. $\rightarrow$ Model interpretability        
+결국 이 모든 것은, 실제값 Y가 어떻게 나오는 지를 정확히 설명하고 예측할 수 있는 함수 f(x)를 만들고자 함임.   
+Y를 WX로 나타낼 수 있음, $Y = WX$ $\rightarrow$ 사전행렬과 Sparse Vector의 곱으로 나타냄 $\rightarrow$ Dictionary Matrix * Sparse Vector    
 Min||Y - WX||^2 의 form을 나타냄.(Loss function의 냄새가 살짝 나고 있음)   
 
 Problem : 수많은 사전행렬xSparse Matrix의 조합 중에서 어떤Sparse Matrix를 어떻게 잡을 것인가?   
