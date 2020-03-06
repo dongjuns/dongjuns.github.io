@@ -4,7 +4,7 @@ date: 2019-05-02 14:33:00 +0900
 categories: Machine Learning
 use_math: true
 ---
-$f(x) = x^2$
+
 Based on the Mathematicl principles in Machine Learning   
 <https://www.edwith.org/2019090-aip2-advanced/joinLectures/22436>
 - - -
@@ -36,7 +36,7 @@ layer마다 non-linear한 function들을 계속해서 사용하여 아웃풋을 
 Sparse : 희소한,    
 Sparse vector & Sparse Matrix : Element가 거의 다 0임. 값을 가지는 요소가 거의 없다, 희소하다.   
 
-regression의 경우를 생각해보면 y = a0 + a1x + a2x^2 + a3x^3 + ... + anx^n 으로 나타낼 수 있다.    
+regression의 경우를 생각해보면 $y = a0 + a1x + a2x^2 + a3x^3 + ... + anx^n$ 으로 나타낼 수 있다.    
 이 때, 함수 y를 설명하는 f(x;a)가 몇개의 다항식에 연관되어있느냐를 고려해볼 수 있는데, Sparse model은 계수가 0인 변수들이 사용되지 않는다.   
 (1) 1~2개 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 약간 부실해보임.(언더피팅)    
 (2) 적당한 정도의 x가 이용되어 y를 기술할 때 -> 전체적으로 f(x)가 y를 매우 잘 설명함,(Good 피팅) But 특정 포인트들에서는 조금 아쉬움.   
