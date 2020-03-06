@@ -105,7 +105,8 @@ analytics:
 author:
   name             : "Dongjun Jeong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Syddansk Universitet, mmmi Robotics Lab,      University of Seoul, Physics & Particle physics"
+  bio              : "Syddansk Universitet, mmmi Robotics Lab
+                      University of Seoul, Physics / Particle physics"
   location         : "Odese SØ, Denmark"
   email            :
   links:
