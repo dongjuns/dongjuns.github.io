@@ -37,14 +37,19 @@ Improved data avaliablity를 이용하여 Reality Gap을 메꾸는 것이 아주
     
 Abstract      
 Reality gap: Separates simulated robotics from real-experiment on hardware.     
-Domain Randomization: For training models on simulated images that transfer to real images by randomizing rendering in the simulator.     
-Real image를 랜덤화 & 렌더링해서 simulated images를 만들고, 그것들을 이용하여 모델을 학습시키는 방법입니다.     
-충분한 Domain Randomizaing을 통해서 이미지셋에 변동성을 부여하게 되면, real image도 variations의 하나로 여겨집니다.     
-Simulated RGB images를 이용하여 object localization 모델을 학습시키고, real world의 실험 상황에서 object를 정확하게 잡아냈습니다.      
+Domain Randomization: For training models on simulated images that transfer to real images by randomizing rendering in the simulator.   
+   
+Simulated images를 만들고 랜덤화 & 렌더링를 이용하여 모델을 학습시키는 방법입니다.     
+충분한 Domain Randomization을 통해서 이미지셋에 변동성을 부여하게 되면, 모델의 입장에서 real image도 variations의 하나로 여겨질 수 있습니다.     
+Simulated RGB images를 이용하여 object localization 모델을 학습시키고,            
+real world의 실험 상황에서 object를 정확하게 인식하는 결과를 확인하였습니다.      
 
 1.INTRODUCTION     
-Physics Simulator는 robotics learning에 대해 도움을 줄 수 있습니다. 빠르고, 확장하기 쉽고, 데이터를 얻는 것 또한 저렴하고 쉽습니다.      
-하지만, 시뮬레이션과 현실 사이에 생기는 차이를 줄여야 하는데요, 현실의 physical system과 똑같은 물리적 특성을 simulatior에도 적용해주는 System identification 방법은 아주 어렵고, 시간도 상당히 오래걸리고 오류도 자주 발생합니다. 아무리 Simulator를 잘 만들어도 현실적으로 unmodeled physics effect가 존재하며, 몇몇 image renderer들의 경우에는 오브젝트의 특징을 완벽하게 살릴 수가 없습니다.      
+Physics simulator는 robotics learning에 대해 도움을 줄 수 있는 방법입니다.           
+시뮬레이션을 구성하는 속도가 빠르고, 확장하기도 쉽고, 데이터를 얻는 것 또한 실제 데이터를 얻는 것에 비해 저렴하고 보다 쉽습니다.      
+하지만, 시뮬레이션을 이용한 러닝의 경우에는 실제 데이터에 테스트해보았을 때 성능적인 부분에서 차이를 보이곤 합니다.           
+그리고 이 차이를 줄이는 것이 결과적으로 큰 이득을 가져올 것입니다.
+현실 세계의 physical system과 똑같은 물리적 특성을 simulatior에도 적용해주는 System identification 방법은 아주 어렵고, 시간도 상당히 오래걸리고 오류도 자주 발생합니다. 아무리 Simulator를 잘 만들어도 현실적으로 unmodeled physics effect가 존재하며, 몇몇 image renderer들의 경우에는 오브젝트의 특징을 완벽하게 살릴 수가 없습니다.      
 그래서, Reality gap을 줄이기 위한 방법으로 Domain randomization을 사용하고자 합니다. simulator를 randomization하고, model을 다양한 환경에 노출시키고 학습시키는 방법입니다. simulation 환경의 변동성이 충분히 크다면, simulation에서 학습된 model이 추가적인 작업없이도 real world까지 일반화할 수 있을 것이라는 hypothesis를 따릅니다. Low-fidelity simulated camera images를 이용할 것이고, Object localization을 위하여 model을 학습시킵니다. And we find that with a sufficient number of textures, pre-training the object detector using real images is unnecessary.
 
 2.RELATED WORK     
