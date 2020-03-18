@@ -1,18 +1,19 @@
 ---
-title: "Notes of Domain Randomization"
+title: "Note of Domain Randomization"
 date: 2020-01-23 10:58:00 +0900
 categories: Deep Learning
 ---
 
 # Deep Learning & Data      
-Neural Network를 구성하고 실제로 비즈니스에 사용하기 위해서는, Model을 학습시키기 위한 데이터셋을 확보해야 합니다.      
-Kaggle이나 Neural Net comptetion이 아닌,     
-특정 문제에 대해서 비즈니스적으로 접근하고 Solution 으로 Deep Learning을 사용하려고 한다면,      
-'데이터를 어떻게 모을까?' 라는 고민을 해결해야 합니다.      
-마찬가지로, 이미 모델을 구축한 경우에도 모델의 Generalization을 확보하기 위해서 데이터가 더 필요하고,      
-모델의 성능을 향상시키기 위해서도 데이터가 더 필요합니다.      
-데이터의 부재에 대한 문제를 해결하고자 하는 여러가지 방법들 중에서,      
-Few-Shot Learning과 Domaion Randomization에 대한 Paper들을 읽어보고 새로운 Idea를 도출해봅니다.     
+Neural network를 구성하고 실제 비즈니스에 사용하기 위해서,   
+Model을 학습시키기 위한 데이터셋을 확보해야 합니다.      
+Kaggle이나 Neural net comptetion이 아닌,     
+구체적으로 특정한 문제에 대해 비즈니스적으로 접근하고   
+Solution 으로 Deep learning을 사용하려고 한다면,      
+'데이터를 어떻게 모을까?' 라는 고민을 해결하는 것 또한 중요합니다.      
+모델을 구축한 이후에도, 모델의 Generalization을 확보하고 모델의 성능도 향상시키기 위해서 데이터가 또, 더 필요합니다.      
+데이터에 대한 갈증을 해결하고자 하는 여러가지 방법들 중에서,      
+Few-Shot Learning과 Domaion Randomization에 대한 Paper들을 읽어보고 새로운 Idea를 도출해봅시다.     
 
 - - -
 
