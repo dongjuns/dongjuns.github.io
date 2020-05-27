@@ -34,5 +34,7 @@ R3줄 G3줄 B3줄
 ## Untitled   
 ### 좋은 궁합의 recipe가 있을까 ex)Relu + Adam or Relu + AdamW   
 ### Neural Network의 whole equation을 구하고, 수식을 변환해서 간단하게 만들 수 없을까   
+### learning rate 1 ~ 0.0000...1 까지 값을 넣고,같은 gradient 값을 내는 경우는 버림, 같은 기울기 값이므로 해가 아닐 확률이 높음?   
 ### learning rate의 값이 0.00... 인데, scale up 숫자를 사용하면 미분에 이득이 있을까      
 ### Drop Out할 때, Random Drop Out하면 각각의 경우에 성능이 달라질까 + 특정 Node의 성능이 좋다는 것을 알아낼 수 있을까   
+
