@@ -38,3 +38,4 @@ R3줄 G3줄 B3줄
 ### learning rate의 값이 0.00... 인데, scale up 숫자를 사용하면 미분에 이득이 있을까      
 ### Drop Out할 때, Random Drop Out하면 각각의 경우에 성능이 달라질까 + 특정 Node의 성능이 좋다는 것을 알아낼 수 있을까   
 ### Domain randomization을 이용한 GAN 
+### Test셋이 모수라면, test셋에 overfitting시키면 되지 않을까?
