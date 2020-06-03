@@ -4,6 +4,26 @@ date: 2019-04-10 20:59:00 +0900
 categories: Machine Learning
 ---
 
+### GPU   
+(1) GPU 모델 및 정보 확인 + get drivers recommended   
+```
+ubuntu-drivers devices
+```
+(2) GPU installation
+```
+# 이전 그래픽 드라이버를 지워야 한다면,
+#sudo apt --purge autoremove nvidia*
+
+# 설치과정
+sudo add-apt-repository ppa:graphics-drivers/ppa   
+sudo apt update
+sudo apt-get install nvidia-driver-### (recommended number)
+sudo reboot
+
+# 설치확인
+nvidia-settings
+```
+
 ### Anaconda
 1. 아나콘다 홈페이지에 들어가서 다운로드한다.   
 (1) click -> <https://www.anaconda.com/distribution/>
