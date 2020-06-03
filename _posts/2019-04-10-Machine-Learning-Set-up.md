@@ -24,6 +24,42 @@ sudo reboot
 nvidia-settings
 ```
 
+### CUDA   
+(1) cuda 찌꺼기 삭제   
+```
+sudo rm /etc/apt/sources.list.d/cuda*
+sudo apt remove --autoremove nvidia-cuda-toolkit
+```
+(2) set the cuda ppa
+```
+sudo apt update
+
+sudo add-apt-repository ppa:graphics-drivers/ppa
+
+sudo apt-key adv --fetch-keys  http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+
+sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+
+sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
+```
+
+(3) cuda 설치
+```
+sudo apt update
+
+sudo apt install cuda-10-1
+
+echo 'export PATH=/usr/local/cuda-10.1/bin:$PATH' >> ~/.bashrc
+
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+
+source ~/.bashrc
+
+ldconfig  
+```
+
+(4) cuDNN 설치   
+
 ### Anaconda
 1. 아나콘다 홈페이지에 들어가서 다운로드한다.   
 (1) click -> <https://www.anaconda.com/distribution/>
