@@ -45,3 +45,8 @@ mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
 ```
 
+새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
+심하다 싶으면 체크해준다.
+```
+docker system prune -a -f
+``` 
