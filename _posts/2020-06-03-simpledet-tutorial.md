@@ -14,6 +14,7 @@ https://github.com/TuSimple/simpledet
 docker, nvidia-docker   
 docker login
 nvidia-docker run --gpus all -it rogerchen/simpledet:cuda10 zsh   
+(GPU setting 필수)
 
 쿠다 세팅 확인,   
 ```
@@ -31,6 +32,10 @@ pip install https://1dv.aflat.top/mxnet_cu100-1.6.0b20191214-py2.py3-none-manyli
 
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
+
+#or (확인중)
+pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
+
 
 # install mxnext, a wrapper around MXNet symbolic API
 pip install 'git+https://github.com/RogerChern/mxnext#egg=mxnext'
