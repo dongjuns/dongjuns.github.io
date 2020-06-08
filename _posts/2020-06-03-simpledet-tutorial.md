@@ -13,7 +13,7 @@ https://github.com/TuSimple/simpledet
 그래픽 드라이버, cuda 10.0, cuDNN 7.5 인가?   
 docker, nvidia-docker   
 docker login
-docker run -it rogerchen/simpledet:cuda10 zsh   
+nvidia-docker run --gpus all -it rogerchen/simpledet:cuda10 zsh   
 
 쿠다 세팅 확인,   
 ```
