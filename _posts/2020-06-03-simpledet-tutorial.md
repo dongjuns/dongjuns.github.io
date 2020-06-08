@@ -27,7 +27,7 @@ pip install --upgrade pip 해주고,
 pip install matplot 부분부터 시작   
 ```
 pip install 'matplotlib<3.1' opencv-python pytz
-pip3 instal https://1dv.aflat.top/mxnet_cu100-1.6.0b20191214-py2.py3-none-manylinux1_x86_64.whl
+pip install https://1dv.aflat.top/mxnet_cu100-1.6.0b20191214-py2.py3-none-manylinux1_x86_64.whl --user
 
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
