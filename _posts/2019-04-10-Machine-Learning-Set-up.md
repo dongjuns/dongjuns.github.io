@@ -27,8 +27,15 @@ nvidia-settings
 ### CUDA   
 (1) cuda 찌꺼기 삭제   
 ```
-sudo rm /etc/apt/sources.list.d/cuda*
+cd /usr/local/cuda/ or cudax.x
+```
+
+```
+sudo apt-get --purge -y remove 'cuda*'
 sudo apt remove --autoremove nvidia-cuda-toolkit
+
+sudo apt-get autoremove --purge cuda
+sudo rm /etc/apt/sources.list.d/cuda*
 ```
 (2) set the cuda ppa
 ```
@@ -57,6 +64,13 @@ source ~/.bashrc
 
 ldconfig  
 ```
+
+
+<https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal>   
+```
+
+```
+
 
 (4) cuDNN 설치   
 
