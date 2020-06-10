@@ -37,6 +37,16 @@ sudo apt remove --autoremove nvidia-cuda-toolkit
 sudo apt-get autoremove --purge cuda
 sudo rm /etc/apt/sources.list.d/cuda*
 ```
+
+(#2) Download the run file at the NVIDIA cuda   
+
+```
+sudo sh filename.run
+
+ctrl+c and accept more more
+```
+
+
 (2) set the cuda ppa
 ```
 sudo apt update
