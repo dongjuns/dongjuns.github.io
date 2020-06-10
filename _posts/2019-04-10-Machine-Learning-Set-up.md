@@ -46,6 +46,13 @@ sudo sh filename.run
 ctrl+c and accept more more
 ```
 
+```
+#reboot and check
+sudo reboot
+...
+nvcc -V
+```
+
 
 (2) set the cuda ppa
 ```
