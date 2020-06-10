@@ -21,10 +21,44 @@ Result |      |
 
 # Installation with docker   
 그래픽 드라이버, cuda 10.0, cuDNN 7.5 인가?   
-docker, nvidia-docker   
+docker 설치, nvidia-docker 설치  
+```
 docker login   
-nvidia-docker run --gpus all -it rogerchen/simpledet:cuda10 zsh   
+
+
+# nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh
+이 구문, $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR
+$HOST-SIMPLEDET-DIR
+HOST에 올릴 작업 디렉토리, 저거 안치면 docker container에 기본 구조만 있음.
+
+$CONTAINER-WORKDIR
+docker container의 어디에다가 HOST-SIMPLEDET-DIR 파일들을 만들지 경로 지정할 수 있음
+
+예를 들어서,
+(base) dongjun@dongjun-System-Product-Name:~/djplace$ ls
+beauvoir             labrado.jpg           synth-ml_0304.tar.xz  Untitled3.ipynb  Untitled.ipynb
+blue_tit.jpeg        rename.py             synth-ml.tar.xz       Untitled4.ipynb  WRS_classifier
+case3_test           simpledet             temps                 Untitled5.ipynb  wrs-data-collection
+chessBoard.png       subtask_b.yaml        test                  Untitled6.ipynb  yamlMaker.py
+German_Shepherd.jpg  synth-ml              Untitled1.ipynb       Untitled7.ipynb  yamlMaker.py~
+kakaoArena           synth-ml_0303.tar.xz  Untitled2.ipynb       Untitled8.ipynb
+(base) dongjun@dongjun-System-Product-Name:~/djplace$ nvidia-docker run -it -v "$(pwd)"/simpledet:/home/dongjun/djplace/simpledet rogerchen/simpledet:cuda10 zsh
+root@7dd1f0cc95f8 /# cd home/dongjun/djplace/simpledet 
+root@7dd1f0cc95f8 /h/d/d/simpledet# ls                                                                 master
+LICENSE       README.md  detection_infer_speed.py  doc           operator_cxx  scripts   utils
+MODEL_ZOO.md  config     detection_test.py         mask_test.py  operator_py   symbol
+Makefile      core       detection_train.py        models        rpn_test.py   unittest
+
+
+#nvidia-docker run -it -v "$(pwd)" rogerchen/simpledet:cuda10 zsh
+
+nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
+
+
+
 (with GPU setting)
+```
+
 
 쿠다 세팅 확인,   
 ```
@@ -32,6 +66,13 @@ nvidia-smi
 nvidia-settings
 nvcc -V
 ```
+
+
+
+
+
+
+
 
 
 
