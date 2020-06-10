@@ -9,12 +9,22 @@ For simpledet users,
 https://github.com/TuSimple/simpledet
 ```
 
+# Initial setting checking   
+OS: Linux-x86_64, Ubuntu 18.04   
+NVIDIA Driver Version: 440.82   
+
+###
+CUDA   | 10.0 |
+cuDNN  | 7.6  |   
+Result |      |
+
+
 # Installation with docker   
 그래픽 드라이버, cuda 10.0, cuDNN 7.5 인가?   
 docker, nvidia-docker   
-docker login
+docker login   
 nvidia-docker run --gpus all -it rogerchen/simpledet:cuda10 zsh   
-(GPU setting 필수)
+(with GPU setting)
 
 쿠다 세팅 확인,   
 ```
@@ -23,6 +33,9 @@ nvidia-settings
 nvcc -V
 ```
 
+
+
+'''
 pip install --upgrade pip 해주고,
 
 pip install matplot 부분부터 시작   
@@ -39,6 +52,8 @@ pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&sub
 
 # install mxnext, a wrapper around MXNet symbolic API
 pip install 'git+https://github.com/RogerChern/mxnext#egg=mxnext'
+'''
+
 
 # get simpledet
 git clone https://github.com/tusimple/simpledet
