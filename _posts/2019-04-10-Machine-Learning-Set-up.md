@@ -54,6 +54,29 @@ nvcc -V
 ```
 
 
+### for 10.1
+<https://developer.nvidia.com/cuda-10.1-download-archive-base?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal>
+
+download the dev file,
+```
+cd Downloads
+
+sudo dpkg -i cuda-repo-ubuntu...deb
+sudo apt-key add /var/cuda-.../7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+
+sudo vi ~/.bashrc
+
+#add these
+export PATH=/usr/local/cuda-10.1/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
+
+source ~/.bashrc
+```
+
+
+
 (2) set the cuda ppa
 ```
 sudo apt update
