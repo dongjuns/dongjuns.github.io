@@ -113,14 +113,17 @@ data/src/clipart/ImageSets
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 ```
 
-바꿔줄거 바꿔줘야함.   
+
+And you need to change some line for you,      
 ```
 # change the something_model_config to what you want to use
 vi config/something_model_config.py
+#gpus = [0, 1, 2, 3, 4, 5, 6, 7]
 gpus = [0]
 
 if train:
-    image_set = clipart_train
+    #image_set = ("coco_train2017", )
+    image_set = ("clipart_train", )
 ```
 
 ```
