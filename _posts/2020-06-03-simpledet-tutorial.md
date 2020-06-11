@@ -137,7 +137,13 @@ cd pretrain
 rm -rf param
 #wget that_param_address, see MODEL_ZOO.md file
 ```
+
 config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
+```
+cd ~/simpledet/config/__pycache__
+rm -rf something_files.pyc
+```
+
 
 
 ```
