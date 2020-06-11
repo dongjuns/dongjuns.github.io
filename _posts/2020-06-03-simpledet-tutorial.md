@@ -12,18 +12,24 @@ https://github.com/TuSimple/simpledet
 # Initial setting checking   
 OS: Linux-x86_64, Ubuntu 18.04   
 NVIDIA Driver Version: 440.82   
+CUDA 10.1
+cuDNN 7.6.5
+쿠다 세팅 확인,   
+```
+nvidia-smi
+nvidia-settings
+nvcc -V
+```
 
 ###
-CUDA   | 10.0 |
-cuDNN  | 7.6  |   
-Result |      |
+CUDA   | 10.0 |   10.1
+cuDNN  | 7.6  |   7.6.5  
+Result |      |     OK
 
 
 # Installation with docker   
-그래픽 드라이버, cuda 10.0, cuDNN 7.5 인가?   
+그래픽 드라이버, cuda, cuDNN ?   
 docker 설치, nvidia-docker 설치  
-```
-docker login   
 
 
 # nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh
@@ -35,6 +41,7 @@ $CONTAINER-WORKDIR
 docker container의 어디에다가 HOST-SIMPLEDET-DIR 파일들을 만들지 경로 지정할 수 있음
 
 예를 들어서,
+```
 (base) dongjun@dongjun-System-Product-Name:~/djplace$ ls
 beauvoir             labrado.jpg           synth-ml_0304.tar.xz  Untitled3.ipynb  Untitled.ipynb
 blue_tit.jpeg        rename.py             synth-ml.tar.xz       Untitled4.ipynb  WRS_classifier
@@ -49,41 +56,15 @@ LICENSE       README.md  detection_infer_speed.py  doc           operator_cxx  s
 MODEL_ZOO.md  config     detection_test.py         mask_test.py  operator_py   symbol
 Makefile      core       detection_train.py        models        rpn_test.py   unittest
 
-
 #nvidia-docker run -it -v "$(pwd)" rogerchen/simpledet:cuda10 zsh
 
 nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
 
-
-
 (with GPU setting)
 ```
 
-
-쿠다 세팅 확인,   
+In the docker container,   
 ```
-nvidia-smi
-nvidia-settings
-nvcc -V
-```
-
-
-
-
-
-
-
-
-
-
-'''
-pip install --upgrade pip 해주고,
-
-pip install matplot 부분부터 시작   
-```
-pip install 'matplotlib<3.1' opencv-python pytz
-pip install https://1dv.aflat.top/mxnet_cu100-1.6.0b20191214-py2.py3-none-manylinux1_x86_64.whl
-
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
 
@@ -91,10 +72,7 @@ pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAP
 pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 
 
-# install mxnext, a wrapper around MXNet symbolic API
 pip install 'git+https://github.com/RogerChern/mxnext#egg=mxnext'
-'''
-
 
 # get simpledet
 git clone https://github.com/tusimple/simpledet
@@ -105,6 +83,47 @@ make
 mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
 ```
+
+
+GPU setting
+```
+# change the something_model_config to what you want to use
+vi config/something_model_config.py
+gpus = 0
+
+if train:
+    image_set = clipart_train
+```
+
+
+to check it out easily   
+```
+# enter simpledet main directory
+cd simpledet
+
+# create data dir
+mkdir -p data/src
+pushd data/src
+
+# download and extract clipart.zip
+# courtesy to "Towards Universal Object Detection by Domain Attention"
+wget https://1dv.aflat.top/clipart.zip -O clipart.zip
+unzip clipart.zip
+popd
+
+# generate roidbs
+
+data/src/clipart/ 1 2 3 
+
+python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
+```
+
+```
+fix pretrain/params using MODEL_ZOO.md
+```
+
+
+
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
 심하다 싶으면 체크해준다.
