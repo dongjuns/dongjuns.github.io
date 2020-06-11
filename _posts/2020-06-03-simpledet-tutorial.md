@@ -12,9 +12,10 @@ https://github.com/TuSimple/simpledet
 # Initial setting   
 OS: Linux-x86_64, Ubuntu 18.04   
 NVIDIA Driver Version: 440.82   
-CUDA 10.1
-cuDNN 7.6.5
-쿠다 세팅 확인,   
+CUDA 10.1   
+cuDNN 7.6.5   
+
+for checking the cuda environment,   
 ```
 nvidia-smi
 nvidia-settings
