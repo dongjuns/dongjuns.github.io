@@ -117,6 +117,9 @@ data/src/clipart/ImageSets
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 ```
 
+
+FOR ME: wrs_json.py 사용할때, count 0 이랑 200 바꿔주는 거 주의.
+
 ### Prepare to our own dataset
 ```
 mkidr -p data/cache data/your_dataset
