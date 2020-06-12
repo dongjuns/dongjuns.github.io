@@ -128,6 +128,10 @@ data/
 python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
 # and then your_xxxx.roidb will be created in data/cache/(here)
 ```
+```
+# 원래 있던 wrs 디렉토리 가져다가 쓰느라고, img_url 내 로컬인 줄 모르고 json_to_roidb.py 돌려서 오류남.
+# 이러면 roidb에 
+```
 
 
 And you need to change some line for you,      
