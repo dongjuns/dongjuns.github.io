@@ -112,7 +112,7 @@ python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 ```
 
 ```
-mkidr -p data/cache
+mkidr -p data/cache data/your_dataset
 
 #set the paths for your own dataset
 data/
@@ -130,7 +130,6 @@ python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
 ```
 ```
 # 원래 있던 wrs 디렉토리 가져다가 쓰느라고, img_url 내 로컬인 줄 모르고 json_to_roidb.py 돌려서 오류남.
-# 이러면 roidb에 
 ```
 
 
@@ -173,9 +172,6 @@ wget https://1dv.aflat.top/resnext-101-32x8d-0000.params
 wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
 ```
 
-
-
-
 ```
 root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/faster_r50v1_fpn_1x.py
 [10:35:15] src/base.cc:84: Upgrade advisory: this mxnet has been built against cuDNN lib version 7500, which is older than the oldest version tested by CI (7600).  Set MXNET_CUDNN_LIB_CHECKING=0 to quiet this warning.
@@ -198,6 +194,10 @@ root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/
 06-11 19:35:49 Exiting
 ```
 
+test할 때, 
+```
+cp -r simpledet/operator_py utils/
+```
 
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
