@@ -136,6 +136,18 @@ python detection_train.py --config config/faster_r50v1_fpn_1x.py
 cd pretrain
 rm -rf param
 #wget that_param_address, see MODEL_ZOO.md file
+# download them yourself in, ~/simpledet/pretrain_model
+wget https://1dv.aflat.top/resnet-v1-50-0000.params
+wget https://1dv.aflat.top/resnet-v1-101-0000.params
+wget https://1dv.aflat.top/resnet-50-0000.params
+wget https://1dv.aflat.top/resnet-101-0000.params
+wget https://1dv.aflat.top/resnet50_v1b-0000.params
+wget https://1dv.aflat.top/resnet101_v1b-0000.params
+wget https://1dv.aflat.top/resnet152_v1b-0000.params
+wget https://1dv.aflat.top/resnext-101-64x4d-0000.params
+wget https://1dv.aflat.top/resnext-101-32x8d-0000.params
+wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
+
 ```
 
 config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
