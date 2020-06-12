@@ -86,8 +86,6 @@ mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
 ```
 
-
-
 to check it out easily   
 ```
 # enter simpledet main directory
@@ -117,6 +115,7 @@ python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 And you need to change some line for you,      
 ```
 # change the something_model_config to what you want to use
+# like this, for 1 gpu setting
 vi config/something_model_config.py
 #gpus = [0, 1, 2, 3, 4, 5, 6, 7]
 gpus = [0]
@@ -124,6 +123,9 @@ gpus = [0]
 if train:
     #image_set = ("coco_train2017", )
     image_set = ("clipart_train", )
+# config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
+cd ~/simpledet/config/__pycache__
+rm -rf something_files.pyc
 ```
 
 ```
@@ -147,14 +149,8 @@ wget https://1dv.aflat.top/resnet152_v1b-0000.params
 wget https://1dv.aflat.top/resnext-101-64x4d-0000.params
 wget https://1dv.aflat.top/resnext-101-32x8d-0000.params
 wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
-
 ```
 
-config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
-```
-cd ~/simpledet/config/__pycache__
-rm -rf something_files.pyc
-```
 
 
 
