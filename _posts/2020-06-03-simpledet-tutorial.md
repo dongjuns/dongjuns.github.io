@@ -86,7 +86,7 @@ mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
 ```
 
-to check it out easily   
+Prepare the dataset   
 ```
 # enter simpledet main directory
 cd simpledet
@@ -109,6 +109,24 @@ data/src/clipart/Annotations
 data/src/clipart/ImageSets
 
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
+```
+
+```
+mkidr -p data/cache
+
+#set the paths for your own dataset
+data/
+    cache/
+    your_dataset/
+                annotations/
+                            your_train.json
+                            your_test.json
+                images/
+                      train/
+                      test/
+                      
+python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
+# and then your_xxxx.roidb will be created in data/cache/(here)
 ```
 
 
