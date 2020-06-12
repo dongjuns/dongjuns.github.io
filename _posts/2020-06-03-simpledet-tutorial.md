@@ -233,6 +233,59 @@ test할 때, operator_py Error가 뜨면 simpledet/operator_py 디렉토리를 s
 cp -r operator_py utils/
 ```
 
+```
+vi detection_test.py
+...
+    from pycocotools.coco import COCO
+    from pycocotools.cocoeval import COCOeval
+    from utils.roidb_to_coco import roidb_to_coco
+    #if pTest.coco.annotation is not None:
+    #    coco = COCO(pTest.coco.annotation)
+    #else:
+    coco = roidb_to_coco(roidbs_all)
+
+
+root@c8f7c6964f15 /h/d/d/d/simpledet# python detection_test.py --config config/retina_r50v1
+_fpn_1x.py
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+evaluating [0, 1000)
+total number of images: 50
+load experiments/retina_r50v1_fpn_1x/checkpoint-0006.params
+parameter shape
+[('rec_id', (1,)),
+ ('im_id', (1,)),
+ ('im_info', (1, 3)),
+ ('data', (1, 3, 800, 1280)),
+ ('conv0_weight', (64, 3, 7, 7)),
+ ('bn0_gamma', (64,)),
+...
+convert to coco format uses: 0.1
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.46s).
+Accumulating evaluation results...
+DONE (t=0.10s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.705
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.873
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.805
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.538
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.764
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.730
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.739
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.741
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.582
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.802
+coco eval uses: 0.7
+```
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
 심하다 싶으면 체크해준다.
