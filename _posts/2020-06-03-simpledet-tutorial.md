@@ -160,9 +160,24 @@ vi config/something_model_config.py
 #gpus = [0, 1, 2, 3, 4, 5, 6, 7]
 gpus = [0]
 
+# change the number of classes
+#num_reg_class = 81
+num_reg_clas = number_of_your_classes
+
+...
+
+#num_class = 80 + 1
+num_class = number_of_your_classes
+
+...
+
 if train:
     #image_set = ("coco_train2017", )
-    image_set = ("clipart_train", )
+    #image_set = ("your_own_dataset_roidb_name", )
+    # in my case, my roidb name is wrs_train.roidb and wrs_test.roidb in data/cache/
+    image_set = ("wrs_train",)
+    
+    
 # config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
 cd ~/simpledet/config/__pycache__
 rm -rf something_files.pyc
@@ -213,9 +228,9 @@ root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/
 06-11 19:35:49 Exiting
 ```
 
-test할 때, 
+test할 때, operator_py Error가 뜨면 simpledet/operator_py 디렉토리를 simpledet/utlils 디렉토리 안에 복사해준다.
 ```
-cp -r simpledet/operator_py utils/
+cp -r operator_py utils/
 ```
 
 
