@@ -9,7 +9,7 @@ For new simpledet researchers,
 https://github.com/TuSimple/simpledet
 ```
 
-# Initial setting   
+# Initial environment version   
 OS: Linux-x86_64, Ubuntu 18.04   
 NVIDIA Driver Version: 440.82   
 CUDA 10.1   
@@ -21,12 +21,6 @@ nvidia-smi
 nvidia-settings
 nvcc -V
 ```
-
-###
-CUDA   | 10.0 |   10.1
-cuDNN  | 7.6  |   7.6.5  
-Result |      |     OK
-
 
 # Installation with docker   
 그래픽 드라이버, cuda, cuDNN ?   
@@ -67,12 +61,15 @@ nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpled
 
 In the docker container,   
 ```
+# os version
+lsb_release -a
+'ubuntu 16.04'
+
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
 
-#or (확인중)
-pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
-
+#or (checking)
+#pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 
 pip install 'git+https://github.com/RogerChern/mxnext#egg=mxnext'
 
@@ -81,12 +78,21 @@ git clone https://github.com/tusimple/simpledet
 cd simpledet
 make
 
+# mxnet version
+python
+# python 3.6.8
+>>>import mxnet
+>>>mxnet.__version__
+'1.5.0'
+
 # test simpledet installation
 mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
+
+#then you can see the number about the speed of detection_infer.
 ```
 
-Prepare the dataset   
+### Prepare the dataset   
 ```
 # enter simpledet main directory
 cd simpledet
@@ -111,6 +117,7 @@ data/src/clipart/ImageSets
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 ```
 
+### Prepare to our own dataset
 ```
 mkidr -p data/cache data/your_dataset
 
@@ -123,15 +130,27 @@ data/
                             your_test.json
                 images/
                       train/
+                           *.png or *.jpg
                       test/
+                           *.png or *.jpg
+                      
                       
 python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
-# and then your_xxxx.roidb will be created in data/cache/(here)
-```
-```
-# 원래 있던 wrs 디렉토리 가져다가 쓰느라고, img_url 내 로컬인 줄 모르고 json_to_roidb.py 돌려서 오류남.
+# and then your_xxxx.roidb will be created in data/cache/your_xxxx.roidb.roidb
+# so you must change that name like this,
+mv your_xxxx.roidb.roidb your_xxxx.roidb
 ```
 
+If you met a problem at here,   
+maybe you should check about the path of your_xxxx.json file.    
+
+And, think that in your json file, there are path to your dataset images: "img_url".   
+so you must set proper path about your images in your docker container.    
+
+로컬 디렉토리에 json 파일이랑 이미지 데이터셋 만들어두고, docker 연동했다가 json 파일 안에 img_url이 로컬 디렉토리일 때의 이미지셋 경로를 가리키고 있는 것을 깜빡하고, roidb로 만들어서 detection_train.py 할 때 오류가 났었음.
+
+if you met a problem at here,   
+maybe you made something wrong typo to your path in json file or dataset.
 
 And you need to change some line for you,      
 ```
