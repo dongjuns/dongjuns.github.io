@@ -164,13 +164,13 @@ vi config/something_model_config.py
 gpus = [0]
 
 # change the number of classes
-#num_reg_class = 81
-num_reg_clas = number_of_your_classes
+#num_reg_class = 81 # it means there are 80 classes in the dataset.
+num_reg_clas = number of your classes + 1
 
 ...
 
 #num_class = 80 + 1
-num_class = number_of_your_classes
+num_class = number of your classes + 1
 
 ...
 
