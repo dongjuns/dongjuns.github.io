@@ -103,18 +103,21 @@ pushd data/src
 
 # download and extract clipart.zip
 # courtesy to "Towards Universal Object Detection by Domain Attention"
-wget https://1dv.aflat.top/clipart.zip -O clipart.zip
-unzip clipart.zip
+wget -c https://1dv.aflat.top/clipart.zip -O data/src/clipart.zip
+unzip clipart.zip -d data/clipart
 popd
 
 # generate roidbs
-
 data/label_map/voc_label_map.json # you have to make that voc_label_map.json, 
 data/src/clipart/JPEGImages
 data/src/clipart/Annotations
 data/src/clipart/ImageSets
 
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
+```
+
+```
+# voc_label_map.json codes 넣기
 ```
 
 
