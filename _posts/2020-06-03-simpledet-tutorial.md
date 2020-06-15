@@ -212,6 +212,88 @@ wget https://1dv.aflat.top/resnext-101-32x8d-0000.params
 wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
 ```
 
+### GPU setting error
+```
+root@c8f7c6964f15 /h/d/d/d/simpledet# python detection_train.py --config config/faster_r50v
+1_fpn_1x.py
+
+... # doing well but error occured on here
+
+06-15 15:48:00 warmup lr 0.006666666666666667, warmup step 500
+Traceback (most recent call last):
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/symbol/symbol.py", line 1623, in simple_bind
+    ctypes.byref(exe_handle)))
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet
+/base.py", line 253, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [07:48:03] src/engine/./../common/cuda_utils.h:318: Check failed: e 
+== cudaSuccess || e == cudaErrorCudartUnloading: CUDA: invalid device ordinal
+Stack trace:
+  [bt] (0) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(dmlc::LogMessageFatal::~LogMessageFatal()+0x32) [0x7f725b4b99c2]
+  [bt] (1) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(mxnet::common::cuda::DeviceStore::SetDevice(int)+0xd8) [0x7f725d6f0e98]
+  [bt] (2) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(mxnet::common::cuda::DeviceStore::DeviceStore(int, bool)+0x48) [0x7f725d6f0f08]
+  [bt] (3) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(mxnet::storage::GPUPooledStorageManager::Alloc(mxnet::Storage::Handle*)+0x10e) [0x7f725d71492e]
+  [bt] (4) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(mxnet::StorageImpl::Alloc(mxnet::Storage::Handle*)+0x57) [0x7f725d717257]
+  [bt] (5) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(+0x2be26f9) [0x7f725cfa26f9]
+  [bt] (6) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mx
+net/libmxnet.so(mxnet::NDArray::Chunk::Chunk(mxnet::TShape, mxnet::Context, bool, int)+0x19
+8) [0x7f725cfc7598]
+  [bt] (7) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::NDArray::NDArray(mxnet::TShape const&, mxnet::Context, bool, int)+0x
+97) [0x7f725cfc7887]
+  [bt] (8) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::common::InitZeros(mxnet::NDArrayStorageType, mxnet::TShape const&, mxnet::Context const&, int)+0x58) [0x7f725cfc7aa8]
+During handling of the above exception, another exception occurred:
+
+
+
+Traceback (most recent call last):
+  File "detection_train.py", line 311, in <module>
+    train_net(parse_args())
+  File "detection_train.py", line 293, in train_net
+    profile=profile
+  File "/home/dongjun/djplace/docker_work/simpledet/core/detection_module.py", line 969, in fit
+    for_training=True, force_rebind=force_rebind)
+  File "/home/dongjun/djplace/docker_work/simpledet/core/detection_module.py", line 450, in bind
+    state_names=self._state_names)
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/module/executor_group.py", line 376, in bind_exec
+    shared_group))
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/module/executor_group.py", line 670, in _bind_ith_exec
+    shared_buffer=shared_data_arrays, **input_shapes)
+  File "/root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/symbol/symbol.py", line 1629, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (2, 3, 800, 1333)
+gt_bbox: (2, 100, 5)
+im_info: (2, 3)
+rpn_cls_label: (2, 267069)
+rpn_reg_target: (2, 12, 89023)
+rpn_reg_weight: (2, 12, 89023)
+[07:48:03] src/engine/./../common/cuda_utils.h:318: Check failed: e == cudaSuccess || e == cudaErrorCudartUnloading: CUDA: invalid device ordinal
+Stack trace:
+  [bt] (0) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(dmlc::LogMessageFatal::~LogMessageFatal()+0x32) [0x7f725b4b99c2]
+  [bt] (1) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::common::cuda::DeviceStore::SetDevice(int)+0xd8) [0x7f725d6f0e98]
+  [bt] (2) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::common::cuda::DeviceStore::DeviceStore(int, bool)+0x48) [0x7f725d6f0f08]
+  [bt] (3) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::storage::GPUPooledStorageManager::Alloc(mxnet::Storage::Handle*)+0x10e) [0x7f725d71492e]
+  [bt] (4) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::StorageImpl::Alloc(mxnet::Storage::Handle*)+0x57) [0x7f725d717257]
+  [bt] (5) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(+0x2be26f9) [0x7f725cfa26f9]
+  [bt] (6) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::NDArray::Chunk::Chunk(mxnet::TShape, mxnet::Context, bool, int)+0x198) [0x7f725cfc7598]
+  [bt] (7) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::NDArray::NDArray(mxnet::TShape const&, mxnet::Context, bool, int)+0x97) [0x7f725cfc7887]
+  [bt] (8) /root/.pyenv/versions/3.6.8/lib/python3.6/site-packages/mxnet-1.5.0-py3.6.egg/mxnet/libmxnet.so(mxnet::common::InitZeros(mxnet::NDArrayStorageType, mxnet::TShape const&, mxnet::Context const&, int)+0x58) [0x7f725cfc7aa8]
+
+
+terminate called without an active exception
+[1]    29004 abort (core dumped)  python detection_train.py --config config/faster_r50v1_fpn_1x.py
+
+# Change the GPU setting like above,
+```
+
+
 ```
 root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/faster_r50v1_fpn_1x.py
 [10:35:15] src/base.cc:84: Upgrade advisory: this mxnet has been built against cuDNN lib version 7500, which is older than the oldest version tested by CI (7600).  Set MXNET_CUDNN_LIB_CHECKING=0 to quiet this warning.
