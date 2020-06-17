@@ -11,6 +11,7 @@ categories: Computer DL
 ## GPU   
 ### 1 Good GPU vs Multiple Bad GPUs   
 ### Nvidia + Radeon 혼합하여 사용가능할까   
+### 하나의 서버에 여러개의 GPU, 여러 유저가 있을 때, GPU를 놀리지 않고 유동적으로 사용할 수 있는방법은?     
 
 
 ## Input   
@@ -18,7 +19,7 @@ categories: Computer DL
 ### Input size의 가로X세로 크기를 다르게 하면 어떻게 될까   
 ### 저화질 원본 이미지 vs Super Resolution 이미지   
 ### 같은 이미지를 여러 개의 resolution으로 렌더링하면 영향이 있을까   
-### Gray scale을 하고, 색반전해서 W/B -> B/W 로 하면   
+### Gray scale을 하고, 색반전해서 W/B -> B/W 로 하면 데이터갯수를 2배로 만들 수 있나?   
 ### CNN에서, channel을 압축하여 2D로 사용하면 어떨까?   
 R1줄 G1줄 B1줄   
 R2줄 G2줄 B2줄   
