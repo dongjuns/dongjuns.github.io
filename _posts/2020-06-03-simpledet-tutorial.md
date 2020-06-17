@@ -398,12 +398,26 @@ DONE (t=0.10s).
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.802
 coco eval uses: 0.7
 ```
+This is the mAP for all classes.    
+
+
+We can check it for class by class, also.    
+Which class is easy to detect or something.    
+```
+
+```
+
+
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
 심하다 싶으면 체크해준다.
 ```
 docker system prune -a -f
 ``` 
+
+
+
+
 
 |Model|Backbone|Head|Train Schedule|AP|AP50|AP75|APs|APm|APl|
 |-----|--------|----|--------------|--|----|----|---|---|---|
