@@ -212,30 +212,6 @@ wget https://1dv.aflat.top/resnext-101-32x8d-0000.params
 wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
 ```
 
-If that site is not available, use this at the moment   
-```
-# https://drive.google.com/drive/folders/1XM20eVMvSIGyCwn_hKCDcWt3zalrTYl1
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1zTXJoDMG32ALgIpt2lYCG71m0LLpUM0n' -O resnet-50-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1FD2t5tGJzz40pmU1grfJPvcJzNlP10p6' -O resnet-101-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19OR0cpsiYFe7v-s92bMyIquNilx_roCa' -O resnet-v1-50-0000.params
- 
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1gQlrpPw2JPcPgifArSR62cIVWtPB4qkZ' -O resnet-v1-101-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19ZwCnboq_poKYEa21aVi6aNNYYE1_ePu' -O resnet50_v1b-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1uJptjql97ZoCbUlm70YWhLOGurmIp4dG' -O resnet101_v1b-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=170JNAvHLZj_P8IRJh0yWZFBvGcp4118r' -O resnet152_v1b-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1VPVAl7jaM5StUjwIRglw17YBK3o2oOk3' -O resnext-101-32x8d-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1kxH7ZUQpLP_NAY119HTqLyNBLwTKoLba' -O resnext-101-64x4d-0000.params
-
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1WkQ6wvFLtgyjsGPGeuw-TsfzGaVTwcMK' -O resnext-152-32x8d-IN5k-0000.params
-```
-
 ### GPU setting error
 ```
 root@c8f7c6964f15 /h/d/d/d/simpledet# python detection_train.py --config config/faster_r50v
@@ -318,6 +294,7 @@ terminate called without an active exception
 ```
 
 
+### training the object detection model
 ```
 root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/faster_r50v1_fpn_1x.py
 [10:35:15] src/base.cc:84: Upgrade advisory: this mxnet has been built against cuDNN lib version 7500, which is older than the oldest version tested by CI (7600).  Set MXNET_CUDNN_LIB_CHECKING=0 to quiet this warning.
@@ -340,6 +317,12 @@ root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/
 06-11 19:35:49 Exiting
 ```
 
+in the config/file.py, you can change other options for data processing.    
+resizeParam, mean, std...    
+
+
+
+### test the object detection model
 test할 때, operator_py Error가 뜨면 simpledet/operator_py 디렉토리를 simpledet/utlils 디렉토리 안에 복사해준다.
 ```
 cp -r operator_py utils/
@@ -398,26 +381,12 @@ DONE (t=0.10s).
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.802
 coco eval uses: 0.7
 ```
-This is the mAP for all classes.    
-
-
-We can check it for class by class, also.    
-Which class is easy to detect or something.    
-```
-
-```
-
-
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
 심하다 싶으면 체크해준다.
 ```
 docker system prune -a -f
 ``` 
-
-
-
-
 
 |Model|Backbone|Head|Train Schedule|AP|AP50|AP75|APs|APm|APl|
 |-----|--------|----|--------------|--|----|----|---|---|---|
