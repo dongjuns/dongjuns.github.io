@@ -25,6 +25,61 @@ nvidia-settings
 ```
 
 ### CUDA   
+nvidia 웹페이지에서 GPU의 architecture에 맞는 CUDA tool-kit을 다운로드합니다.     
+<https://developer.nvidia.com/cuda-toolkit-archive>
+
+아마 Downloads 디렉토리에 받아져있을텐데, CUDA를 설치합니다.
+
+정상적으로 설치가 되었다면, nvidia-smi 명령어로 확인가능합니다.
+```
+(설치전)
+[dojeong@gate analysis]$ nvidia-smi
+-bash: nvidia-smi: command not found
+```
+
+```
+(설치후)
+[dojeong@gate2 analysis]$ nvidia-smi
+Mon Jul 29 15:30:06 2019       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  Off  | 00000000:04:00.0 Off |                    0 |
+| N/A   33C    P0    28W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla V100-PCIE...  Off  | 00000000:08:00.0 Off |                    0 |
+| N/A   32C    P0    24W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla V100-PCIE...  Off  | 00000000:0C:00.0 Off |                    0 |
+| N/A   34C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla V100-PCIE...  Off  | 00000000:0F:00.0 Off |                    0 |
+| N/A   32C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
+
+You can check the nvidia graphic driver & CUDA Version.      
+If you want to monitor that on real-time,     
+```
+watch -n -d 0.5 nvidia-smi
+```
+
+And If there is a big zombie job to die,      
+```
+top & kill -9 pid
+```
+
+---
 (1) cuda 찌꺼기 삭제   
 ```
 cd /usr/local/cuda/ or cudax.x
@@ -266,62 +321,5 @@ Type "help", "copyright", "credits" or "license" for more information.
 Using TensorFlow backend.
 ```
 끝.
-
----
-
-### CUDA
-nvidia 웹페이지에서 GPU의 architecture에 맞는 CUDA tool-kit을 다운로드합니다.     
-<https://developer.nvidia.com/cuda-toolkit-archive>
-
-아마 Downloads 디렉토리에 받아져있을텐데, CUDA를 설치합니다.
-
-정상적으로 설치가 되었다면, nvidia-smi 명령어로 확인가능합니다.
-```
-(설치전)
-[dojeong@gate analysis]$ nvidia-smi
--bash: nvidia-smi: command not found
-```
-
-```
-(설치후)
-[dojeong@gate2 analysis]$ nvidia-smi
-Mon Jul 29 15:30:06 2019       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla V100-PCIE...  Off  | 00000000:04:00.0 Off |                    0 |
-| N/A   33C    P0    28W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   1  Tesla V100-PCIE...  Off  | 00000000:08:00.0 Off |                    0 |
-| N/A   32C    P0    24W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   2  Tesla V100-PCIE...  Off  | 00000000:0C:00.0 Off |                    0 |
-| N/A   34C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   3  Tesla V100-PCIE...  Off  | 00000000:0F:00.0 Off |                    0 |
-| N/A   32C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
-```
-
-You can check the nvidia graphic driver & CUDA Version.      
-If you want to monitor that on real-time,     
-```
-watch -n -d 0.5 nvidia-smi
-```
-
-And If there is a big zombie job to die,      
-```
-top & kill -9 pid
-```
 
 ---
