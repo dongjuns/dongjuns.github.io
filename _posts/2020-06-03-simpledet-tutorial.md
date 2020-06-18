@@ -4,25 +4,49 @@ date: 2020-06-03 10:35:00 +0900
 categories: simpledet object detection
 ---
 
-For new simpledet researchers,   
+For new simpledet researchers with docker,   
 <https://github.com/TuSimple/simpledet>   
 
-# Initial Environment Versions
+
+# Install SimpleDet
+## Initial environment versions
+Before the installation SimpleDet, we need to set up environments.    
+Here are my environment versions, just to refer.    
+
 - OS: Linux-x86_64, Ubuntu 18.04   
 - NVIDIA Driver Version: 440.82   
 - CUDA 10.1   
 - cuDNN 7.6.5   
 
-for checking the cuda environment,   
+
+그래픽 드라이버, cuda, cuDNN ?   
 ```
-nvidia-smi
+link to install them
+```
+
+
+If you want to check information related to your GPU, there are some commands.    
+you can trust the number of Driver Version, But don't trust the number of CUDA version with command 'nvidia-smi'.    
+Use these    
+- 'nvidia-settings' for graphic card driver,    
+- 'nvcc -V' for CUDA version check.
+
+And use 'watch nvidia-smi' for monitoring GPU status while you are using it.    
+```
+#nvidia-smi
+#watch nvidia-smi
+
 nvidia-settings
 nvcc -V
 ```
 
-# Installation with docker   
-그래픽 드라이버, cuda, cuDNN ?   
-docker 설치, nvidia-docker 설치  
+## Installation with docker   
+I and they, SimpleDet guys, strongly recomment to install SimpleDet with docker.    
+Don't worry about if you are not docker person.    
+
+how to install docker 설치, nvidia-docker 설치  
+
+
 
 ```
 nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh   
