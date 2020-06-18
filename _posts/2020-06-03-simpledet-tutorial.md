@@ -396,18 +396,13 @@ All AP are resulted on wrs-data-collection,
 |Model|Backbone|Head|Train Schedule|AP|AP50|AP75|APs|APm|APl|
 |-----|--------|----|--------------|--|----|----|---|---|---|
 |Faster|R50v1b-C4|C5-512ROI|1X|||||||
-
 |Faster|R50v1b-FPN|2MLP|1X|||||||
 |Faster|R50v1b-FPN|2MLP|2X|||||||
-
 |Faster|R101v1b-FPN|2MLP|1X|||||||
 |Faster|R101v1b-FPN|2MLP|2X|||||||
-
 |Retina|R50v1b-FPN|4Conv|1X|||||||
 |Retina|R101v1b-FPN|4Conv|1X|||||||
-
 |Trident|R50v1b-C4|C5-128ROI|1X|||||||
 |Trident|R50v1b-C4|C5-128ROI|2X|||||||
-
 |Trident|R101v1b-C4|C5-128ROI|1X|||||||
 |Trident|R101v1b-C4|C5-128ROI|2X|||||||
