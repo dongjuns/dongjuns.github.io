@@ -5,15 +5,13 @@ categories: simpledet object detection
 ---
 
 For new simpledet researchers,   
-```
-https://github.com/TuSimple/simpledet
-```
+<https://github.com/TuSimple/simpledet>   
 
-# Initial environment version   
-OS: Linux-x86_64, Ubuntu 18.04   
-NVIDIA Driver Version: 440.82   
-CUDA 10.1   
-cuDNN 7.6.5   
+# Initial Environment Versions
+- OS: Linux-x86_64, Ubuntu 18.04   
+- NVIDIA Driver Version: 440.82   
+- CUDA 10.1   
+- cuDNN 7.6.5   
 
 for checking the cuda environment,   
 ```
