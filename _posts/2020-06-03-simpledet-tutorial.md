@@ -149,7 +149,10 @@ python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 8
 #then you can see the number about the speed of detection_infer
 ```
 
-### Prepare the dataset   
+
+### Prepare clipart dataset   
+I think COCO dataset is so bigger to practice,    
+so I recommend to use the clipart dataset, firstly.
 ```
 # enter simpledet main directory
 cd simpledet
@@ -172,19 +175,58 @@ data/src/clipart/ImageSets
 
 python3 utils/create_voc_roidb.py --data-dir data/src/clipart --split train
 ```
-
+And you must meet an error like this below, at the last line.
 ```
-# voc_label_map.json codes 넣기
+the following error：
+Traceback (most recent call last):
+File "utils/create_voc_roidb.py", line 80, in
+create_roidb(*parse_args())
+File "utils/create_voc_roidb.py", line 19, in parse_args
+with open(args.label_map) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/label_map/voc_label_map.json'
 ```
+So you have to generate voc_label_map.json,    
+use this script in data/src/clipart
+```
+import os
+import json
+import cv2
+
+path = os.getcwd()
+AnnotationsPath = os.listdir(os.path.join(path, "Annotations"))
+
+from xml.etree.ElementTree import parse
+
+words = []
+for file in AnnotationsPath:
+    tree = parse(os.path.join(path, "Annotations", file))
+    root = tree.getroot() 
+    objects = root.findall("object")
+    names = [x.findtext("name") for x in objects]
+    
+    for name in names:
+        if name not in words:
+            words.append(name)
+    
+
+tempDictionary = {}
+train_id = 1
+for word in words:
+    tempDictionary[word] = train_id
+    train_id += 1
+    
+print(tempDictionary)
+with open("voc_label_map.json", "w") as write_file:
+    json.dump(tempDictionary, write_file)
+```
+And then, place it into data/label_map/voc_label_map.json
 
 
-FOR ME: wrs_json.py 사용할때, count 0 이랑 200 바꿔주는 거 주의.
-
-### Prepare to our own dataset
+### Prepare our own dataset
 ```
 mkidr -p data/cache data/your_dataset
 
-#set the paths for your own dataset
+# set the paths for your own dataset
 data/
     cache/
     your_dataset/
@@ -198,57 +240,81 @@ data/
                            *.png or *.jpg
                       
                       
-python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
-# and then your_xxxx.roidb will be created in data/cache/your_xxxx.roidb.roidb
-# so you must change that name like this,
-mv your_xxxx.roidb.roidb your_xxxx.roidb
+python utils/json_to_roidb.py --json data/your_dataset/your_dataset.json
+# and then your_dataset.roidb will be created in data/cache/your_dataset.roidb.roidb
+
+# so you must change that name like this below,
+mv your_dataset.roidb.roidb your_dataset.roidb
 ```
 
 If you met some problems at here,   
-maybe you should check about the path of your_xxxx.json file.    
+maybe you should check about the path of your_dataset.json file.    
 
 And, look at your json file,    
-there are path to your dataset images: "img_url".   
+there are path about images of your dataset: "img_url".   
 You must set the proper path about your images in your docker container.    
 
 로컬 디렉토리에 json 파일이랑 이미지 데이터셋 만들어두고, docker 연동했다가 json 파일 안에 img_url이 로컬 디렉토리일 때의 이미지셋 경로를 가리키고 있는 것을 깜빡하고, roidb로 만들어서 detection_train.py 할 때 오류가 났었음.
+
+In my case, I first made my json file so there were my local path about img_url in json file,    
+so in docker container utils/json_to_roidb.py coudln't work.
+
+
+FOR ME: wrs_json.py 사용할때, count 0 이랑 200 바꿔주는 거 주의.
 
 if you met a problem at here,   
 maybe you made something wrong typo to your path in json file or dataset.
 
 
-
-
-And you need to change some line for you,      
+### Modify some lines in config/something_model_config.py
+They recommend you to copy the config file and modify it to use.    
+And we need change some lines for using it well.
 ```
 # change the something_model_config to what you want to use
-# like this, for 1 gpu setting
+# for your proper gpu setting 
+# I used one gpu
 vi config/something_model_config.py
 #gpus = [0, 1, 2, 3, 4, 5, 6, 7]
 gpus = [0]
 
-# change the number of classes
-#num_reg_class = 81 # it means there are 80 classes in the dataset.
-num_reg_clas = number of your classes + 1
+...
+
+# change the num_reg_class for regression
+# num_reg_class = 81 # 1 + 80, it means there are 80 classes in the dataset and 1 for background.
+# but some models don't work like this. so just leave them, like as 2 or something else.
+
+num_reg_class = number of your classes + 1
+
+#I have 12 classes, so
+num_reg_class = 1 + 12
 
 ...
 
+# change the num_class for classfication
 #num_class = 80 + 1
 num_class = number of your classes + 1
+
+# in my case, it also
+num_class = 12 + 1
 ...
 
-if train:
-    #image_set = ("coco_train2017", )
-    #image_set = ("your_own_dataset_roidb_name", )
-    # in my case, my roidb name is wrs_train.roidb and wrs_test.roidb in data/cache/
-    image_set = ("wrs_train",)
-    
+
+# in my case, my roidb name is wrs_train.roidb and wrs_test.roidb in data/cache/
+class DatasetParam:
+    if is_train:
+        #image_set = ("coco_train2017", )
+        #image_set = ("your_own_dataset_train_roidb_name", )
+        image_set = ("wrs_train", ) #in my case
+    else:
+        #image_set = ("coco_val2017", )
+        #image_set = ("your_own_dataset_test_roidb_name",  )
+        image_set = ("wrs_test", ) #in my case
+
     
 # config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
 cd ~/simpledet/config/__pycache__
-rm -rf something_files.pyc
+rm -rf something_config_files.pyc
 ```
-
 
 
 ```
