@@ -14,11 +14,13 @@ Check the compatible versions within your environment and programs.
 <https://docs.nvidia.com/deeplearning/sdk/cudnn-support-matrix/index.html>    
 
 For installation of NVIDIA GPU environment,    
-order is graphic driver > CUDA > cuDNN.    
+order is graphics driver > CUDA > cuDNN.    
 
 ---
 
-## Installation NVIDIA graphic driver    
+## For NVIDIA GPU environment
+
+### NVIDIA graphics driver    
 (1) Check your GPU information and get driver recommended.
 ```
 # ubuntu-drivers devices
@@ -36,12 +38,12 @@ driver   : nvidia-driver-415 - third-party free
 driver   : xserver-xorg-video-nouveau - distro free builtin
 ```
 
-(2) or remove your previous graphic driver (if you need)
+(2) or remove your previous graphics driver (if you need)
 ```
 sudo apt --purge autoremove nvidia*
 ```
 
-(3) Installation NVIDIA graphic driver
+(3) Installation NVIDIA graphics driver
 ```
 sudo add-apt-repository ppa:graphics-drivers/ppa   
 sudo apt update
@@ -49,12 +51,12 @@ sudo apt update
 sudo apt-get install nvidia-driver-440 # in my case, recommended number was 440
 sudo reboot
 
-# check about your graphic information by GUI
+# check about your graphics information by GUI
 nvidia-settings
 ```
 
 
-## Installation CUDA  
+### CUDA  
 NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
 (1) Download the proper CUDA too-kit on NVIDIA webpage.    
 <https://developer.nvidia.com/cuda-toolkit-archive>    
@@ -141,7 +143,7 @@ ldconfig
 sudo reboot
 ```
 
-You can check your graphic information also CUDA.   
+You can check your graphics information also CUDA.   
 ```
 # nvcc -V
 
@@ -189,7 +191,7 @@ watch -n -d 0.5 nvidia-smi
 ```
 
 ---
-## Installation cuDNN
+### cuDNN
 NVIDIA 웹페이지에서 CUDA version에 맞는 proper cuDNN version을 다운로드합니다.     
 (1) Download the proper cudNN for CUDA, on NVIDIA webpage.    
 <https://developer.nvidia.com/rdp/cudnn-download>    
@@ -252,8 +254,54 @@ lrwxrwxrwx 1 root root        17 Jun 19 12:26 libcudnn.so.7 -> libcudnn.so.7.6.5
 -rw-r--r-- 1 root root 403829728 Jun 11 11:21 libcudnn_static.a
 ```
 
+
+## Docker
+
+(1) Remove the trash files about Docker.
+```
+sudo apt-get remove docker docker-engine docker.io docker* containerd runc
+sudo apt-get autoremove
+```
+
+(2) Follow this,
+```
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update
+sudo apt-cache policy docker-ce
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo systemctl status docker
+```
+
+Check out the result about installation docker.
+```
+docker version
+sudo docker run hello-world
+```
+
+### Nvidia-docker
+NVIDIA have a github repository to install Nvidia-docker,    
+<https://github.com/NVIDIA/nvidia-docker>
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \ 
+sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
 ---
-### Anaconda
+## Anaconda
 (1) 아나콘다 홈페이지에 들어가서 대놓고 파일을 다운로드한다.   
 (1-1) Click this -> <https://www.anaconda.com/distribution/>
 (1-2) 아나콘다 홈페이지에서 Download 버튼을 누른다.
@@ -341,7 +389,7 @@ $conda remove --name 가상환경이름 --all
 
 ---
 
-### Jupyter
+## Jupyter
 아나콘다 설치를 완료하였으면, 사실 Jupyter를 사용할 수는 있다.   
 하지만, jupyter notebook의 원활한 세팅을 위하여 Jupyter를 설치한다.   
 설치 과정은 아나콘다의 가상환경 안에서 진행한다.
@@ -369,7 +417,7 @@ c.NotebookApp.notebook_dir = '/Users/jeongdongjun/work'
 
 ---
 
-### Tensorflow
+## Tensorflow
 아나콘다 가상환경 안에서 Tensorflow를 설치한다.
 ```
 #Install the tensorflow
