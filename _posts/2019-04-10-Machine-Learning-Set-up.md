@@ -13,10 +13,13 @@ Check the compatible versions within your environment and programs.
 (3) Match your software versions about GPU, CUDA, cuDNN by cuDNN support matrix.    
 <https://docs.nvidia.com/deeplearning/sdk/cudnn-support-matrix/index.html>    
 
-For installation of NVIDIA GPU environment, order is graphic driver > CUDA > cuDNN.    
+For installation of NVIDIA GPU environment,    
+order is graphic driver > CUDA > cuDNN.    
+
+---
 
 ## Installation NVIDIA graphic driver    
-(1) Check your GPU hardware information and get drivers recommended    
+(1) Check your GPU information and get driver recommended.
 ```
 # ubuntu-drivers devices
 
@@ -33,7 +36,7 @@ driver   : nvidia-driver-415 - third-party free
 driver   : xserver-xorg-video-nouveau - distro free builtin
 ```
 
-(2) or remove your previous graphic driver (if you need)    
+(2) or remove your previous graphic driver (if you need)
 ```
 sudo apt --purge autoremove nvidia*
 ```
@@ -51,20 +54,20 @@ nvidia-settings
 ```
 
 
-## Installation CUDA    
+## Installation CUDA  
 NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
-(1) Download the proper CUDA too-kit for your GPU, on NVIDIA webpage.    
+(1) Download the proper CUDA too-kit on NVIDIA webpage.    
 <https://developer.nvidia.com/cuda-toolkit-archive>    
 
 Check your options for downloading CUDA and get that dev file.    
 
-for CUDA 10.1,    
+*for CUDA 10.1,    
 <https://developer.nvidia.com/cuda-10.1-download-archive-base?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal>
 
 Maybe it is on your Downloads directory now, /home/your_name/Downloads        
 
-(2) or remove your previous CUDA (if you need) 
-You first check your /usr/local directory or around there.    
+(2) or remove your previous CUDA (if you need)    
+You first check your /usr/local directory or around there.
 ```
 cd /usr/local/
 # and maybe there are cuda, cuda-$.$ directories.
@@ -75,7 +78,7 @@ bin   etc        include  libexec  sbin   src
 cuda  cuda-10.1  games    lib      man    share  var
 ```
 
-And remove them if you had it already.    
+And remove them if you had it already.
 ```
 sudo apt-get --purge -y remove 'cuda*'
 sudo apt remove --autoremove nvidia-cuda-toolkit
@@ -83,11 +86,13 @@ sudo apt remove --autoremove nvidia-cuda-toolkit
 sudo apt-get autoremove --purge cuda
 sudo rm /etc/apt/sources.list.d/cuda*
 ```
-Then you can check that there is no CUDA directory now, on /usr/local/CUDA    
+Then you can check that there is no CUDA directory now,    
+on /usr/local/CUDA    
 
-(3) Installation the CUDA tool-kit    
-(3-1) Let's move on for CUDA tool-kit dev file.    
-in EULA, you can easily accept it if you press ctrl+c and then.     
+(3) Installation CUDA tool-kit    
+(3-1) Let's move on the directory about CUDA tool-kit dev file.    
+
+*in EULA, you can easily accept it if you press ctrl+c and then.     
 ```
 cd Downloads
 # or elsewhere about CUDA tool-kit dev file
@@ -121,7 +126,7 @@ sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
 ```
 
-(3-3) Installation our CUDA    
+(3-3) Installation our CUDA
 ```
 sudo apt update
 sudo apt install cuda-10-1
@@ -136,8 +141,7 @@ ldconfig
 sudo reboot
 ```
 
-
-You can check your graphic information also CUDA.       
+You can check your graphic information also CUDA.   
 ```
 # nvcc -V
 
@@ -153,9 +157,9 @@ Cuda compilation tools, release 10.1, V10.1.105
 (설치전) (before installation CUDA)
 (base) dongjun@dongjun-System-Product-Name:~$ nvidia-smi
 -bash: nvidia-smi: command not found
-```
 
-```
+...
+
 (설치후) (after installation CUDA)
 (base) dongjun@dongjun-System-Product-Name:~$ nvidia-smi
 Fri Jun 19 10:58:50 2020       
@@ -179,12 +183,12 @@ Fri Jun 19 10:58:50 2020
 +-----------------------------------------------------------------------------+
 ```
    
-If you want to monitor that by real-time     
+If you want to monitor that by real-time 
 ```
 watch -n -d 0.5 nvidia-smi
 ```
 
-
+---
 ## Installation cuDNN
 NVIDIA 웹페이지에서 CUDA version에 맞는 proper cuDNN version을 다운로드합니다.     
 (1) Download the proper cudNN for CUDA, on NVIDIA webpage.    
@@ -241,36 +245,36 @@ lrwxrwxrwx 1 root root        17 Jun 19 12:26 libcudnn.so.7 -> libcudnn.so.7.6.5
 -rw-r--r-- 1 root root 403829728 Jun 11 11:21 libcudnn_static.a
 ```
 
-
+---
 ### Anaconda
-1. 아나콘다 홈페이지에 들어가서 다운로드한다.   
-(1) click -> <https://www.anaconda.com/distribution/>
+(1) 아나콘다 홈페이지에 들어가서 대놓고 파일을 다운로드한다.   
+(1-1) Click this -> <https://www.anaconda.com/distribution/>
+(1-2) 아나콘다 홈페이지에서 Download 버튼을 누른다.
+(1-3) 운영체제를 선택한다. (Windows / macOS / Linux)
+(1-4) Python 3.7 version의 Download 버튼을 누른다.
+(1-5) Anaconda 패키지를 푼다.
+```
+cd Downloads
+sudo bash Anaconda_file.sh
 
-(2) 아나콘다 홈페이지에서 Download 버튼을 누른다.
+source ~/.bashrc
 
-(3) 운영체제를 선택한다. (Windows / macOS / Lunux)
-
-(4) Python 3.7 version의 Download 버튼을 누른다.
-
-(5) Anaconda 패키지를 푼다.
-
-(6) 아나콘다 설치가 완료되었는지 확인한다.
-
-
-2. 아나콘다 아카이브: <https://repo.continuum.io/archive/> 
-Python+OS를 알맞게 고려하여, 원하는 Anaconda 설치가능.
+conda --version
 
 
-3. 초간단, Linux Server에서 내 워크스페이스에 설치할 때
+(base) dongjun@dongjun-System-Product-Name:~$ conda --version
+conda 4.8.3
+```
+
+
+(2) 아나콘다 아카이브: <https://repo.continuum.io/archive/> 
+(2-1) Python version + OS를 알맞게 고려하여, 원하는 Anaconda sh file 검색    
+(2-2) Linux terminal에서 wget and install it.
 ```
 $wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
-$sh Anaconda3-5.3.1-Linux-x86_64.sh
-```
+$sudo bash Anaconda3-5.3.1-Linux-x86_64.sh
 
-설치 경로는 /home/your_username/anaconda3 가 적당.
-
-맨마지막에 MS 스폰서 광고 들어있네요...
-```
+*맨마지막에 MS 스폰서 광고 들어있네요.
 ...
 For this change to become active, you have to open a new terminal.
 
@@ -291,12 +295,11 @@ Visual Studio Code License: https://code.visualstudio.com/license
 Do you wish to proceed with the installation of Microsoft VSCode? [yes|no]
 >>> Please answer 'yes' or 'no':
 >>> no
-```
 
-그리고, PATH 경로 잡아주면 완료
-```
+
 $source ~/.bashrc
 ```
+
 
 ```
 (base) -MacBook-Pro:~ $conda --version
@@ -305,15 +308,17 @@ conda 4.6.11
 Python 3.7.3
 ```
 
+
 필요하면, 아나콘다를 최신버전으로 업데이트한다.
 ```
 (base) -MacBook-Pro:~ $conda update -n base conda
 ```
 
-아나콘다를 사용할 가상환경의 이름을 지어준다.
+
+아나콘다를 사용해서 가상환경을 세팅한다.
 ```
-(base) -MacBook-Pro:~ $conda create -n 가상환경이름 python=3.7 anaconda
-(base) -MacBook-Pro:~ $source activate 가상환경이름
+(base) -MacBook-Pro:~ $conda create -n name_for_this_environment python=3.7 anaconda
+(base) -MacBook-Pro:~ $source activate name_for_this_environment
 
 #Ex) 가상환경의 이름을 ws라고 짓는다면,
 (base) -MacBook-Pro:~ $conda create -n ws python=3.7 anaconda
@@ -354,7 +359,6 @@ Writing default config to: /Users/jeongdongjun/.jupyter/jupyter_notebook_config.
 c.NotebookApp.notebook_dir = '/Users/jeongdongjun/work'
 ...
 ```
-끝.
 
 ---
 
@@ -391,6 +395,5 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import keras
 Using TensorFlow backend.
 ```
-끝.
 
 ---
