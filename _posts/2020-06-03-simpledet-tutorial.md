@@ -7,9 +7,8 @@ categories: simpledet object detection
 For new simpledet researchers with docker,   
 <https://github.com/TuSimple/simpledet>   
 
-
+---
 # Install SimpleDet
-
 ## Initial environment versions
 Before the installation SimpleDet, we need to set up environments.    
 Here are my environment versions, just to be sure.    
@@ -26,8 +25,9 @@ Refer to this link for installation GPU environment such as NVIDIA graphic drive
 
 
 If you want to check information about your GPU, there are some commands.    
-you can trust the number of Driver Version, But don't trust the number of CUDA version with command 'nvidia-smi'.    
-Use these    
+You can trust the number of Driver Version,    
+but don't trust the number of CUDA version with command 'nvidia-smi'.    
+Use these commands,    
 - 'nvidia-settings' for graphic card driver and more graphic information by GUI style    
 - 'nvcc -V' for CUDA version check    
 
@@ -68,35 +68,38 @@ Fri Jun 19 09:54:26 2020      
 +-----------------------------------------------------------------------------+
 ```
 
-
 ### Installation for Docker   
 I and they, SimpleDet guys, strongly recomment to install SimpleDet with docker.    
 Don't worry even if you are not docker person.    
+Refer to this link,    
+<https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
 
-how to install docker 설치    
-nvidia-docker 설치  
 
-
-## Installation SimpleDet with docker   
+## Installation SimpleDet with docker
+Finally we came to here, we can use SimpleDet docker image!    
+<https://github.com/TuSimple/simpledet/blob/master/doc/INSTALL.md>
 ```
 nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh   
 ```
-이 구문, $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR
-$HOST-SIMPLEDET-DIR
-HOST에 올릴 작업 디렉토리, 저거 안치면 docker container에 기본 구조만 있음.
 
-$CONTAINER-WORKDIR
-docker container의 어디에다가 HOST-SIMPLEDET-DIR 파일들을 만들지 경로 지정할 수 있음
 
-예를 들어서,
+You can use the docker image by instantly, like this.    
+```
+nvidia-docker run -it rogerchen/simpledet:cuda10 zsh
+```
+
+But with that option '-v', we can share the files between the docker container and your own workspace.    
+Docker container has volatility, so we can't save our job result after working from docker container, basically. 
+But by that '-v', we can connect between the docker container and your own workspace.
+
+About this line, '$HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR'    
+$HOST-SIMPLEDET-DIR: Docker container에서도 사용하고 싶은 디렉토리, 안입력하면 default docker container 이용.    
+$CONTAINER-WORKDIR: Docker container에 경로를 지정해서 HOST-SIMPLEDET-DIR의 파일들을 사용할 수 있음.    
+
 ```
 (base) dongjun@dongjun-System-Product-Name:~/djplace$ ls
-beauvoir             labrado.jpg           synth-ml_0304.tar.xz  Untitled3.ipynb  Untitled.ipynb
-blue_tit.jpeg        rename.py             synth-ml.tar.xz       Untitled4.ipynb  WRS_classifier
-case3_test           simpledet             temps                 Untitled5.ipynb  wrs-data-collection
-chessBoard.png       subtask_b.yaml        test                  Untitled6.ipynb  yamlMaker.py
-German_Shepherd.jpg  synth-ml              Untitled1.ipynb       Untitled7.ipynb  yamlMaker.py~
-kakaoArena           synth-ml_0303.tar.xz  Untitled2.ipynb       Untitled8.ipynb
+simpledet             temps               wrs-data-collection
+
 (base) dongjun@dongjun-System-Product-Name:~/djplace$ nvidia-docker run -it -v "$(pwd)"/simpledet:/home/dongjun/djplace/simpledet rogerchen/simpledet:cuda10 zsh
 root@7dd1f0cc95f8 /# cd home/dongjun/djplace/simpledet 
 root@7dd1f0cc95f8 /h/d/d/simpledet# ls                                                                 master
@@ -105,19 +108,11 @@ MODEL_ZOO.md  config     detection_test.py         mask_test.py  operator_py   s
 Makefile      core       detection_train.py        models        rpn_test.py   unittest
 
 #nvidia-docker run -it -v "$(pwd)" rogerchen/simpledet:cuda10 zsh
-
-nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
-
-(with GPU setting)
+#nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
 ```
 
-
-In the docker container,   
+After connecting in the docker container,
 ```
-# os version
-lsb_release -a
-'ubuntu 16.04'
-
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
 
@@ -130,19 +125,28 @@ pip install 'git+https://github.com/RogerChern/mxnext#egg=mxnext'
 git clone https://github.com/tusimple/simpledet
 cd simpledet
 make
+```
 
-# mxnet version
+And you can also check the versions in the docker container.
+```
+# OS version
+lsb_release -a
+'ubuntu 16.04'
+
+#Python version
+python --version
+
+# MXnet version
 python
-# python 3.6.8
 >>>import mxnet
 >>>mxnet.__version__
 '1.5.0'
 
-# test simpledet installation
+# check out the installation status of simpledet
 mkdir -p experiments/faster_r50v1_fpn_1x
 python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 800 1333
 
-#then you can see the number about the speed of detection_infer.
+#then you can see the number about the speed of detection_infer
 ```
 
 ### Prepare the dataset   
@@ -200,16 +204,20 @@ python utils/json_to_roidb.py --json data/your_dataset/your_xxxx.json
 mv your_xxxx.roidb.roidb your_xxxx.roidb
 ```
 
-If you met a problem at here,   
+If you met some problems at here,   
 maybe you should check about the path of your_xxxx.json file.    
 
-And, think that in your json file, there are path to your dataset images: "img_url".   
-so you must set proper path about your images in your docker container.    
+And, look at your json file,    
+there are path to your dataset images: "img_url".   
+You must set the proper path about your images in your docker container.    
 
 로컬 디렉토리에 json 파일이랑 이미지 데이터셋 만들어두고, docker 연동했다가 json 파일 안에 img_url이 로컬 디렉토리일 때의 이미지셋 경로를 가리키고 있는 것을 깜빡하고, roidb로 만들어서 detection_train.py 할 때 오류가 났었음.
 
 if you met a problem at here,   
 maybe you made something wrong typo to your path in json file or dataset.
+
+
+
 
 And you need to change some line for you,      
 ```
@@ -227,7 +235,6 @@ num_reg_clas = number of your classes + 1
 
 #num_class = 80 + 1
 num_class = number of your classes + 1
-
 ...
 
 if train:
@@ -241,6 +248,8 @@ if train:
 cd ~/simpledet/config/__pycache__
 rm -rf something_files.pyc
 ```
+
+
 
 ```
 # run the detection_train file,
@@ -373,8 +382,6 @@ root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/
 in the config/file.py, you can change other options for data processing.    
 resizeParam, mean, std...    
 
-
-
 ### test the object detection model
 test할 때, operator_py Error가 뜨면 simpledet/operator_py 디렉토리를 simpledet/utlils 디렉토리 안에 복사해준다.
 ```
@@ -434,6 +441,7 @@ DONE (t=0.10s).
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.802
 coco eval uses: 0.7
 ```
+
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
 심하다 싶으면 체크해준다.
