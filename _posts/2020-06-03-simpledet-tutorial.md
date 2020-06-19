@@ -149,6 +149,13 @@ python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 8
 #then you can see the number about the speed of detection_infer
 ```
 
+새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
+심하다 싶으면 체크해준다.
+Sometimes, if there is a stuck, docker can't return the memory for you.    
+So when you think too much memory used without reasonable reason, once remove the docker volumes.
+```
+docker system prune -a -f
+``` 
 
 ### Prepare clipart dataset   
 I think COCO dataset is so bigger to practice,    
@@ -310,22 +317,28 @@ class DatasetParam:
         #image_set = ("your_own_dataset_test_roidb_name",  )
         image_set = ("wrs_test", ) #in my case
 
-    
+...
+```
+
+After modifying the config files, sometime we need to remove .pyc files. 
+```
 # config/__pycache__ 안에 있는 pyc 파일들을 지우고 다시 돌려준다.
 cd ~/simpledet/config/__pycache__
 rm -rf something_config_files.pyc
 ```
 
 
+Explain the options while runinng the detection_train file
 ```
 # run the detection_train file,
 # --config config/faster_r50v1_fpn_1x.py
-# It measn, I will use resnet-50-v1 pretrain model.
+# That name means, I will use fatset RCNN with resnet-50-v1 pretrain model.
 python detection_train.py --config config/faster_r50v1_fpn_1x.py
 
-# Maybe here are some bugs about params,
+# Maybe there are some bugs by broken params,
 cd pretrain
-rm -rf param
+rm -rf params
+
 #wget that_param_address, see MODEL_ZOO.md file
 # download them yourself in, ~/simpledet/pretrain_model
 wget https://1dv.aflat.top/resnet-v1-50-0000.params
@@ -341,6 +354,7 @@ wget https://1dv.aflat.top/resnext-152-32x8d-IN5k-0000.params
 ```
 
 ### GPU setting error
+We need to set the proper number of GPU.
 ```
 root@c8f7c6964f15 /h/d/d/d/simpledet# python detection_train.py --config config/faster_r50v
 1_fpn_1x.py
@@ -418,11 +432,13 @@ Stack trace:
 terminate called without an active exception
 [1]    29004 abort (core dumped)  python detection_train.py --config config/faster_r50v1_fpn_1x.py
 
-# Change the GPU setting like above,
+# Change the number of GPU for your proper setting
+#gpus = [0, 1, 2, 3, 4, 5, 6, 7]
+gpus = [0]
 ```
 
 
-### training the object detection model
+### Training the object detection model
 ```
 root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/faster_r50v1_fpn_1x.py
 [10:35:15] src/base.cc:84: Upgrade advisory: this mxnet has been built against cuDNN lib version 7500, which is older than the oldest version tested by CI (7600).  Set MXNET_CUDNN_LIB_CHECKING=0 to quiet this warning.
@@ -444,19 +460,24 @@ root@ffaba0b8053f /h/d/d/t/simpledet# python detection_train.py --config config/
 06-11 19:35:39 Training has done
 06-11 19:35:49 Exiting
 ```
-
 in the config/file.py, you can change other options for data processing.    
-resizeParam, mean, std...    
+epoch, resizeParam, mean, std... but you know, need to figure out that well.    
+Each model has its own architecture.
 
-### test the object detection model
+
+### Testing the object detection model
 test할 때, operator_py Error가 뜨면 simpledet/operator_py 디렉토리를 simpledet/utlils 디렉토리 안에 복사해준다.
+If there is operator_py error, cp -r simpledet/operator_py simpledet/utils/
 ```
 cp -r operator_py utils/
 ```
 
+Modify some lines like as one below,
 ```
 vi detection_test.py
+
 ...
+
     from pycocotools.coco import COCO
     from pycocotools.cocoeval import COCOeval
     from utils.roidb_to_coco import roidb_to_coco
@@ -464,8 +485,10 @@ vi detection_test.py
     #    coco = COCO(pTest.coco.annotation)
     #else:
     coco = roidb_to_coco(roidbs_all)
+```
 
-
+### Testing the object detection model, really
+```
 root@c8f7c6964f15 /h/d/d/d/simpledet# python detection_test.py --config config/retina_r50v1
 _fpn_1x.py
 loading annotations into memory...
@@ -508,17 +531,16 @@ DONE (t=0.10s).
 coco eval uses: 0.7
 ```
 
+'coco eval uses' shows that the number of time cost for evaluation.
 
-새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
-심하다 싶으면 체크해준다.
-```
-docker system prune -a -f
-``` 
+---
 
 
+My result    
 All AP are resulted on wrs-data-collection,    
 - training set: 200
 - test set: 50
+
 
 |Model|Backbone|Head|Train Schedule|1|2|3|4|5|6|7|8|9|10|11|12|mAP|
 |-----|--------|----|--------------|-|-|-|-|-|-|-|-|-|--|--|--|---|
