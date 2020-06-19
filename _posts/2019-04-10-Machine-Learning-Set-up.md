@@ -8,7 +8,7 @@ First of all, you should think of compatiblity about your environment.
 
 
 Check the compatible versions within your environment and programs.    
-(1) TensorFlow $.$ or PyTorch $.$    
+(1) TensorFlow $.$, PyTorch $.$, MXnet $.$...    
 (2) Consider your GPU architecture    
 (3) Match your software versions about GPU, CUDA, cuDNN by cuDNN support matrix.    
 <https://docs.nvidia.com/deeplearning/sdk/cudnn-support-matrix/index.html>    
