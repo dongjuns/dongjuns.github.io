@@ -54,7 +54,7 @@ sudo reboot
 # check about your graphics information by GUI
 nvidia-settings
 ```
-
+---
 
 ### CUDA  
 NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
@@ -189,8 +189,8 @@ If you want to monitor that by real-time
 ```
 watch -n -d 0.5 nvidia-smi
 ```
-
 ---
+
 ### cuDNN
 NVIDIA 웹페이지에서 CUDA version에 맞는 proper cuDNN version을 다운로드합니다.     
 (1) Download the proper cudNN for CUDA, on NVIDIA webpage.    
@@ -253,10 +253,9 @@ lrwxrwxrwx 1 root root        17 Jun 19 12:26 libcudnn.so.7 -> libcudnn.so.7.6.5
 -rwxr-xr-x 1 root root 428711256 Jun 11 11:21 libcudnn.so.7.6.5
 -rw-r--r-- 1 root root 403829728 Jun 11 11:21 libcudnn_static.a
 ```
-
+---
 
 ## Docker
-
 (1) Remove the trash files about Docker.
 ```
 sudo apt-get remove docker docker-engine docker.io docker* containerd runc
@@ -287,6 +286,7 @@ Check out the result about installation docker.
 docker version
 sudo docker run hello-world
 ```
+---
 
 ### Nvidia-docker
 NVIDIA have a github repository to install Nvidia-docker,    
@@ -306,8 +306,8 @@ Remove them by this command.
 ```
 docker system prune -a -f
 ``` 
-
 ---
+
 ## Anaconda
 (1) 아나콘다 홈페이지에 들어가서 대놓고 파일을 다운로드한다.   
 (1-1) Click this -> <https://www.anaconda.com/distribution/>
