@@ -1,5 +1,5 @@
 ---
-title: "Simpledet"
+title: "Simpledet simple guide"
 date: 2020-06-03 10:35:00 +0900
 categories: simpledet object detection
 ---
@@ -11,7 +11,7 @@ For new simpledet researchers with docker,
 # Install SimpleDet
 ## Initial environment versions
 Before the installation SimpleDet, we need to set up environments.    
-Here are my environment versions, just to refer.    
+Here are my environment versions, just to be sure.    
 
 - OS: Linux-x86_64, Ubuntu 18.04   
 - NVIDIA Driver Version: 440.82   
@@ -19,35 +19,67 @@ Here are my environment versions, just to refer.
 - cuDNN 7.6.5   
 
 
-그래픽 드라이버, cuda, cuDNN ?   
+### Installation for graphic settings
+그래픽 드라이버    
+cuda    
+cuDNN    
 ```
 link to install them
 ```
 
-
 If you want to check information related to your GPU, there are some commands.    
 you can trust the number of Driver Version, But don't trust the number of CUDA version with command 'nvidia-smi'.    
 Use these    
-- 'nvidia-settings' for graphic card driver,    
-- 'nvcc -V' for CUDA version check.
+- 'nvidia-settings' for graphic card driver and more graphic information by GUI style    
+- 'nvcc -V' for CUDA version check    
+
+```
+#nvidia-settings
+#nvcc -V
+
+(base) dongjun@dongjun-System-Product-Name:~$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Fri_Feb__8_19:08:17_PST_2019
+Cuda compilation tools, release 10.1, V10.1.105
+```
 
 And use 'watch nvidia-smi' for monitoring GPU status while you are using it.    
 ```
 #nvidia-smi
 #watch nvidia-smi
-
-nvidia-settings
-nvcc -V
+(base) dongjun@dongjun-System-Product-Name:~$ watch nvidia-smi
+Fri Jun 19 09:54:26 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 440.82       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 00000000:01:00.0 Off |                  N/A |
+| 22%   43C    P5    20W / 250W |    932MiB / 12212MiB |      7%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      1294      G   /usr/lib/xorg/Xorg                           395MiB |
+|    0      1560      G   /usr/bin/gnome-shell                         266MiB |
+|    0      2378      G   ...AAAAAAAAAAAAAAgAAAAAAAAA --shared-files   261MiB |
++-----------------------------------------------------------------------------+
 ```
 
-## Installation with docker   
+
+### Installation for Docker   
 I and they, SimpleDet guys, strongly recomment to install SimpleDet with docker.    
-Don't worry about if you are not docker person.    
+Don't worry even if you are not docker person.    
 
-how to install docker 설치, nvidia-docker 설치  
+how to install docker 설치    
+nvidia-docker 설치  
 
 
-
+## Installation SimpleDet with docker   
 ```
 nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh   
 ```
@@ -80,6 +112,7 @@ nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpled
 
 (with GPU setting)
 ```
+
 
 In the docker container,   
 ```
