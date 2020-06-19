@@ -87,6 +87,7 @@ Then you can check that there is no CUDA directory now, on /usr/local/CUDA
 
 (3) Installation the CUDA tool-kit    
 (3-1) Let's move on for CUDA tool-kit dev file.    
+in EULA, you can easily accept it if you press ctrl+c and then.     
 ```
 cd Downloads
 # or elsewhere about CUDA tool-kit dev file
@@ -200,6 +201,44 @@ Maybe it is on your Downloads directory now, /home/your_name/Downloads
 cd Downloads
 
 sudo dpkg -i libcudnn7_7.6.5.32-1+cuda10.1_amd64.deb
+```
+
+(3) Check out the result of cuDNN
+```
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+
+(base) dongjun@dongjun-System-Product-Name:~$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+#define CUDNN_MAJOR 7
+#define CUDNN_MINOR 6
+#define CUDNN_PATCHLEVEL 5
+--
+#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)
+
+#include "driver_types.h"
+```
+
+ERROR: Symbolic link
+```
+cd /usr/local/cuda/lib64
+ls -la libcudnn*
+
+(base) dongjun@dongjun-System-Product-Name:/usr/local/cuda/lib64$ ls -la libcudnn*
+-rwxr-xr-x 1 root root 428711256 Jun 11 11:21 libcudnn.so
+-rwxr-xr-x 1 root root 428711256 Jun 11 11:21 libcudnn.so.7
+-rwxr-xr-x 1 root root 428711256 Jun 11 11:21 libcudnn.so.7.6.5
+-rw-r--r-- 1 root root 403829728 Jun 11 11:21 libcudnn_static.a
+```
+You can see there is no link within libcudnn things,    
+you should make them linked like symbolic.    
+
+```
+(base) dongjun@dongjun-System-Product-Name:/usr/local/cuda/lib64$ sudo ln -sf libcudnn.so.7.6.5 libcudnn.so.7
+(base) dongjun@dongjun-System-Product-Name:/usr/local/cuda/lib64$ sudo ln -sf libcudnn.so.7 libcudnn.so
+(base) dongjun@dongjun-System-Product-Name:/usr/local/cuda/lib64$ ls -al libcudnn*
+lrwxrwxrwx 1 root root        13 Jun 19 12:26 libcudnn.so -> libcudnn.so.7
+lrwxrwxrwx 1 root root        17 Jun 19 12:26 libcudnn.so.7 -> libcudnn.so.7.6.5
+-rwxr-xr-x 1 root root 428711256 Jun 11 11:21 libcudnn.so.7.6.5
+-rw-r--r-- 1 root root 403829728 Jun 11 11:21 libcudnn_static.a
 ```
 
 
