@@ -261,6 +261,7 @@ lrwxrwxrwx 1 root root        17 Jun 19 12:26 libcudnn.so.7 -> libcudnn.so.7.6.5
 ```
 sudo apt-get remove docker docker-engine docker.io docker* containerd runc
 sudo apt-get autoremove
+sudo rm -rf /var/lib/docker
 ```
 
 (2) Follow this,
@@ -299,6 +300,12 @@ sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
 ```
+
+새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker container의 메모리가 반환되지 않을 때가 있다.
+Remove them by this command.
+```
+docker system prune -a -f
+``` 
 
 ---
 ## Anaconda
