@@ -9,6 +9,7 @@ For new simpledet researchers with docker,
 
 
 # Install SimpleDet
+
 ## Initial environment versions
 Before the installation SimpleDet, we need to set up environments.    
 Here are my environment versions, just to be sure.    
@@ -20,14 +21,11 @@ Here are my environment versions, just to be sure.
 
 
 ### Installation for graphic settings
-그래픽 드라이버    
-cuda    
-cuDNN    
-```
-link to install them
-```
+Refer to this link for installation GPU environment such as NVIDIA graphic driver, CUDA and cuDNN.    
+<https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
 
-If you want to check information related to your GPU, there are some commands.    
+
+If you want to check information about your GPU, there are some commands.    
 you can trust the number of Driver Version, But don't trust the number of CUDA version with command 'nvidia-smi'.    
 Use these    
 - 'nvidia-settings' for graphic card driver and more graphic information by GUI style    
