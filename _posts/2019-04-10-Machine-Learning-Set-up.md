@@ -205,10 +205,17 @@ Maybe it is on your Downloads directory now, /home/your_name/Downloads
 cd Downloads
 
 sudo dpkg -i libcudnn7_7.6.5.32-1+cuda10.1_amd64.deb
+
+#sudo dpkg -i libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb
+#sudo dpkg -i libcudnn7-doc_7.6.5.32-1+cuda10.0_amd64.deb
 ```
 
 (3) Check out the result of cuDNN
 ```
+#cd /usr/src/cudnn_samples_v7/mnistCUDNN/
+#sudo make clean && sudo make
+#./mnistCUDNN
+
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 (base) dongjun@dongjun-System-Product-Name:~$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
