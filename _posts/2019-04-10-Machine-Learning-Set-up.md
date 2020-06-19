@@ -4,87 +4,78 @@ date: 2019-04-10 20:59:00 +0900
 categories: Machine Learning
 ---
 
-### GPU   
-(1) GPU 모델 및 정보 확인 + get drivers recommended   
-```
-ubuntu-drivers devices
-```
-(2) GPU installation
-```
-# 이전 그래픽 드라이버를 지워야 한다면,
-#sudo apt --purge autoremove nvidia*
+First of all, you should think of compatiblity about your environment.    
 
-# 설치과정
+
+Check the compatible versions within your environment and programs.    
+(1) TensorFlow $.$ or PyTorch $.$    
+(2) Consider your GPU architecture    
+(3) Match your software versions about GPU, CUDA, cuDNN by cuDNN support matrix.    
+<https://docs.nvidia.com/deeplearning/sdk/cudnn-support-matrix/index.html>    
+
+For installation of NVIDIA GPU environment, order is graphic driver > CUDA > cuDNN.    
+
+## Installation NVIDIA graphic driver    
+(1) Check your GPU hardware information and get drivers recommended    
+```
+# ubuntu-drivers devices
+
+(base) dongjun@dongjun-System-Product-Name:~$ ubuntu-drivers devices
+== /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
+modalias : pci:v000010DEd000017C2sv00003842sd00002990bc03sc00i00
+vendor   : NVIDIA Corporation
+model    : GM200 [GeForce GTX TITAN X]
+driver   : nvidia-driver-390 - distro non-free
+driver   : nvidia-driver-435 - distro non-free
+driver   : nvidia-driver-410 - third-party free
+driver   : nvidia-driver-440 - third-party free recommended
+driver   : nvidia-driver-415 - third-party free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+```
+
+(2) or remove your previous graphic driver (if you need)    
+```
+sudo apt --purge autoremove nvidia*
+```
+
+(3) Installation NVIDIA graphic driver
+```
 sudo add-apt-repository ppa:graphics-drivers/ppa   
 sudo apt update
-sudo apt-get install nvidia-driver-### (recommended number)
+#sudo apt-get install nvidia-driver-$$$ ($$$ is recommended number from ubuntu-drivers devices)
+sudo apt-get install nvidia-driver-440 # in my case, recommended number was 440
 sudo reboot
 
-# 설치확인
+# check about your graphic information by GUI
 nvidia-settings
 ```
 
-### CUDA   
-nvidia 웹페이지에서 GPU의 architecture에 맞는 CUDA tool-kit을 다운로드합니다.     
-<https://developer.nvidia.com/cuda-toolkit-archive>
 
-아마 Downloads 디렉토리에 받아져있을텐데, CUDA를 설치합니다.
+## Installation CUDA    
+NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
+(1) Download the proper CUDA too-kit for your GPU, on NVIDIA webpage.    
+<https://developer.nvidia.com/cuda-toolkit-archive>    
 
-정상적으로 설치가 되었다면, nvidia-smi 명령어로 확인가능합니다.
-```
-(설치전)
-[dojeong@gate analysis]$ nvidia-smi
--bash: nvidia-smi: command not found
-```
+Check your options for downloading CUDA and get that dev file.    
 
+for CUDA 10.1,    
+<https://developer.nvidia.com/cuda-10.1-download-archive-base?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal>
+
+Maybe it is on your Downloads directory now, /home/your_name/Downloads        
+
+(2) or remove your previous CUDA (if you need) 
+You first check your /usr/local directory or around there.    
 ```
-(설치후)
-[dojeong@gate2 analysis]$ nvidia-smi
-Mon Jul 29 15:30:06 2019       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.67       Driver Version: 418.67       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla V100-PCIE...  Off  | 00000000:04:00.0 Off |                    0 |
-| N/A   33C    P0    28W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   1  Tesla V100-PCIE...  Off  | 00000000:08:00.0 Off |                    0 |
-| N/A   32C    P0    24W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   2  Tesla V100-PCIE...  Off  | 00000000:0C:00.0 Off |                    0 |
-| N/A   34C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   3  Tesla V100-PCIE...  Off  | 00000000:0F:00.0 Off |                    0 |
-| N/A   32C    P0    26W / 250W |      0MiB / 16130MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
+cd /usr/local/
+# and maybe there are cuda, cuda-$.$ directories.
+
+(base) dongjun@dongjun-System-Product-Name:~$ cd /usr/local/
+(base) dongjun@dongjun-System-Product-Name:/usr/local$ ls
+bin   etc        include  libexec  sbin   src
+cuda  cuda-10.1  games    lib      man    share  var
 ```
 
-You can check the nvidia graphic driver & CUDA Version.      
-If you want to monitor that on real-time,     
-```
-watch -n -d 0.5 nvidia-smi
-```
-
-And If there is a big zombie job to die,      
-```
-top & kill -9 pid
-```
-
----
-(1) cuda 찌꺼기 삭제   
-```
-cd /usr/local/cuda/ or cudax.x
-```
-
+And remove them if you had it already.    
 ```
 sudo apt-get --purge -y remove 'cuda*'
 sudo apt remove --autoremove nvidia-cuda-toolkit
@@ -92,50 +83,34 @@ sudo apt remove --autoremove nvidia-cuda-toolkit
 sudo apt-get autoremove --purge cuda
 sudo rm /etc/apt/sources.list.d/cuda*
 ```
+Then you can check that there is no CUDA directory now, on /usr/local/CUDA    
 
-(#2) Download the run file at the NVIDIA cuda   
-
-```
-sudo sh filename.run
-
-ctrl+c and accept more more
-```
-
-```
-#reboot and check
-sudo reboot
-...
-nvcc -V
-```
-
-
-### for 10.1
-<https://developer.nvidia.com/cuda-10.1-download-archive-base?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal>
-
-download the dev file,
+(3) Installation the CUDA tool-kit    
+(3-1) Let's move on for CUDA tool-kit dev file.    
 ```
 cd Downloads
+# or elsewhere about CUDA tool-kit dev file
 
-sudo dpkg -i cuda-repo-ubuntu...deb
-sudo apt-key add /var/cuda-.../7fa2af80.pub
+# depackage the CUDA dev file
+sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda
 
-sudo vi ~/.bashrc
+# add some lines into ~/.bashrc file
+sudo gedit ~/.bashrc
+# or sudo vi ~/.bashrc
 
-#add these
+...
 export PATH=/usr/local/cuda-10.1/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 
 source ~/.bashrc
 ```
 
-
-
-(2) set the cuda ppa
+(3-2) Set the cuda ppa
 ```
 sudo apt update
-
 sudo add-apt-repository ppa:graphics-drivers/ppa
 
 sudo apt-key adv --fetch-keys  http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
@@ -145,29 +120,88 @@ sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/
 sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
 ```
 
-(3) cuda 설치
+(3-3) Installation our CUDA    
 ```
 sudo apt update
-
 sudo apt install cuda-10-1
 
 echo 'export PATH=/usr/local/cuda-10.1/bin:$PATH' >> ~/.bashrc
-
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 source ~/.bashrc
 
 ldconfig  
+
+sudo reboot
 ```
 
 
-<https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal>   
+You can check your graphic information also CUDA.       
+```
+# nvcc -V
+
+(base) dongjun@dongjun-System-Product-Name:~$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Fri_Feb__8_19:08:17_PST_2019
+Cuda compilation tools, release 10.1, V10.1.105
+
 ```
 
 ```
+(설치전) (before installation CUDA)
+(base) dongjun@dongjun-System-Product-Name:~$ nvidia-smi
+-bash: nvidia-smi: command not found
+```
+
+```
+(설치후) (after installation CUDA)
+(base) dongjun@dongjun-System-Product-Name:~$ nvidia-smi
+Fri Jun 19 10:58:50 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 440.82       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 00000000:01:00.0 Off |                  N/A |
+| 25%   65C    P0    76W / 250W |    927MiB / 12212MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      1294      G   /usr/lib/xorg/Xorg                           395MiB |
+|    0      1560      G   /usr/bin/gnome-shell                         267MiB |
+|    0      2378      G   ...AAAAAAAAAAAAAAgAAAAAAAAA --shared-files   254MiB |
++-----------------------------------------------------------------------------+
+```
+   
+If you want to monitor that by real-time     
+```
+watch -n -d 0.5 nvidia-smi
+```
 
 
-(4) cuDNN 설치   
+## Installation cuDNN
+NVIDIA 웹페이지에서 CUDA version에 맞는 proper cuDNN version을 다운로드합니다.     
+(1) Download the proper cudNN for CUDA, on NVIDIA webpage.    
+<https://developer.nvidia.com/rdp/cudnn-download>    
+
+Agree the Terms of cuDNN License, then check your options for downloading cuDNN dev file.    
+In my case, it was 'Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.1'    
+and 'cuDNN Runtime Library for Ubuntu18.04 (Deb)'    
+
+Maybe it is on your Downloads directory now, /home/your_name/Downloads        
+
+(2) Depackage the cuDNN library    
+```
+cd Downloads
+
+sudo dpkg -i libcudnn7_7.6.5.32-1+cuda10.1_amd64.deb
+```
+
 
 ### Anaconda
 1. 아나콘다 홈페이지에 들어가서 다운로드한다.   
@@ -194,9 +228,7 @@ $wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
 $sh Anaconda3-5.3.1-Linux-x86_64.sh
 ```
 
-설치 경로는 /home/username/anaconda3 정도가 적당.
-
-
+설치 경로는 /home/your_username/anaconda3 가 적당.
 
 맨마지막에 MS 스폰서 광고 들어있네요...
 ```
