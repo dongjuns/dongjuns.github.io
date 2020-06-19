@@ -13,7 +13,7 @@ For new simpledet researchers with docker,
 Before the installation SimpleDet, we need to set up environments.    
 Here are my environment versions, just to be sure.    
 
-- OS: Linux-x86_64, Ubuntu 18.04   
+- Linux-x86_64, Ubuntu 18.04   
 - NVIDIA Driver Version: 440.82   
 - CUDA 10.1   
 - cuDNN 7.6.5   
