@@ -14,12 +14,10 @@ Check the compatible versions within your environment and programs.
 <https://docs.nvidia.com/deeplearning/sdk/cudnn-support-matrix/index.html>    
 
 For installation of NVIDIA GPU environment,    
-order is graphics driver > CUDA > cuDNN.    
-
+installation order is 1.graphics driver > 2.CUDA > 3.cuDNN.    
 ---
 
 ## For NVIDIA GPU environment
-
 ### NVIDIA graphics driver    
 (1) Check your GPU information and get driver recommended.
 ```
