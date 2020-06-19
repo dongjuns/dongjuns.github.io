@@ -17,8 +17,8 @@ For installation of NVIDIA GPU environment,
 installation order is 1.graphics driver > 2.CUDA > 3.cuDNN.
 
 ---
-## For NVIDIA GPU environment
-### NVIDIA graphics driver    
+# For NVIDIA GPU environment
+## NVIDIA graphics driver    
 (1) Check your GPU information and get driver recommended.
 ```
 # ubuntu-drivers devices
@@ -54,7 +54,7 @@ nvidia-settings
 ```
 ---
 
-### CUDA  
+## CUDA  
 NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
 (1) Download the proper CUDA too-kit on NVIDIA webpage.    
 <https://developer.nvidia.com/cuda-toolkit-archive>    
@@ -189,7 +189,7 @@ watch -n -d 0.5 nvidia-smi
 ```
 ---
 
-### cuDNN
+## cuDNN
 NVIDIA 웹페이지에서 CUDA version에 맞는 proper cuDNN version을 다운로드합니다.     
 (1) Download the proper cudNN for CUDA, on NVIDIA webpage.    
 <https://developer.nvidia.com/rdp/cudnn-download>    
@@ -286,7 +286,7 @@ sudo docker run hello-world
 ```
 ---
 
-### Nvidia-docker
+## Nvidia-docker
 NVIDIA have a github repository to install Nvidia-docker,    
 <https://github.com/NVIDIA/nvidia-docker>
 ```
@@ -442,7 +442,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 ---
 
-### Keras
+## Keras
 Tensorflow를 설치할 때와 똑같다.
 ```
 #Install the tensorflow
