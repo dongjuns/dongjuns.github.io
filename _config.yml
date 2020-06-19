@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Secret Data Lab"
+title                    : "dongjun's data lab"
 title_separator          : "-"
 name                     : "Dongjun Jeong"
 description              : "Statistics, DeepLearning, ComputerVision, Python, C++"
@@ -105,7 +105,7 @@ analytics:
 author:
   name             : "Dongjun Jeong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Physics and DL, CV"
+  bio              : "Particle Physics, Image Processing"
   location         : "Odese SØ, Denmark"
   email            :
   links:
@@ -115,15 +115,12 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/dongjuns"
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      url: https://gitlab.com/dongjuns
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -142,7 +139,7 @@ footer:
       # url:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
-      # url:
+       #url: https://gitlab.com/dongjuns
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
