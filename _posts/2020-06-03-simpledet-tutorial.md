@@ -1,33 +1,36 @@
 ---
 title: "Simpledet simple guide"
 date: 2020-06-03 10:35:00 +0900
-categories: simpledet object detection
+categories: simpledet object_detection
 ---
 
 For new simpledet researchers with docker,   
 <https://github.com/TuSimple/simpledet>   
 
 ---
-# Install SimpleDet
+# How to install SimpleDet?
 ## Initial environment versions
-Before the installation SimpleDet, we need to set up environments.    
-Here are my environment versions, just to be sure.    
-
+Before the installation SimpleDet,    
+we need to set up environments.    
+Here are my environment versions.
 - Linux-x86_64, Ubuntu 18.04   
 - NVIDIA Driver Version: 440.82   
 - CUDA 10.1   
 - cuDNN 7.6.5   
 
+We will install initial environment in order, like as Graphics driver > CUDA > cuDNN > Docker.    
+Then we can use SimpleDet with Docker.    
 
-### Installation for graphic settings
+### Graphic settings installation
 Refer to this link for installation GPU environment such as NVIDIA graphic driver, CUDA and cuDNN.    
 <https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
 
 
-If you want to check information about your GPU, there are some commands.    
+If you want to check information about your GPU,    
+there are some commands.    
 You can trust the number of Driver Version,    
-but don't trust the number of CUDA version with command 'nvidia-smi'.    
-Use these commands,    
+but don't easily trust the number of CUDA version by 'nvidia-smi'.    
+Use these commands just to be sure,
 - 'nvidia-settings' for graphic card driver and more graphic information by GUI style    
 - 'nvcc -V' for CUDA version check    
 
@@ -42,7 +45,7 @@ Built on Fri_Feb__8_19:08:17_PST_2019
 Cuda compilation tools, release 10.1, V10.1.105
 ```
 
-And use 'watch nvidia-smi' for monitoring GPU status while you are using it.    
+- 'watch nvidia-smi' for monitoring GPU status while you are using it.    
 ```
 #nvidia-smi
 #watch nvidia-smi
@@ -68,14 +71,14 @@ Fri Jun 19 09:54:26 2020      
 +-----------------------------------------------------------------------------+
 ```
 
-### Installation for Docker   
-I and they, SimpleDet guys, strongly recomment to install SimpleDet with docker.    
+### Docker installation    
+I and SimpleDet guys strongly recommend you to install SimpleDet with docker.    
 Don't worry even if you are not docker person.    
 Refer to this link,    
 <https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
+---
 
-
-## Installation SimpleDet with docker
+## SimpleDet with docker
 Finally we came to here, we can use SimpleDet docker image!    
 <https://github.com/TuSimple/simpledet/blob/master/doc/INSTALL.md>
 ```
@@ -157,7 +160,12 @@ So when you think too much memory used without reasonable reason, once remove th
 docker system prune -a -f
 ``` 
 
-### Prepare clipart dataset   
+
+# How to get dataset?
+Before doing something by your deep learning model, you first need to prepare dataset.    
+Refer to Simpledet, there is simple and easy guidline to get dataset, but you must meet some problems on there.    
+
+### clipart dataset
 I think COCO dataset is so bigger to practice,    
 so I recommend to use the clipart dataset, firstly.
 ```
@@ -229,7 +237,7 @@ with open("voc_label_map.json", "w") as write_file:
 And then, place it into data/label_map/voc_label_map.json
 
 
-### Prepare our own dataset
+### our own dataset
 ```
 mkidr -p data/cache data/your_dataset
 
