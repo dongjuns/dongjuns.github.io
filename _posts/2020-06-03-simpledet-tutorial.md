@@ -19,7 +19,7 @@ Here are my environment versions.
 - cuDNN 7.6.5   
 
 We will install initial environment in order, like as Graphics driver > CUDA > cuDNN > Docker.    
-Then we can use SimpleDet with Docker.    
+Then we can use SimpleDet by docker image.    
 
 ### Graphic settings installation
 Refer to this link for installation GPU environment such as NVIDIA graphic driver, CUDA and cuDNN.    
@@ -72,32 +72,33 @@ Fri Jun 19 09:54:26 2020      
 ```
 
 ### Docker installation    
-I and SimpleDet guys strongly recommend you to install SimpleDet with docker.    
+I and SimpleDet guys would strongly recommend you to use SimpleDet by docker image.    
 Don't worry even if you are not docker person.    
 Refer to this link,    
 <https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
 ---
 
 ## SimpleDet with docker
-Finally we came to here, we can use SimpleDet docker image!    
+Finally we arrived here,    
+then we can use SimpleDet docker image!    
 <https://github.com/TuSimple/simpledet/blob/master/doc/INSTALL.md>
 ```
 nvidia-docker run -it -v $HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR rogerchen/simpledet:cuda10 zsh   
 ```
 
-
-You can use the docker image by instantly, like this.    
+You can use the docker image instantly, like this.    
 ```
 nvidia-docker run -it rogerchen/simpledet:cuda10 zsh
 ```
 
 But with that option '-v', we can share the files between the docker container and your own workspace.    
-Docker container has volatility, so we can't save our job result after working from docker container, basically. 
-But by that '-v', we can connect between the docker container and your own workspace.
+Docker container has volatility, so we can't save our work result after working from docker container, basically.     
+But with '-v' option, we can connect between the docker container and your own workspace.    
 
-About this line, '$HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR'    
-$HOST-SIMPLEDET-DIR: Docker container에서도 사용하고 싶은 디렉토리, 안입력하면 default docker container 이용.    
-$CONTAINER-WORKDIR: Docker container에 경로를 지정해서 HOST-SIMPLEDET-DIR의 파일들을 사용할 수 있음.    
+And look at this line,    
+'$HOST-SIMPLEDET-DIR:$CONTAINER-WORKDIR'    
+- $HOST-SIMPLEDET-DIR: Docker container에서도 사용하고 싶은 디렉토리, 안입력하면 default docker container 이용.    
+- $CONTAINER-WORKDIR: Docker container에 경로를 지정해서 HOST-SIMPLEDET-DIR의 파일들을 사용할 수 있음.    
 
 ```
 (base) dongjun@dongjun-System-Product-Name:~/djplace$ ls
@@ -114,7 +115,7 @@ Makefile      core       detection_train.py        models        rpn_test.py   u
 #nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
 ```
 
-After connecting in the docker container,
+After connected to the docker container,
 ```
 # install pycocotools
 pip install 'git+https://github.com/RogerChern/cocoapi.git#subdirectory=PythonAPI'
@@ -130,7 +131,7 @@ cd simpledet
 make
 ```
 
-And you can also check the versions in the docker container.
+You can also check the versions in the docker container.
 ```
 # OS version
 lsb_release -a
@@ -153,9 +154,11 @@ python detection_infer_speed.py --config config/faster_r50v1_fpn_1x.py --shape 8
 ```
 
 새로운 컨테이너를 불러오고, 계속 재설치를 하다보면 docker directory의 메모리가 반환되지 않을 때가 있다.   
-심하다 싶으면 체크해준다.
+심하다 싶으면 체크해준다.    
+
 Sometimes, if there is a stuck, docker can't return the memory for you.    
-So when you think too much memory used without reasonable reason, once remove the docker volumes.
+So when you think of too much memory used without reasonable reason,    
+once remove the docker volumes.
 ```
 docker system prune -a -f
 ``` 
