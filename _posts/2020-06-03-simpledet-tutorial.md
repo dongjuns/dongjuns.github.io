@@ -71,11 +71,12 @@ Fri Jun 19 09:54:26 2020      
 +-----------------------------------------------------------------------------+
 ```
 
-### Docker installation    
+### Docker installation
 I and SimpleDet guys would strongly recommend you to use SimpleDet by docker image.    
 Don't worry even if you are not docker person.    
 Refer to this link,    
 <https://dongjuns.github.io/machine/learning/Machine-Learning-Set-up/>
+
 ---
 
 ## SimpleDet with docker
