@@ -48,3 +48,5 @@ or 간단한 이미지나 글씨를 읽고 Network를 구성해주는 프로그�
 image의 layer와 label을 dataset으로 만듦.    
 ex) Conv2D 그림 or 글씨(OCR) -> Conv2D    
     Pooling 그림 or 글씨(OCR) -> Pooling    
+    
+### Training 은 performance가 좋은 모델로 하고, test에서는 inference가 빠른 모델을 사용할 수 있을까?    
