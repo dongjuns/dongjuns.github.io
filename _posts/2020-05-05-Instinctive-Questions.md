@@ -40,6 +40,11 @@ R3줄 G3줄 B3줄
 ### Drop Out할 때, Random Drop Out하면 각각의 경우에 성능이 달라질까 + 특정 Node의 성능이 좋다는 것을 알아낼 수 있을까   
 ### Domain randomization을 이용한 GAN 
 ### Test셋이 모수라면, test셋에 overfitting시키면 되지 않을까?   
-하지만, test셋이 모수가 아닐 경우에는 성능이 
+하지만, test셋이 모수가 아닐 경우에는 성능이...    
 ### 램 꽂을때 2번 4번에 먼저 꼽는 이유   
 2번 슬롯으로 들어가서 1번 슬롯으로 나가는 구조이기 때문에.   
+### 논문을 보고 Network architecture를 github에 추가해주는 프로그램    
+or 간단한 이미지나 글씨를 읽고 Network를 구성해주는 프로그램.    
+image의 layer와 label을 dataset으로 만듦.    
+ex) Conv2D 그림 or 글씨(OCR) -> Conv2D    
+    Pooling 그림 or 글씨(OCR) -> Pooling    
