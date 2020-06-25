@@ -56,3 +56,26 @@ for a_num in range(a_length):
         new_layer = a_list[a_num] * layers[l_num]
         new_layers.append(new_layer)
 ```
+
+### modify the value of parameters for proper iteration
+(1) batch size
+```
+...
+class General:
+    log_frequency = 10
+    name = __name__.rsplit("/")[-1].rsplit(".")[-1]
+    #batch_image = 8 if is_train else 1
+    batch_image = 2 if is_train else 1
+    fp16 = True
+    loader_worker = 8
+```
+
+(2) mult
+```
+...
+class schedule:
+    #mult = 6
+    mult = 1
+    begin_epoch = 0
+    end_epoch = 6 * mult
+```
