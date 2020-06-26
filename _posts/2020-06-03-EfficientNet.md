@@ -79,3 +79,10 @@ class schedule:
     begin_epoch = 0
     end_epoch = 6 * mult
 ```
+
+Learning from scratch,
+- batch size:    
+- optimizer: lr=, momentum=,    
+- epochs:    
+
+
