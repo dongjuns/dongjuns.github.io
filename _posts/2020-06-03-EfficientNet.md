@@ -86,3 +86,6 @@ Learning from scratch,
 - epochs:    
 
 
+Backbone: EfficientNetBX(sharable parameters)    
+Neck: BiFPN    
+Head: N-class classification subnet + Bounding box regression subnet    
