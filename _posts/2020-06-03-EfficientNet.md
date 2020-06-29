@@ -80,12 +80,17 @@ class schedule:
     end_epoch = 6 * mult
 ```
 
-Learning from scratch,
-- batch size:    
-- optimizer: lr=, momentum=,    
+Table for training from scratch
+- batch size: 2 or 4 or 6 or 8,    
+- optimizer: lr= , increasing rate: lr / iteration,        
 - epochs:    
+- top_N: 1000,    
+- NMS: 0.5 or 0.6    
 
 
 Backbone: EfficientNetBX(sharable parameters)    
 Neck: BiFPN    
 Head: N-class classification subnet + Bounding box regression subnet    
+
+
+BiFPN: for different weight, can use fast normalization fusion.    
