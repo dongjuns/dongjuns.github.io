@@ -70,7 +70,7 @@ class General:
     loader_worker = 8
 ```
 
-(2) mult
+(2) epochs
 ```
 ...
 class schedule:
@@ -84,10 +84,12 @@ Table for training from scratch
 - batch size: 2 or 4 or 6 or 8,    
 - optimizer: lr= , increasing rate: lr / iteration,        
 - epochs:    
-- top_N: 1000,    
+- top_N: 1000, 2000, ...,    
 - NMS: 0.5 or 0.6    
 
 
+# EfficientDet
+for object detection,    
 Backbone: EfficientNetBX(sharable parameters)    
 Neck: BiFPN    
 Head: N-class classification subnet + Bounding box regression subnet    
