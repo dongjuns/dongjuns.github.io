@@ -96,3 +96,10 @@ Head: N-class classification subnet + Bounding box regression subnet
 
 
 BiFPN: for different weight, can use fast normalization fusion.    
+
+먼저, NAS-FPN을 이용해서 결과를 측정하고, Bi-FPN도 같이 수정해나간다.    
+
+EfficientDet에 EfficientNet이 FPN과 연결되는 형태는,    
+EfficientNet의 Stage와 관련이 있으며 특정 Stage에 Input resolution이 달라지는 것을 이용해서    
+Feature map을 사용하면 피라미드 모양의 Feature Pyramid Networks를 구성할 수 있다.
+
