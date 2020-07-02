@@ -100,6 +100,26 @@ BiFPN: for different weight, can use fast normalization fusion.
 먼저, NAS-FPN을 이용해서 결과를 측정하고, Bi-FPN도 같이 수정해나간다.    
 
 EfficientDet에 EfficientNet이 FPN과 연결되는 형태는,    
-EfficientNet의 Stage와 관련이 있으며 특정 Stage에 Input resolution이 달라지는 것을 이용해서    
-Feature map을 사용하면 피라미드 모양의 Feature Pyramid Networks를 구성할 수 있다.
+EfficientNet의 Stage와 관련이 있으며 특정 Stage에서 Input resolution, output resolution이 달라지는 것을 이용해서,    
+다양한 resolution의 feature map을 사용하면 피라미드 모양의 Feature Pyramid Networks를 구성할 수 있다.
+           input     output
+Stage1에서 224X224 -> 112X112,    P1,output size is 1/2 of input resolution    
+Stage2에서 112X112 -> 112X112,    
+Stage3에서 112X112 -> 56X56,    P2,output size is 1/4 of input resolution    
+Stage4에서 56X56 -> 28X28,    
+Stage5에서 28X28 -> 28X28,    P3,output size is 1/8 of input resolution    
+Stage6에서 28X28 -> 14X14,    P4,output size is 1/16 of input resolution    
+Stage7에서 14X14 -> 7X7,    P5,output size is 1/32 of input resolution    
+Stage8에서 7X7 -> 7X7,    
+Stage9에서 7X7 -> 3X3    
 
+
+P6,output size is 1/64 of input resolution    
+P7,output size is 1/128 of input resolution    
+
+P6과 P7은 P5를 이용하여 얻어낸다.    
+
+P6,output size is 1/2 of P5 resolution (2X2 kernel로 stride 2)    
+P7,output size is 1/4 of P5 resolution (4X4 kernel로 stride 4)
+
+GPU 메모리의 제한(12GB)으로, EfficientNetB4까지만 트레이닝 가능.    
