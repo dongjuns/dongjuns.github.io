@@ -1,9 +1,10 @@
 ---
 title: "EfficientNet"
 date: 2020-06-24 11:37:00 +0900
-categories: simpledet EfficientNet
+categories: simpledet EfficientDet
 ---
 
+# EfficientNet
 
 ### For parameter calculation
 
@@ -123,3 +124,10 @@ P6 feature maps, output size is 1/2 of P5 resolution (2X2 kernel로 stride 2)
 P7 feature maps, output size is 1/4 of P5 resolution (4X4 kernel로 stride 4)    
 
 GPU 메모리의 제한(12GB)으로, EfficientNetB4까지만 트레이닝 가능.    
+
+# To do list    
+- Imagenet 1K for using pre-trained weight    
+- COCO 2014 30class for using pre-trained weight    
+- Dropout    
+- Fast Normalization Fusion in BiFPN    
+- From D0 ~ D7, compare the results of them    
