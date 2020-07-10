@@ -112,6 +112,7 @@ LICENSE       README.md  detection_infer_speed.py  doc           operator_cxx  s
 MODEL_ZOO.md  config     detection_test.py         mask_test.py  operator_py   symbol
 Makefile      core       detection_train.py        models        rpn_test.py   unittest
 
+#docker run -gpus --all -it -v "$(pwd)" rogerchen/simpledet:cuda10 zsh
 #nvidia-docker run -it -v "$(pwd)" rogerchen/simpledet:cuda10 zsh
 #nvidia-docker run -it -v "$(pwd)"/simpledet:"$(pwd)"/simpledet rogerchen/simpledet:cuda10 zsh
 ```
