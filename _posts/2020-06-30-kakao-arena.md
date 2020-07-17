@@ -22,4 +22,6 @@ Follow the directions in README.md, there are detailed descriptions.
 tag counter result_tags -> json file로 내보내서 다시 안만들어도 되도록 하기.    
 song counter도 만들어서 테스트하기.    
 khaiii 사용해서 플레이리스트 제목 분해하고, id - 플레이리스트 형태소 데이터셋 전처리한 다음에 워드 임베딩.
-이것 이용해서 플레이리스트 유사도 계산해서 높은 것 
+이것 이용해서 플레이리스트 유사도 계산해서 높은 것    
+
+pandas .to_json 할 때, orient="records" 
