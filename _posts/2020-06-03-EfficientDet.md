@@ -131,3 +131,4 @@ GPU 메모리의 제한(12GB)으로, EfficientNetB4까지만 트레이닝 가능
 - Dropout    
 - Fast Normalization Fusion in BiFPN    
 - From D0 ~ D7, compare the results of them    
+- Transfer learning or Fine-tuning from COCO dataset to WRS dataset    
