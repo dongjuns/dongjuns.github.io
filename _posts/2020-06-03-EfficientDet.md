@@ -132,3 +132,10 @@ GPU 메모리의 제한(12GB)으로, EfficientNetB4까지만 트레이닝 가능
 - Fast Normalization Fusion in BiFPN    
 - From D0 ~ D7, compare the results of them    
 - Transfer learning or Fine-tuning from COCO dataset to WRS dataset    
+
+
+# Fine-tune
+bbox_conv1234_weight, bbox_conv1234_bias, bbox_pred_weight, bbox_pred_bias    
+cls_conv1234_weight, cls_conv1234_bias, cls_pred_weight, cls_pred_bias    
+python으로 mxnet 임포트해서, pre-trained params 불러와서 classifier, regressor 부분 지워주고,    
+nd.save 로 저장한다음에 
