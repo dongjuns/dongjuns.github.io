@@ -171,8 +171,8 @@ Before doing something by your deep learning model, you first need to prepare da
 Refer to Simpledet, there is simple and easy guidline to get dataset, but you must meet some problems on there.    
 
 ### clipart dataset
-I think COCO dataset is so bigger to practice,    
-so I recommend to use the clipart dataset, firstly.
+I think COCO dataset is too much bigger to practice for beginner,    
+so I recommend to use the clipart dataset at the first.
 ```
 # enter simpledet main directory
 cd simpledet
@@ -205,8 +205,8 @@ File "utils/create_voc_roidb.py", line 19, in parse_args
 with open(args.label_map) as f:
 FileNotFoundError: [Errno 2] No such file or directory: 'data/label_map/voc_label_map.json'
 ```
-So you have to generate voc_label_map.json,    
-use this script in data/src/clipart
+You have to generate 'voc_label_map.json' file,    
+So use this script in your path of 'data/src/clipart'
 ```
 import os
 import json
@@ -545,6 +545,23 @@ coco eval uses: 0.7
 ```
 
 'coco eval uses' shows that the number of time cost for evaluation.
+
+
+
+
+### Fine-tuning guide for real
+I think almost all your object detection model would be good, starting with pretrained weight.    
+you have to make it yourself using COCO or ImageNet dataset like <https://github.com/TuSimple/simpledet/blob/master/doc/FINETUNE.md>        
+As removing some layers of pretrained file, you can easily train your model for your dataset.
+Even you can only select the specific parameters which you want to use.
+
+
+But if you are person like me, you can notice that you are not using ResNet or supported pretrain models from SimpleDet...!
+When you could not get a pretrained weight / pretrained param file from SimpleDet, (like EfficientNet for now),     
+We have to train it from scratch but that would get too bad performance.    
+So I recommend that make your object detection first, and train it with imageNet or COCO dataset.
+then you can get a params file, and use it.    
+You need to concentrate on Bbox regressor weight&bias and Label classifier weight&bias.    
 
 ---
 
