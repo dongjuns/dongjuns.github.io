@@ -139,3 +139,5 @@ bbox_conv1234_weight, bbox_conv1234_bias, bbox_pred_weight, bbox_pred_bias
 cls_conv1234_weight, cls_conv1234_bias, cls_pred_weight, cls_pred_bias    
 python으로 mxnet 임포트해서, pre-trained params 불러와서 classifier, regressor 부분 지워주고,    
 nd.save 로 저장한다음에 pretrain_model로 보내서 detection_train.py
+
+KFold then Ensemble
