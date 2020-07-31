@@ -141,3 +141,5 @@ python으로 mxnet 임포트해서, pre-trained params 불러와서 classifier, 
 nd.save 로 저장한다음에 pretrain_model로 보내서 detection_train.py
 
 KFold then Ensemble
+PyTorch multiple GPU
+WBF
