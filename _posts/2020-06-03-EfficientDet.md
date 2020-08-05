@@ -142,4 +142,5 @@ nd.save 로 저장한다음에 pretrain_model로 보내서 detection_train.py
 
 KFold then Ensemble
 PyTorch multiple GPU
-WBF
+WBF    
+Data Augmentation, CutMix, MixUp, Insect augmentation
