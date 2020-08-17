@@ -28,7 +28,7 @@ If they can connect each other, it would be working.
 ## Input   
 ### Input resolution, input image size에 따라 성능이 달라질까    
 Input image size가 큰 high resolution input
-### Input size의 가로X세로 크기를 다르게 하면 어떻게 될까   
+### Input image의 Width X Height 크기를 다르게 하면 어떻게 될까   
 ### Input의 화질, Low quality image vs High quality image   
 ### 같은 이미지를 여러 개의 resolution으로 렌더링하면 영향이 있을까   
 ### Gray scale을 하고, 색반전해서 W/B -> B/W 로 하면 데이터갯수를 2배로 만들 수 있나?   
@@ -48,8 +48,10 @@ R3줄 G3줄 B3줄
 ### Neural Network의 whole equation을 구하고, 수식을 변환해서 간단하게 만들 수 없을까   
 ### learning rate 1 ~ 0.0000...1 까지 값을 넣고,같은 gradient 값을 내는 경우는 버림, 같은 기울기 값이므로 해가 아닐 확률이 높음?   
 ### learning rate의 값이 0.00... 인데, scale up 숫자를 사용하면 미분에 이득이 있을까      
-### Drop Out할 때, Random Drop Out하면 각각의 경우에 성능이 달라질까 + 특정 Node의 성능이 좋다는 것을 알아낼 수 있을까   
-### Domain randomization을 이용한 GAN 
+### Drop Out할 때, Random Drop Out하면 각각의 경우에 성능이 달라질까 + 특정 Node의 성능이 좋다는 것을 알아낼 수 있을까
+Network에서 더 좋은 성능을 내는 Neuron or Node 있을까?
+
+### Domain randomization을 이용한 GAN    
 ### Test셋이 모수라면, test셋에 overfitting시키면 되지 않을까?   
 하지만, test셋이 모수가 아닐 경우에는 성능이...    
 
@@ -60,12 +62,12 @@ R3줄 G3줄 B3줄
 dual-channel mode에서 2&4 vs 1&3의 경우, performance 차이는 거의~아예 없다.    
 
 ### 논문을 보고 Network architecture를 github에 추가해주는 프로그램    
-or 간단한 이미지나 글씨를 읽고 Network를 구성해주는 프로그램.    
+paper의 figure를 읽고, Network를 구성해주는 tool?    
 image의 layer와 label을 dataset으로 만듦.    
 ex) Conv2D 그림 or 글씨(OCR) -> Conv2D    
     Pooling 그림 or 글씨(OCR) -> Pooling    
     
-### Training 은 performance가 좋은 모델로 하고, test에서는 inference가 빠른 모델을 사용할 수 있을까?    
+### Training은 performance가 좋고, test에서는 inference가 빠른 모델은 어떻게 만들까?    
 ### Proper training for proper Anchor Box
 ### multiple optimizer
 ### multiple augmentations
