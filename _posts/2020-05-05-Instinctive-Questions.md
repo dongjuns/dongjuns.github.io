@@ -43,7 +43,6 @@ R3줄 G3줄 B3줄
 ### Could we know that how much dataset we need to train our model? 학습에 필요한 데이터셋의 크기를 어떻게 계산할까?   
 
 
-
 ## Untitled   
 ### 좋은 궁합의 recipe가 있을까 ex)Relu + Adam or Relu + AdamW   
 ### Neural Network의 whole equation을 구하고, 수식을 변환해서 간단하게 만들 수 없을까   
@@ -53,10 +52,12 @@ R3줄 G3줄 B3줄
 ### Domain randomization을 이용한 GAN 
 ### Test셋이 모수라면, test셋에 overfitting시키면 되지 않을까?   
 하지만, test셋이 모수가 아닐 경우에는 성능이...    
+
 ### 램 꽂을때 2번&4번에 먼저 꼽는 이유
 특정 cpu들의 경우, cpu가 second slot의 ram -> first slot의 ram 을 single-channel mode로 사용한다.
 그렇기 때문에 2번 슬롯을 먼저 채우고, dual-channel mode를 사용하고자 할 때는 2번&4번 슬롯에 ram을 장착함으로써,
 2->1, 4->3 dual-channel mode로 ram을 사용할 수 있게 된다.    
+dual-channel mode에서 2&4 vs 1&3의 경우, performance 차이는 거의~아예 없다.    
 
 ### 논문을 보고 Network architecture를 github에 추가해주는 프로그램    
 or 간단한 이미지나 글씨를 읽고 Network를 구성해주는 프로그램.    
