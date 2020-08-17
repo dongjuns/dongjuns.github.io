@@ -5,7 +5,9 @@ categories: Computer DL
 ---
 
 ## Batch Size   
-### 배치 사이즈는 왜 짝수로 사용할까   
+### 배치 사이즈는 꼭 짝수로 사용해야할까
+from 1 to total dataset size 범위에서 가장 좋은 variance&generalization을 얻을 수 있는 batch size를 사용하면 되므로, 꼭 짝수가 아니어도 괜찮다.    
+GPU의 memory size를 고려하고, parallelization&computation cost를 효율적으로 사용할 수 있는 batch size를 선택하는 것도 중요하다.    
 
 
 ## GPU   
