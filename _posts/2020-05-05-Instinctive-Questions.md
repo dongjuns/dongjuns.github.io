@@ -5,21 +5,31 @@ categories: Computer DL
 ---
 
 ## Batch Size   
-### 배치 사이즈는 꼭 짝수로 사용해야할까
+### Is batch-size must be even number? 배치 사이즈는 꼭 짝수여야할까?
 from 1 to total dataset size 범위에서 가장 좋은 variance&generalization을 얻을 수 있는 batch size를 사용하면 되므로, 꼭 짝수가 아니어도 괜찮다.    
 GPU의 memory size를 고려하고, parallelization&computation cost를 효율적으로 사용할 수 있는 batch size를 선택하는 것도 중요하다.    
 
-
 ## GPU   
+### AMD vs nVIDIA?
+because of easily installation of the graphics driver and using CUDA + cuDNN, nVIDIA is better for now.    
+
 ### 1 Good GPU vs Multiple Bad GPUs   
-### Nvidia + Radeon 혼합하여 사용가능할까   
-### 하나의 서버에 여러개의 GPU, 여러 유저가 있을 때, GPU를 놀리지 않고 유동적으로 사용할 수 있는방법은?     
+The performance of multiple bad gpus is worst than 1 good gpu.    
+For using multiple gpus, you need to prepare much more space on your motherboard and bridge for connecting them, like as SLI, CrossFire.    
+That bridge would decrease the performance while interconnecting multiple gpus and also would cause some system stability issues.    
+
+### nVIDIA + Radeon 혼합하여 사용가능할까
+SLI only work for 2 nVIDIA gpus, and CrossFire only work for 2 AMD gpus now.    
+If they can connect each other, it would be working.    
+
+### 1 Server with multiple GPUs, 여러 유저들이 GPU를 쉴틈없이 효율적으로 사용할 수 있는방법은?     
 
 
 ## Input   
-### Input image size에 따라 성능이 달라질까   
+### Input resolution, input image size에 따라 성능이 달라질까    
+Input image size가 큰 high resolution input
 ### Input size의 가로X세로 크기를 다르게 하면 어떻게 될까   
-### 저화질 원본 이미지 vs Super Resolution 이미지   
+### Input의 화질, Low quality image vs High quality image   
 ### 같은 이미지를 여러 개의 resolution으로 렌더링하면 영향이 있을까   
 ### Gray scale을 하고, 색반전해서 W/B -> B/W 로 하면 데이터갯수를 2배로 만들 수 있나?   
 ### CNN에서, channel을 압축하여 2D로 사용하면 어떨까?   
@@ -30,7 +40,7 @@ R3줄 G3줄 B3줄
 
 
 ## Dataset   
-### 학습에 필요한 데이터셋의 크기를 어떻게 알아낼까   
+### Could we know that how much dataset we need to train our model? 학습에 필요한 데이터셋의 크기를 어떻게 계산할까?   
 
 
 
@@ -43,8 +53,11 @@ R3줄 G3줄 B3줄
 ### Domain randomization을 이용한 GAN 
 ### Test셋이 모수라면, test셋에 overfitting시키면 되지 않을까?   
 하지만, test셋이 모수가 아닐 경우에는 성능이...    
-### 램 꽂을때 2번 4번에 먼저 꼽는 이유   
-2번 슬롯으로 들어가서 1번 슬롯으로 나가는 구조이기 때문에.   
+### 램 꽂을때 2번&4번에 먼저 꼽는 이유
+특정 cpu들의 경우, cpu가 second slot의 ram -> first slot의 ram 을 single-channel mode로 사용한다.
+그렇기 때문에 2번 슬롯을 먼저 채우고, dual-channel mode를 사용하고자 할 때는 2번&4번 슬롯에 ram을 장착함으로써,
+2->1, 4->3 dual-channel mode로 ram을 사용할 수 있게 된다.    
+
 ### 논문을 보고 Network architecture를 github에 추가해주는 프로그램    
 or 간단한 이미지나 글씨를 읽고 Network를 구성해주는 프로그램.    
 image의 layer와 label을 dataset으로 만듦.    
@@ -54,3 +67,4 @@ ex) Conv2D 그림 or 글씨(OCR) -> Conv2D
 ### Training 은 performance가 좋은 모델로 하고, test에서는 inference가 빠른 모델을 사용할 수 있을까?    
 ### Proper training for proper Anchor Box
 ### multiple optimizer
+### multiple augmentations
