@@ -53,3 +53,4 @@ ex) Conv2D 그림 or 글씨(OCR) -> Conv2D
     
 ### Training 은 performance가 좋은 모델로 하고, test에서는 inference가 빠른 모델을 사용할 수 있을까?    
 ### Proper training for proper Anchor Box
+### multiple optimizer
