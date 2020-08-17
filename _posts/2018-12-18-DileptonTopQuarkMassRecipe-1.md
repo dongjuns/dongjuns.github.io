@@ -25,12 +25,13 @@ getFiles
 ```
 
 *if you have a problem at,
-*"git clone git@github.com:CPLUOS/nano.git",
+"git clone git@github.com:CPLUOS/nano.git"    
 
-use
+Do this.
 ```
-#instead of 
+#instead of
 git clone git@github.com:CPLUOS/nano.git
+
 #use        
 git clone https://github.com/CPLUOS/nano.git
 ```
