@@ -25,6 +25,8 @@ VS Auto Encoder: Input -> Encode -> Input
 
 10.Color Blind Net: Make Deuteranomaly, Protanopia, Tritanopia style augmentation and Test with normal vision
 
-11.TripleNet:
+11.TripleNet
 
 12.Tapetum Net: like cat, use the reflection thing.
+
+13.Train 1 network for 1 class, and ensemble that with detection threshold VS 1 network for multiple classes
