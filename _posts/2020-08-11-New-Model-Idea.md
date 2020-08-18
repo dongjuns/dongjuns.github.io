@@ -30,3 +30,6 @@ VS Auto Encoder: Input -> Encode -> Input
 12.Tapetum Net: like cat, use the reflection thing.
 
 13.Train 1 network for 1 class, and ensemble that with detection threshold VS 1 network for multiple classes
+
+14.Multi-layer Auto Encoder: AE but there are much more layers, from input to latent space and from output to latent space.
+AE: input-(Encode+Decode)-output, MAE: input-encode layer1-encode layer2-embed-decode layer2-decode layer1-output    
