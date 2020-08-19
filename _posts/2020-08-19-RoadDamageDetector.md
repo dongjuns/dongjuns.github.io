@@ -4,11 +4,11 @@ date: 2020-08-19 10:42:00 +0900
 categories: detection
 ---
 
-IEEE BingData 2020, Global Road Damage Detection Challenge 2020
+IEEE BingData 2020, Global Road Damage Detection Challenge 2020    
 <https://rdd2020.sekilab.global/data/>
 
 ## 0. Overview
-Detecting the road damage.    
+Detecting the road damages    
 
 ## 1. Dataset
 <https://github.com/sekilab/RoadDamageDetector>
@@ -64,4 +64,4 @@ then you could get a data structure like this.
 
 ```
 
-There are 3 countries and four categories about damage on the global roads.
+There are 3 countries Czech, India and Japan, also four categories D00, D10, D20 and D40 about damage on the global roads.
