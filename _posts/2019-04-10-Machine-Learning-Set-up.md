@@ -200,7 +200,7 @@ and 'cuDNN Runtime Library for Ubuntu18.04 (Deb)'
 
 Maybe it is on your Downloads directory now, /home/your_name/Downloads        
 
-(2) Depackage the cuDNN library    
+(2-a) Depackage the cuDNN library    
 ```
 cd Downloads
 
@@ -208,6 +208,14 @@ sudo dpkg -i libcudnn7_7.6.5.32-1+cuda10.1_amd64.deb
 
 #sudo dpkg -i libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb
 #sudo dpkg -i libcudnn7-doc_7.6.5.32-1+cuda10.0_amd64.deb
+```
+
+(2-b) Unzip the cuDNN tar file    
+```
+cd Downloads
+tar xzvf cudnn-10.1-linux-x64-v7.6.5.32.tgz
+cd cuda/include
+mv cudnn.h /usr/local/cuda/include/
 ```
 
 (3) Check out the result of cuDNN
