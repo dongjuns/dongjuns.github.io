@@ -1,7 +1,7 @@
 ---
 title: "Simpledet simple guide"
 date: 2020-06-03 10:35:00 +0900
-categories: simpledet object_detection
+categories: simpledet detection
 ---
 
 For new simpledet researchers with docker,   
@@ -239,8 +239,12 @@ print(tempDictionary)
 with open("voc_label_map.json", "w") as write_file:
     json.dump(tempDictionary, write_file)
 ```
-And then, place it into data/label_map/voc_label_map.json
-
+And then, place it into data/label_map/voc_label_map.json    
+or just copy and paste this.
+```
+# voc_label_map.json
+{"car": 1, "person": 2, "bicycle": 3, "boat": 4, "sheep": 5, "aeroplane": 6, "tvmonitor": 7, "chair": 8, "bottle": 9, "pottedplant": 10, "diningtable": 11, "train": 12, "dog": 13, "sofa": 14, "bus": 15, "bird": 16, "horse": 17, "motorbike": 18, "cat": 19, "cow": 20}
+```
 
 ### our own dataset
 ```
