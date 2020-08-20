@@ -65,3 +65,8 @@ then you could get a data structure like this.
 ```
 
 There are 3 countries Czech, India and Japan, also four categories D00, D10, D20 and D40 about damage on the global roads.
+Transform to the proper format for training in object detection.    
+1. to COCO format (for SimpleDet and MMDetection, TBD)    
+2. to JSON format (customizing myself)    
+
+Take option 2 for now, and then make it to COCO format.    
