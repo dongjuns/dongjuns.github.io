@@ -69,6 +69,7 @@ Transform to the proper format for training in object detection.
 1. to COCO format (for SimpleDet and MMDetection, TBD)    
 2. to JSON format (customizing myself)    
 
+
 Take option 2 for now, and then make it to COCO format.    
 dataset split... maybe K-fold then ensemble.    
 1. Faster R-CNN    
@@ -79,3 +80,9 @@ dataset split... maybe K-fold then ensemble.
 Mix-up, cut-mix, cut-mix & mix-up, mosaic    
 WBF, Pseudo Labeling    
 Multi-Scale Testing    
+
+
+For formatiing,    
+There are 8 classes, but I need just four classes.    
+1. Delete the dataset if it has useless label.    
+2. Delete just that label with bbox in that dataset.    
