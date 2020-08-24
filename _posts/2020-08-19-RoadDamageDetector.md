@@ -77,6 +77,7 @@ dataset split... maybe K-fold then ensemble.
 3. YOLO v4    
 4. YOLO v5    
 5. DetectoRS    
+
 Mix-up, cut-mix, cut-mix & mix-up, mosaic    
 WBF, Pseudo Labeling    
 Multi-Scale Testing    
