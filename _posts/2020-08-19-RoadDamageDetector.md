@@ -84,7 +84,7 @@ Multi-Scale Testing
 
 
 For dataset formatiing,    
-There are 8 classes, but we need just four classes.    
+There are 10 classes, but we need just four classes.    
 ```
 #label_map = {"D00": 1, "D01":2, "D10": 3, "D11": 4, "D20": 5, "D40": 6, "D43": 7, "D44": 8, "D50": 9, "D0w0": 10}
 label_map = {"D00": 1, "D10": 2, "D20": 3, "D40": 4} # what we need
