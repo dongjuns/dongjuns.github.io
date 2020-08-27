@@ -4,24 +4,24 @@ date: 2019-07-23 14:35 +0900
 categories: Object_detection
 ---
 
-#1.Prepare or download the dataset    
+# 1.Prepare or download the dataset    
 Format style, Amount of dataset and labels, Labeling quality, Bbox quality    
 
-#2.Choose the framework
+# 2.Choose the framework
 (1)PyTorch, TensorFlow with keras, mxnet    
 (1-1)MMDetection, Detectron, SimpleDet    
 
-#3.Augmentation
+# 3.Augmentation
 DataGenerator, Albumentation, Cut-mix, Mix-up, Mosaic, Insect...    
 
-#4.Train the models
+# 4.Train the models
 Faster R-CNN, EfficientDet, Yolo, Recent SOTA model    
 
-(#5.Pseudo Labeling)
+# (5.Pseudo Labeling)
 
-#6.Ensemble
+# 6.Ensemble
 
-#7.TTA
+# 7.TTA
 
 
 ```
