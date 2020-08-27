@@ -33,3 +33,5 @@ VS Auto Encoder: Input -> Encode -> Input
 
 14.Multi-layer Auto Encoder: AE but there are much more layers, from input to latent space and from output to latent space.
 AE: input-(Encode+Decode)-output, MAE: input-encode layer1-encode layer2-embed-decode layer2-decode layer1-output    
+
+15.Sustainable Model: similar with online learning but also similar with self-supervised learning.    
