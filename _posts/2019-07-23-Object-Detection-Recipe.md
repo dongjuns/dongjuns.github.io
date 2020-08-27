@@ -1,5 +1,5 @@
 ---
-title: "Mom's object detection home-cook recipe"
+title: "Object detection recipe"
 date: 2019-07-23 14:35 +0900
 categories: Object_detection
 ---
