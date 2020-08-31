@@ -39,3 +39,7 @@ AE: input-(Encode+Decode)-output, MAE: input-encode layer1-encode layer2-embed-d
 16.Domain randomization for limited situation    
 
 17.Dataset augmentation with calculating loss    
+
+18.Classification then detection.    
+One model but two model combined.    
+Image classification -> detection if it exists, or not.    
