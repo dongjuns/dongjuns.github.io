@@ -35,3 +35,7 @@ VS Auto Encoder: Input -> Encode -> Input
 AE: input-(Encode+Decode)-output, MAE: input-encode layer1-encode layer2-embed-decode layer2-decode layer1-output    
 
 15.Sustainable Model: similar with online learning but also similar with self-supervised learning.    
+
+16.Domain randomization for limited situation    
+
+17.Dataset augmentation with calculating loss    
