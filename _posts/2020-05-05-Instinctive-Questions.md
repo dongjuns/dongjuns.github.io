@@ -70,4 +70,5 @@ ex) Conv2D 그림 or 글씨(OCR) -> Conv2D
 ### Training은 performance가 좋고, test에서는 inference가 빠른 모델은 어떻게 만들까?    
 ### Proper training for proper Anchor Box
 ### multiple optimizer
-### multiple augmentations
+### multiple augmentations    
+### 데이터셋 트레이닝 속도, inference 속도 in 5G 환경에서 어느정도 나오면 충분한지. like 60 FPS.    
