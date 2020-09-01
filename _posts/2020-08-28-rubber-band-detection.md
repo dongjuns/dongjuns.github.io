@@ -15,6 +15,6 @@ training set: 200
 test set: 50
 
 ## 2. Object Detection
-EfficientDet    
+EfficientDet D0~D5    
 
-## 3.  Get bbox position
+## 3. Get the bbox position of the rubber band    
