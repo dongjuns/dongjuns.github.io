@@ -22,3 +22,5 @@ EfficientDet D0~D5
 ## 3. Get the bbox position of the rubber band    
 3-1. Remove the color threshold for just orange rubber band.    
 3-2. straight-forward solution: using blender simulation environment, set the camera paremeters and size, position and objects also.    
+
+## 4. Object detection using real time input image    
