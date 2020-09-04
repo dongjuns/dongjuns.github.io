@@ -43,3 +43,11 @@ AE: input-(Encode+Decode)-output, MAE: input-encode layer1-encode layer2-embed-d
 18.Classification then detection.    
 One model but two model combined.    
 Image classification -> detection if it exists, or not.    
+
+19.QA for training dataset labels using deep learning    
+Make model using training dataset,    
+Predict on training dataset.    
+Find three situations,    
+a.IoU between prediction and ground truth    
+b.label not predicted    
+c.bbox but not gt    
