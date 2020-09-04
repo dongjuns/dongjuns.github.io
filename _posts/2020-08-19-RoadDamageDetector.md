@@ -93,4 +93,6 @@ label_map = {"D00": 1, "D10": 2, "D20": 3, "D40": 4} # what we need
 1. Delete the dataset if it has useless label.    
 2. Delete just that label with bbox in that dataset.    
 
-Let's go with no.2
+Let's go with no.2-!    
+
+We will use that datasets by using Pseudo-labeling for non-label datasets.    
