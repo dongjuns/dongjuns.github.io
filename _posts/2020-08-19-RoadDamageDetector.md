@@ -96,3 +96,22 @@ label_map = {"D00": 1, "D10": 2, "D20": 3, "D40": 4} # what we need
 Let's go with no.2-!    
 
 We will use that datasets by using Pseudo-labeling for non-label datasets.    
+
+
+2. Yolo
+When you try to use the YOLO with your gpu, you need to modify the Makefile.
+´´´
+GPU=1
+CUDA=1
+OpenCV = 1
+´´´
+then re-try make.
+
+if you get the error like this, don't worry.
+´´´
+/usr/bin/ld: skipping incompatible /usr/local/cudnn/v5/lib64/libcudnn.so when searching for -lcudnn
+/usr/bin/ld: cannot find -lcudnn
+collect2: error: ld returned 1 exit status
+´´´
+it means, there is no libcudnn.so file in your cuda-cudnn path.
+just copy your libcudnn.so to your path, like /usr/local/cuda~
