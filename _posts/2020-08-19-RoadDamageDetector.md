@@ -114,4 +114,4 @@ if you get the error like this, don't worry.
 collect2: error: ld returned 1 exit status
 ´´´
 it means, there is no libcudnn.so file in your cuda-cudnn path.
-just copy your libcudnn.so to your path, like /usr/local/cuda~
+just copy your libcudnn.so to your path, like /usr/local/cuda/lib64/
