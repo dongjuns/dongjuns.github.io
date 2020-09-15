@@ -114,4 +114,22 @@ if you get the error like this, don't worry.
 collect2: error: ld returned 1 exit status
 ´´´
 it means, there is no libcudnn.so file in your cuda-cudnn path.
-just copy your libcudnn.so to your path, like /usr/local/cuda/lib64/
+just copy your libcudnn.so to your path, like /usr/local/cuda/lib64/    
+
+- Experiment    
+yolo family, v3 and v5    
+Japan: Japan,InJa, InJaCz    
+India: India, InJa, InJaCz    
+Czech: Czech, CzJa, InJaCz    
+
+EffDet family, 0 5    
+Japan: Japan,InJa, InJaCz    
+India: India, InJa, InJaCz    
+Czech: Czech, CzJa, InJaCz    
+
+
+Ensemble using multiple models,    
+
+
+
+check NMS
