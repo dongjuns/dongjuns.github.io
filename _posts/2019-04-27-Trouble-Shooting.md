@@ -196,3 +196,27 @@ This works to me.
 ```
 conda install -c conda-forge opencv
 ```
+
+- - -
+
+### opencv with yolo or other programs
+```
+(yolo) ubuntu@nipa2020-0987:~/djplace/darknet$ make
+chmod +x *.sh
+g++ -std=c++11 -std=c++11 -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv
+` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN 
+-I/usr/local/cudnn/include -c ./src/image_opencv.cpp -o obj/image_opencv.o
+Package opencv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `opencv.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'opencv' found
+```
+
+It means you don't have proper opencv in the path of /usr/local/include/$here.    
+so we need to install the libopencv*
+```
+sudo apt-get update
+sudo apt-get install libopencv*
+```
+
+then make again.
