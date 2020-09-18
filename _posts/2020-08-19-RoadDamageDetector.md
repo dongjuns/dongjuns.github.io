@@ -130,6 +130,6 @@ Czech: Czech, CzJa, InJaCz
 
 Ensemble using multiple models,    
 
-
-
-check NMS
+- For yolo, this is not easy to train well with mAP.    
+so, I decided to train the tiny model and tune it, then check out the result mAP.    
+Anchor size will be changed, if it is not good with default values.    
