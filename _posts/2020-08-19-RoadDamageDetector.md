@@ -133,3 +133,6 @@ Ensemble using multiple models,
 - For yolo, this is not easy to train well with mAP.    
 so, I decided to train the tiny model and tune it, then check out the result mAP.    
 Anchor size will be changed, if it is not good with default values.    
+
+metric: mAP,    
+need specific strategy to split the dataset like train8:valid2,
