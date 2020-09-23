@@ -117,16 +117,14 @@ it means, there is no libcudnn.so file in your cuda-cudnn path.
 just copy your libcudnn.so to your path, like /usr/local/cuda/lib64/    
 
 - Experiment    
-yolo family, v3 and v5    
-Japan: Japan,InJa, InJaCz    
+yolo family, v3,v4 and v5    
+Japan: Japan, InJa, InJaCz    
 India: India, InJa, InJaCz    
 Czech: Czech, CzJa, InJaCz    
 
-EffDet family, 0 5    
-Japan: Japan,InJa, InJaCz    
-India: India, InJa, InJaCz    
-Czech: Czech, CzJa, InJaCz    
+v5 is good than other versions,    
 
+0.49: v4 CzInJa, v4 CzInJa, v5 Ja 0.4
 
 Ensemble using multiple models,    
 
