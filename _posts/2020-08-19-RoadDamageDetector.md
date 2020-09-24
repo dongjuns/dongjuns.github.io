@@ -123,7 +123,7 @@ India: India, InJa, InJaCz
 Czech: Czech, CzJa, InJaCz    
 
 - For yolo, this is not easy to train well with mAP.    
-so, I decided to train the tiny model and tune it, then check out the result mAP.    
+So I decided to train the tiny model and tune it, then check out the result mAP.    
 Anchor size will be changed, if it is not good with default values.    
 
 metric: mAP,    
@@ -133,7 +133,8 @@ To this comepetition, we need to check the result using F1 score with precision 
 
 v5 looked like good than other versions,    
 
-0.49: v4 CzInJa, v4 CzInJa, v5 Ja 0.4
+0.46: v4-tiny one model, Train with Czech + India + Japan at the same time.    
+0.49: v4 CzInJa, v4 CzInJa, v5 Ja
 
 yolov5 -> 0.5~
 
@@ -142,6 +143,6 @@ each single model: 0.51 or 0.52
 ...
 
 0.56: Ensemble using multiple models,    
-Czech: Single Czech + Japan&Czech    
-India: Single India + Japan&India    
-Japan: Single Japan 5-Fold + Czech&India&Ja    
+Czech: Specific trategy    
+India: Specific trategy    
+Japan: Specific trategy   
