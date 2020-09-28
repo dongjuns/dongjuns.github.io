@@ -64,41 +64,50 @@ then you could get a data structure like this.
 
 ```
 
-There are 3 countries Czech, India and Japan, also four categories D00, D10, D20 and D40 about damage on the global roads.
-Transform to the proper format for training in object detection.    
-1. to COCO format (for SimpleDet and MMDetection, TBD)    
-2. to JSON format (customizing myself)    
+There are 3 countries such as Czech, India and Japan. And also four categories D00, D10, D20 and D40 about damage on the global roads.
+We need to transform our VOC data format properly for specific object detection task.    
+1. COCO format (for SimpleDet and MMDetection, TBD)    
+2. JSON format (customizing myself in SimpleDet)    
+3. YOLO format (YOLO family)    
 
-
-Take option 2 for now, and then make it to COCO format.    
+Take option no.3 for now, make it as a YOLO format.    
 dataset split... maybe K-fold then ensemble.    
+
 1. Faster R-CNN    
 2. EfficientDet    
 3. YOLO v4    
 4. YOLO v5    
-5. DetectoRS    
-
-Mix-up, cut-mix, cut-mix & mix-up, mosaic    
-WBF, Pseudo Labeling    
-Multi-Scale Testing    
+5. DetectoRS       
 
 
-For dataset formatiing,    
 There are 10 classes, but we need just four classes.    
 ```
 #label_map = {"D00": 1, "D01":2, "D10": 3, "D11": 4, "D20": 5, "D40": 6, "D43": 7, "D44": 8, "D50": 9, "D0w0": 10}
 label_map = {"D00": 1, "D10": 2, "D20": 3, "D40": 4} # what we need
 ```
 
-1. Delete the dataset if it has useless label.    
-2. Delete just that label with bbox in that dataset.    
+1. Remove the dataset if it has useless label.    
+2. Remove just that label with bbox in that dataset.    
 
 Let's go with no.2-!    
 
-We will use that datasets by using Pseudo-labeling for non-label datasets.    
+We will use that datasets by using Pseudo-labeling for non-label datasets if we can.    
 
 
-2. Yolo
+
+2. YOLO
+
+Let's start from YOLOv3 to YOLOv5.    
+There are several open sources and github for YOLOv3.
+This is pjreddie's,
+<https://pjreddie.com/darknet/yolo/>, <https://github.com/pjreddie/darknet>    
+
+And this is Alexey's,
+<https://github.com/AlexeyAB/darknet>    
+
+I recommend to use Alexey's YOLOv3,    
+because there are also YOLOv4 and pjreddie stopped updating.    
+
 When you try to use the YOLO with your gpu, you need to modify the Makefile.
 ´´´
 GPU=1
@@ -146,3 +155,7 @@ each single model: 0.51 or 0.52
 Czech: Specific trategy    
 India: Specific trategy    
 Japan: Specific trategy   
+
+
+Last score: 7th in 120 teams.    
+<https://rdd2020.sekilab.global/leaderboard/>
