@@ -145,3 +145,5 @@ PyTorch multiple GPU
 WBF    
 Data Augmentation, CutMix, MixUp, Insect augmentation    
 use Learning scheduler 
+
+<https://github.com/rwightman/efficientdet-pytorch>
