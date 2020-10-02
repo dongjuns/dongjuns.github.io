@@ -220,3 +220,23 @@ sudo apt-get install libopencv*
 ```
 
 then make again.
+
+- - -
+
+### pyTorch, gpu problem
+If you meet some problems about GPU using pyTorch,    
+you need to install pytorch again.
+```
+python
+import torch
+torch.cuda.is_available()
+False
+```
+
+go to here official pytorch website,
+<https://pytorch.org/get-started/locally/>    
+and check the proper options.    
+```
+# for example
+conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+```
