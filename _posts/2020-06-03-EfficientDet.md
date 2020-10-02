@@ -140,6 +140,10 @@ cls_conv1234_weight, cls_conv1234_bias, cls_pred_weight, cls_pred_bias
 python으로 mxnet 임포트해서, pre-trained params 불러와서 classifier, regressor 부분 지워주고,    
 nd.save 로 저장한다음에 pretrain_model로 보내서 detection_train.py
 
+Anchor size 조절해야하고, Freeze 얼마만큼 할 것인지?    
+Stage1만 가져왔을때 결과 0.857    
+
+
 KFold then Ensemble
 PyTorch multiple GPU
 WBF    
@@ -147,3 +151,10 @@ Data Augmentation, CutMix, MixUp, Insect augmentation
 use Learning scheduler 
 
 <https://github.com/rwightman/efficientdet-pytorch>
+
+
+
+# tensorflow style
+<https://github.com/google/automl>    
+install them and then train.    
+
