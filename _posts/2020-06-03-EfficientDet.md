@@ -158,3 +158,10 @@ use Learning scheduler
 <https://github.com/google/automl>    
 install them and then train.    
 
+strategy:    
+batch_size: 8, 4, 2    
+num_epochs: 500, 1000    
+num_examples_per_epch: 40, 80, 100, 200    
+Anchor scale: TBD    
+label_smoothing: TBD    
+Augmentation: TBD    
