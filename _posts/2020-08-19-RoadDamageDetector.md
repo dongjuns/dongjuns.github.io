@@ -156,6 +156,8 @@ Czech: Specific trategy
 India: Specific trategy    
 Japan: Specific trategy   
 
+single + other one
+
 
 Last score: 7th in 120 teams.    
 <https://rdd2020.sekilab.global/leaderboard/>
