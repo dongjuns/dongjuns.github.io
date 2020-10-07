@@ -7,6 +7,10 @@ categories: Dataset DeepLearning
 # Project2.How Many Dataset We Need?
 It is very comfortable to make the model with a lot of dataset.    
 But we already know, gathering enough dataset is very hard even we don't know that how many dataset we need.    
+We just can assume that could be related with data by itself.    
+As a recommendation, someone said 1,000 images each class.    
+
+
 
 Dataset: MNIST fashion dataset    
 dataset shape: (60000, 28, 28)    
