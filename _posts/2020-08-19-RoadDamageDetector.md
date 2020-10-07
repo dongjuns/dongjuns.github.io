@@ -24,8 +24,11 @@ wget -c https://mycityreport.s3-ap-northeast-1.amazonaws.com/02_RoadDamageDatase
 wget -c https://mycityreport.s3-ap-northeast-1.amazonaws.com/02_RoadDamageDataset/public_data/IEEE_bigdata_RDD2020/test1.tar.gz
 
 # + test2 set will be released on 10th, September
+# test1 set
+wget -c https://mycityreport.s3-ap-northeast-1.amazonaws.com/02_RoadDamageDataset/public_data/IEEE_bigdata_RDD2020/test2.tar.gz
 
 tar xzvf train.tar.gz
+tar xzvf test1.tar.gz
 tar xzvf test1.tar.gz
 ```
 
