@@ -55,6 +55,20 @@ nvidia-settings
 ---
 
 ## CUDA  
+
+easy way using run file,
+<https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal>
+
+```
+chmod 775 sudo sh cuda_10.0.130_410.48_linux.run
+sudo ./cuda_10.0.130_410.48_linux.run
+```
+그래픽카드 드라이버는 다시 설치 안해도 갠춘,    
+path /usr/local/cuda-10.0,
+sudo ln -sf /usr/local/cuda-10.0 /usr/local/cuda
+sample 설치 안해도 갠춘    
+
+
 NVIDIA 웹페이지에서 GPU의 architecture에 맞는 CUDA too-kit을 다운로드합니다.     
 (1) Download the proper CUDA too-kit on NVIDIA webpage.    
 <https://developer.nvidia.com/cuda-toolkit-archive>    
