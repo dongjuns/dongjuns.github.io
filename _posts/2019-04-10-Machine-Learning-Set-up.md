@@ -56,9 +56,9 @@ nvidia-settings
 
 ## CUDA  
 
+빠르게 run file로 설치하기    
 easy way using run file,
 <https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal>
-
 ```
 chmod 775 sudo sh cuda_10.0.130_410.48_linux.run
 sudo ./cuda_10.0.130_410.48_linux.run
