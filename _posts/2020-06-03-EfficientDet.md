@@ -154,7 +154,7 @@ use Learning scheduler
 
 
 
-# tensorflow style
+## Tensorflow style
 <https://github.com/google/automl>    
 install them and then train.    
 
@@ -168,3 +168,51 @@ label_smoothing: TBD
 Augmentation: TBD    
 
 
+### How to train the model
+Transformate your dataset to COCO format first.
+```
+PYTHONPATH=".:$PYTHONPATH" python dataset/create_coco_tfrecord.py --image_dir=wrs/train2017/ --object_annotations_file=wrs/annotations/instances_train2017.json --output_file_prefix=wrs/train
+
+PYTHONPATH=".:$PYTHONPATH" python dataset/create_coco_tfrecord.py --image_dir=wrs/val2017/ --object_annotations_file=wrs/annotations/instances_val2017.json --output_file_prefix=wrs/valid
+```
+
+then move your tfrecord files into tfrecord directory in your dataset.
+
+```
+(effdet) dongjun:~/djplace/automl/efficientdet/wrs$ tree -d
+.
+├── annotations
+├── test
+├── tfrecords
+├── train2017
+└── val2017
+```
+
+
+```
+vi wrs.yaml
+
+use_keras_model: False
+num_classes: 13
+label_map: {1: obj1, 2: obj2, 3: obj3, 4: obj4, 5: obj5, 6: obj6, 7: obj7, 8: obj8, 9: obj9, 10: obj10, 11: obj11, 12: obj12}
+moving_average_decay: 0
+var_freeze_expr: '(efficientnet|fpn_cells)'
+anchor_scale: 2.0
+mixed_precision: True
+```
+
+```
+python main.py --mode=train_and_eval --training_file_pattern=wrs/tfrecords/train*.tfrecord --validation_file_pattern=wrs/tfrecords/valid*.tfrecord --model_name=efficientdet-d3 --model_dir=wrs_efficientdet-d3-finetune --ckpt=efficientdet-d3 --train_batch_size=4 --num_examples_per_epoch=200 --num_epochs=1000 --hparams=wrs.yaml
+```
+
+### How to do inference
+First of all, we need 2 steps to infer the test images.    
+(1) Exporting the 'your_trained_model.pb' file    
+(2) Infer the images using (1) file.
+```
+#(1)
+python model_inspect.py --runmode=saved_model --model_name=efficientdet-d3 --saved_model_dir=tmp/saved_model2/ --ckpt_path=efficientdet-d3-finetune/archive/ --hparams=wrs.yaml --batch_size=1
+
+#(2)
+python model_inspect.py --runmode=saved_model_infer --model_name=efficientdet-d3 --ckpt_path=wrs_efficientdet/efficientdet-d3-finetune/ --saved_model_dir=tmp/saved_model/efficientdet-d3_frozen.pb --input_image=./wrs/test/*.png --output_image_dir=tmp/img_output --hparams=wrs.yaml
+```
