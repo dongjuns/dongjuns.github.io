@@ -37,6 +37,7 @@ python setup.py build_ext --inplace
 
 
 # Train
+DOTA format -> COCO format
 
 
 
