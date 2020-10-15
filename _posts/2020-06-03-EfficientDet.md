@@ -167,6 +167,7 @@ ratio aspect: (important) TBD
 label_smoothing: TBD    
 Augmentation: TBD    
 
+Need to think of the object size for small object detection.
 
 ### How to train the model
 Transformate your dataset to COCO format first.
