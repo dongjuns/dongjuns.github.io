@@ -150,7 +150,7 @@ v5 looked like good than other versions,
 
 yolov5 -> 0.5~
 
-each single model: 0.51 or 0.52 
+each single model: 0.51 or 0.52, nms threshold, TTA,    
 
 ...
 
