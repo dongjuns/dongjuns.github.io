@@ -138,7 +138,7 @@ Czech: Czech, CzJa, InJaCz
 So I decided to train the tiny model and tune it, then check out the result mAP.    
 Anchor size will be changed, if it is not good with default values.    
 
-metric: mAP,    
+metric: mAP, F1 score    
 need specific strategy to split the dataset like train8:valid2,
 
 To this comepetition, we need to check the result using F1 score with precision and recall.    
