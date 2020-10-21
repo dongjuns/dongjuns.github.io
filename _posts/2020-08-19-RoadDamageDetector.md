@@ -134,6 +134,8 @@ Japan: Japan, InJa, InJaCz
 India: India, InJa, InJaCz    
 Czech: Czech, CzJa, InJaCz    
 
+1k, 2k, 3k,
+
 - For yolo, this is not easy to train well with mAP.    
 So I decided to train the tiny model and tune it, then check out the result mAP.    
 Anchor size will be changed, if it is not good with default values.    
@@ -159,6 +161,7 @@ Czech: Specific trategy
 India: Specific trategy    
 Japan: Specific trategy   
 
+Cross validation,
 single + other one
 
 Find strong one and mix it
