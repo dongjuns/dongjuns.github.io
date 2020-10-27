@@ -40,6 +40,7 @@ python setup.py build_ext --inplace
 DOTA format -> COCO format
 Check in COCO format
 
+or DOTA format
 
 # Test
 
