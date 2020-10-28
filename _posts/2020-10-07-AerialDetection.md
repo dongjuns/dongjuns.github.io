@@ -42,6 +42,8 @@ Check in COCO format
 
 or DOTA format
 
+Follow the baseline first
+
 # Test
 
 
