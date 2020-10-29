@@ -17,7 +17,7 @@ test set: 50
 but it could be gotten much more images using domain randomization for WRS dataset    
 
 ## 2. Object Detection
-EfficientDet D0~D5    
+EfficientDet D0~D5, D3 showed best accuracy    
 
 ## 3. Get the bbox position of the rubber band    
 3-1. Remove the color threshold for just orange rubber band.    
