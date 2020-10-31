@@ -1,5 +1,5 @@
 ---
-title: "EfficientNet"
+title: "EfficientDet"
 date: 2020-06-24 11:37:00 +0900
 categories: simpledet EfficientDet
 ---
