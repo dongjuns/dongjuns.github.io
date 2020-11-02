@@ -166,5 +166,7 @@ single + other one
 
 Find strong one and mix it
 
+0.58
+
 Last score: 7th in 120 teams.    
 <https://rdd2020.sekilab.global/leaderboard/>
