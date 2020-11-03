@@ -170,3 +170,5 @@ Find strong one and mix it
 
 Last score: 7th in 120 teams.    
 <https://rdd2020.sekilab.global/leaderboard/>
+
+10.13140/RG.2.2.11013.58089
