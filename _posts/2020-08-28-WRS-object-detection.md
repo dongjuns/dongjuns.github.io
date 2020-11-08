@@ -5,15 +5,11 @@ categories: detection
 ---
 
 ## 0. Overview
-Detecting the rubber band within several objects    
+Detecting the WRS objects for the robot arm to solve pick&place task    
 
 ## 1. Dataset
 <https://github.com/RasmusHaugaard/wrs-data-collection>
-object classes: 12
-
-dataset: 1920 x 1200 pixels, RGBA 4 channels, 250 images
-
-but it could be gotten much more images using domain randomization for WRS dataset    
+object classes: 12, 1920 x 1200 pixels, RGBA 4 channels, 250 images    
 
 ## 2. Object Detection
 EfficientDet D0~D7, final result: D4 mAP 0.866   
@@ -24,9 +20,7 @@ EfficientDet D0~D7, final result: D4 mAP 0.866
 
 ## 4. Object detection using real time input image    
 
-
-
-
+## 5. Results    
 Model \ Object	obj1	obj2	obj3	obj4	obj5	obj6	obj7	obj8	obj9	obj10	obj11	obj12	All mAP	FPS
 EfficientDet-D0	0	0.77	0.5	0.63	0.86	0.77	0.24	0.19	0.12	0.07	0.02	0.007	0.349	61
 EfficientDet-D1	0.38	0.98	0.66	0.89	0.94	0.91	0.63	0.59	0.52	0.26	0.06	0.005	0.569	50
