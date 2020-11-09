@@ -8,8 +8,9 @@ categories: detection
 Detecting the WRS objects for the robot arm to solve pick&place task    
 
 ## 1. Dataset
-<https://github.com/RasmusHaugaard/wrs-data-collection>
+<https://github.com/RasmusHaugaard/wrs-data-collection>    
 object classes: 12, 1920 x 1200 pixels, RGBA 4 channels, 250 images    
+strategy: train 200 images, validation 50 images    
 
 ## 2. Object Detection
 EfficientDet D0~D7, final result: D4 mAP 0.866   
