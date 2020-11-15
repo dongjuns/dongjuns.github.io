@@ -111,18 +111,19 @@ I recommend to use Alexey's thing,
 because it also support you about YOLOv4, and pjreddie stopped updating.    
 
 When you try to use the YOLO with your gpu, you need to modify the Makefile.    
-´´´
+```
 GPU=1
 CUDA=1
 OpenCV = 1
-´´´
+```
 then re-try make again.    
-if you get an error like below, you don't need to worry.    
-´´´
+
+If you get an error like below, you don't need to worry.    
+```
 /usr/bin/ld: skipping incompatible /usr/local/cudnn/v5/lib64/libcudnn.so when searching for -lcudnn
 /usr/bin/ld: cannot find -lcudnn
 collect2: error: ld returned 1 exit status
-´´´
+```
 It means there is no libcudnn.so file in your cuda-cudnn path.    
 Just copy your libcudnn.so to your cuda-cudnn path, like /usr/local/cuda/lib64/    
 
@@ -138,8 +139,8 @@ Czech: Czech, CzJa, InJaCz
 So I decided to train the tiny model and tune it, then check out the result mAP.    
 Anchor size will be changed, if it is not good with default values.    
 
-metric: mAP, F1 score    
-need specific strategy to split the dataset like train8:valid2,
+used metrics: mAP, F1 score    
+We need specific strategy to split the dataset like train 80% : valid 20%,    
 
 To this comepetition, we need to check the result using F1 score with precision and recall.    
 
