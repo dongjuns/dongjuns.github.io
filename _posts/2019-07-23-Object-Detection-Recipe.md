@@ -17,11 +17,11 @@ DataGenerator, Albumentation, Cut-mix, Mix-up, Mosaic, Insect...
 # 4.Train the models
 Faster R-CNN, EfficientDet, Yolo, Recent SOTA model    
 
-# (5.Pseudo Labeling)
+# (Pseudo Labeling)
 
-# 6.Ensemble
+# 5.Ensemble
 
-# 7.TTA
+# 6.TTA
 
 
 ```
