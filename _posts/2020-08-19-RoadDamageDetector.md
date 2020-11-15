@@ -84,49 +84,47 @@ dataset split... maybe K-fold then ensemble.
 
 
 There are 10 classes, but we need just four classes.    
+So we need to do some pre-processing.
 ```
 #label_map = {"D00": 1, "D01":2, "D10": 3, "D11": 4, "D20": 5, "D40": 6, "D43": 7, "D44": 8, "D50": 9, "D0w0": 10}
 label_map = {"D00": 1, "D10": 2, "D20": 3, "D40": 4} # what we need
 ```
 
-1. Remove the dataset if it has useless label.    
-2. Remove just that label with bbox in that dataset.    
+- Remove just that label with bbox in that dataset.    
 
-Let's go with no.2-!    
-
-We will use that datasets by using Pseudo-labeling for non-label datasets if we can.    
+Let's go do that thang-!    
 
 
+## 2. YOLO
+There are several open sources and github for YOLO family, let's gradually start from YOLOv3 to YOLOv5.    
+First of all, v5 doesn't mean it updated from v4.    
+There were different approaches to develop the YOLOv3,    
+v4 and v5 both are just those approaches.    
+But I think that naming is a little bit confusing.    
 
-2. YOLO
-
-Let's start from YOLOv3 to YOLOv5.    
-There are several open sources and github for YOLOv3.
-This is pjreddie's,
+This is pjreddie's YOLOv3 repository,    
 <https://pjreddie.com/darknet/yolo/>, <https://github.com/pjreddie/darknet>    
 
-And this is Alexey's,
-<https://github.com/AlexeyAB/darknet>    
+And this is Alexey's repository, <https://github.com/AlexeyAB/darknet>    
 
-I recommend to use Alexey's YOLOv3,    
-because there are also YOLOv4 and pjreddie stopped updating.    
+I recommend to use Alexey's thing,    
+because it also support you about YOLOv4, and pjreddie stopped updating.    
 
-When you try to use the YOLO with your gpu, you need to modify the Makefile.
+When you try to use the YOLO with your gpu, you need to modify the Makefile.    
 ´´´
 GPU=1
 CUDA=1
 OpenCV = 1
 ´´´
-then re-try make.
-
-if you get the error like this, don't worry.
+then re-try make again.    
+if you get an error like below, you don't need to worry.    
 ´´´
 /usr/bin/ld: skipping incompatible /usr/local/cudnn/v5/lib64/libcudnn.so when searching for -lcudnn
 /usr/bin/ld: cannot find -lcudnn
 collect2: error: ld returned 1 exit status
 ´´´
-it means, there is no libcudnn.so file in your cuda-cudnn path.
-just copy your libcudnn.so to your path, like /usr/local/cuda/lib64/    
+It means there is no libcudnn.so file in your cuda-cudnn path.    
+Just copy your libcudnn.so to your cuda-cudnn path, like /usr/local/cuda/lib64/    
 
 - Experiment    
 yolo family, v3, v4 and v5    
