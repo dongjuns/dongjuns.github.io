@@ -21,3 +21,13 @@ categories: Python
 메모리 관리?    
 
 c와의 비교.
+
+
+파이썬이 어렵다고 느끼는 타이밍    
+객체지향    
+클래스    
+function overloading    
+메모리관리, garbage collector    
+멀티프로세싱    
+멀티쓰레딩    
+병렬컴퓨팅    
