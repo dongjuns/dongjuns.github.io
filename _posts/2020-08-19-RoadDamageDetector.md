@@ -172,5 +172,7 @@ some improvements changing some values 0.59
 Last score: 7th in 120 teams.    
 <https://rdd2020.sekilab.global/leaderboard/>
 
+You can find more detailed information in this paper.
+
 <https://www.researchgate.net/publication/345196850_Road_Damage_Detection_Using_YOLO_with_Smartphone_Images>    
 DOI: <10.13140/RG.2.2.11013.58089>
