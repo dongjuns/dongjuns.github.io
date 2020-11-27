@@ -19,3 +19,5 @@ OCR에 대한 필요성, LOL 영상 내에 팝업 문구를 인식하고 텍스�
 데이터셋 축적에 따른 모델 업데이트를 어떻게 자동화할 것인가?
 Life-long learning, offline/online learning    
 
+
+서비스 연계의 측면에서, 어떻게 모델을 서빙할 
