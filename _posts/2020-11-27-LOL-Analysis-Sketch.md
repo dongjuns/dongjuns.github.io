@@ -5,7 +5,7 @@ categories: Deep_learning Data_Analysis
 ---
 
 
-# 1.데이터셋을 어떻게 구축할 것인가? dataset
+1.데이터셋을 어떻게 구축할 것인가? dataset
 LOL 게임 영상에서, 특정 부분들을 분류하고 데이터를 축적할 수 있어야 함.    
 OpenCV, 미니맵 부분에 대한 좌표를 입력하고 영상을 저장한다.    
 
