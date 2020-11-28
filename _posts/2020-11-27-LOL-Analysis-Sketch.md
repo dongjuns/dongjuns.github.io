@@ -4,6 +4,7 @@ date: 2020-11-27 18:11:00 +0900
 categories: Deep_learning Data_Analysis
 ---
 
+데이터를 직접 받아올 수 있는 것들 
 
 1.데이터셋을 어떻게 구축할 것인가? dataset
 LOL 게임 영상에서, 특정 부분들을 분류하고 데이터를 축적할 수 있어야 함.    
