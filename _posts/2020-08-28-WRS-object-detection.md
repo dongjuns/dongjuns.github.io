@@ -4,6 +4,16 @@ date: 2020-08-28 10:42:00 +0900
 categories: detection
 ---
 
+# TBD    
+code repository    
+README.MD    
+pre-print    
+training phase plot    
+validation    
+mAP    
+
+
+
 ## 0. Overview
 Detecting the WRS objects for the robot arm to solve pick&place task    
 
