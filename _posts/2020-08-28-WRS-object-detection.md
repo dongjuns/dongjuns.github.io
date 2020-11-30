@@ -12,6 +12,8 @@ training phase plot
 validation    
 mAP    
 
+code clean up and commit    
+Decide the journal
 
 
 ## 0. Overview
