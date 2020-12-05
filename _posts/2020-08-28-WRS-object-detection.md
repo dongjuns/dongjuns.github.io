@@ -6,6 +6,7 @@ categories: detection
 
 # TBD    
 code repository    
+wrs_coco format    
 README.MD    
 pre-print    
 training phase plot    
