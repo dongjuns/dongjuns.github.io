@@ -6,8 +6,11 @@ categories: detection
 
 # TBD    
 code repository    
+<https://github.com/dongjuns/WRS_ObjectDetection>    
+
 wrs_coco format    
 README.MD    
+
 pre-print    
 training phase plot    
 validation    
