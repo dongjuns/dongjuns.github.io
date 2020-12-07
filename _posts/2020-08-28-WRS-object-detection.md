@@ -38,8 +38,7 @@ EfficientDet D0~D7
 ## 4. Object detection using real time input image
 
 ## 5. Results    
-|Model|Backbone|Head|1|2|3|4|5|6|7|8|9|10|11|12|mAP|
-|-----|--------|----|-|-|-|-|-|-|-|-|-|--|--|--|---|
+
 Best result: EfficientDet-D4, mAP 0.866    
 |Model | Object	|obj1	|obj2	|obj3	|obj4	|obj5	|obj6	|obj7	|obj8	|obj9	|obj10 |obj11	|obj12	|All mAP	|FPS|
 |------|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|------|-------|------|---------|---|
