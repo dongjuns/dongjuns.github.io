@@ -14,7 +14,12 @@ You Only Look Once: Unified, Real-Time Object Detection (2016, <https://arxiv.or
 
 Abstract    
 기존에는 classifier를 사용해서 detection 문제를 해결했고, YOLO 논문에서는 new approach로써 detection 문제를 regression으로 해결하는 방법을 제안했다.    
-Unified single neural network를 
+Unified single convolutional neural network를 이용하여 end-to-end로 최적화를 하고 45 ~ 155 FPS를 지원한다.    
+R-CNN과 같은 region proposal-based method는 이미지 안에서 potenstial bounding box를 만들고 난 후에 classifier를 통해 object detection을 한다.    
+
+
+
+input image resizes to 448 x 448.    
 
 1. Introduction    
 
