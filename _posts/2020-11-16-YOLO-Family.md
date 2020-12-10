@@ -17,12 +17,21 @@ Unified single convolutional neural network를 이용하여 end-to-end로 최적
 R-CNN과 같은 region proposal-based method는 이미지 안에서 potenstial bounding box를 만들고 난 후에 classifier를 통해 object detection을 한다.    
 
 Input image resizes to 448 x 448.    
-Image를 SxS 그리드로 나누고, 각각의 그리드에서 2개의 b-box(Cx,Cy,w,h,confidence)와 class probabilities를 regression한다.    
-Total prediction results는 SxSx{2x(Cx,Cy,w,h,confidence)+number of class}가 된다.    
+Image를 7x7 그리드로 나누고, 각각의 그리드 셀에서 2개의 b-box(Cx,Cy,w,h,confidence)와 class probabilities를 regression한다.    
+Total prediction tensor는 7x7x{2x(Cx,Cy,w,h,confidence)+number of class}가 되고,    
+S=7, B=2, number of class=20 일 때 7x7x(2x5 + 20)이 되며,    
+total prediction boxes는 7x7x2 = 98 개다.    
+
+
 
 # YOLOv2
 
 # YOLOv3
+YOLOv3: An Incremental Improvement (2018, <https://arxiv.org/abs/1804.02767>)    
+6 pages (2 pages are for references)    
+<https://pjreddie.com/darknet/yolo/>    
+
+
 
 # YOLOv5
 
