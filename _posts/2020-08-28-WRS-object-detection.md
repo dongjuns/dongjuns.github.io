@@ -39,6 +39,7 @@ EfficientDet D0~D7
 ## 5. Results    
 
 Best result: EfficientDet-D4, mAP 0.866    
+
 |Model          |obj1	|obj2	|obj3	|obj4	|obj5	|obj6	|obj7	|obj8	|obj9	|obj10 |obj11	|obj12	|All mAP	|FPS|
 |---------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|------|-------|------|---------|---|
 |EfficientDet-D0|	 0	|0.77	|0.5	|0.63	|0.86	|0.77	|0.24	|0.19	|0.12	|0.07	 |0.02	 |0.007	|0.349	|61|
