@@ -12,35 +12,13 @@ You Only Look Once: Unified, Real-Time Object Detection (2016, <https://arxiv.or
 10 pages (2 pages are for references)    
 <http://pjreddie.com/yolo/>    
 
-Abstract    
 기존에는 classifier를 사용해서 detection 문제를 해결했고, YOLO 논문에서는 new approach로써 detection 문제를 regression으로 해결하는 방법을 제안했다.    
 Unified single convolutional neural network를 이용하여 end-to-end로 최적화를 하고 45 ~ 155 FPS를 지원한다.    
 R-CNN과 같은 region proposal-based method는 이미지 안에서 potenstial bounding box를 만들고 난 후에 classifier를 통해 object detection을 한다.    
 
-
-
-input image resizes to 448 x 448.    
-
-1. Introduction    
-
-2. Unified Detection    
-
-2.1 Network Design    
-
-2,2 Training    
-
-2.3 Inference    
-2.4 Limitations of YOLO    
-3. Comparison to Other Detection Systems    
-4. Experiments    
-4.1 Comparison to Other Real-Time Systems    
-4.2 VOC 2007 Error Analysis    
-4.3 Combining Fast R-CNN and YOLO    
-4.4 VOC 2012 Results    
-4.5 Generalizability: Person Detection in Artwork    
-5. Real-Time Detection In The Wild    
-6. Conclusion    
-
+Input image resizes to 448 x 448.    
+Image를 SxS 그리드로 나누고, 각각의 그리드에서 2개의 b-box(Cx,Cy,w,h,confidence)와 class probabilities를 regression한다.    
+Total prediction results는 SxSx{2x(Cx,Cy,w,h,confidence)+number of class}가 된다.    
 
 # YOLOv2
 
