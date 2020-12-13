@@ -11,7 +11,7 @@ code repository
 wrs_coco format    
 README.MD    
 
-pre-print    
+pre-print for KROC or else        
 training phase plot    
 validation    
 mAP    
