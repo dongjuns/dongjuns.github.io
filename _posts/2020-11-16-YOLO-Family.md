@@ -8,7 +8,7 @@ This covers YOLO family from v1 to v5.
 Then we are going to see how to use YOLO v3, v4 and v5.    
 
 # YOLOv1
-You Only Look Once: Unified, Real-Time Object Detection (2016, <https://arxiv.org/abs/1506.02640>)    
+You Only Look Once: Unified, Real-Time Object Detection (2015, <https://arxiv.org/abs/1506.02640>)    
 10 pages (2 pages are for references)    
 <http://pjreddie.com/yolo/>    
 
@@ -25,6 +25,8 @@ total prediction boxes는 7x7x2 = 98 개다.
 
 
 # YOLOv2
+YOLO9000: Better, Faster, Stronger (2016, <https://arxiv.org/abs/1612.08242>)   
+
 Input image resizes to 416 x 416.    
 Total prediction tensor는 13x13xB(Cx,Cy,w,h,confidence,class probabilities)가 되고,    
 S=13, B=5, number of class=80 일 때 13x13x5(Cx,Cy,w,h,confidence,class probabilities)이 되며,    
@@ -45,8 +47,19 @@ scale 3: 416/8 = 52, 52x52 grid에서 3개의 bbox = 8,112
 
 각각의 anchor box는 (Cx,Cy,w,h,confidence,class probabilities)를 예측한다.    
 
+# YOLOv4
+YOLOv4: Optimal Speed and Accuracy of Object Detection (2020, <https://arxiv.org/abs/2004.10934>)
+
+17 pages (4 pages are for references)    
+<https://github.com/AlexeyAB/darknet>    
+
 
 # YOLOv5
+YOLOv5 didn't publicate a paper yet.    
+
+<https://github.com/ultralytics/yolov5>
+
+
 
 ### 1. Dataset    
 First of all, you need labeling your custom images.    
