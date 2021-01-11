@@ -39,8 +39,8 @@ Hypothesis $H(x) = xW + b$ 일 때, data의 x값에 가중치 W를 이용하여,
 target값과 최대한 비슷한 값을 예측해내는 Hypothesis를 만듦.
 
 ### Cost Function, Loss function, 손실 함수, 비용 함수
-cost(W, b) = $frac{1}{n}Sum(H(x) - y)^2$
-cost function : data와 hypothesis 간에 차이가 얼만큼 나는 지를 측정한다.   
+Cost(W, b) = $\frac{1}{n}Sum(H(x) - y)^2$
+Cost function: data와 hypothesis 간에 차이가 얼만큼 나는 지를 측정한다.   
 Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight 가중치, b는 bias.    
 model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해가면서 minimum error를 가진 정확한 모델을 만들고자 함.   
 그렇기 때문에, cost function is the optimization objective.   
@@ -48,9 +48,9 @@ model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해
 
 ### Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
 Minimize(cost function)을 위한 방법. 미분을 이용한다.   
-$W := W - r * frac{a}{aW} frac{1}{2m} Sum(xW - Y)^2$
-$W := W - r * frac{1}{2m} 2Sum(xW - Y)x$
-$W := W - r * frac{1}{m} Sum(xW - Y)x$
+$W := W - r * \frac{a}{aW} \frac{1}{2m} Sum(xW - Y)^2$
+$W := W - r * \frac{1}{2m} 2Sum(xW - Y)x$
+$W := W - r * \frac{1}{m} Sum(xW - Y)x$
 이때, cost function이 convex (밥그릇 모양 함수) 하지 않으면 optimize minimize가 잘 안된다, 잘못할 수도 있다.   
 cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고자 하고, 계속 반복적으로 수행 = Iterative algorithm.    
 최종적으로는 기울기가 0으로, 미분값이 0으로, function이 수렴하는 방향으로 찾아가고자 함.   
@@ -74,7 +74,7 @@ Multi-layer에서 모델을 activation function으로 나타내면, Non-linearit
 
 ### Activation function, 활성 함수
 - Sigmoid Function, Logistic Function
-$z = f(x) = frac{1}{(1 + e^{-x})}$   
+$z = f(x) = \frac{1}{(1 + e^{-x})}$   
 값을 0~1 사이의 값으로 transfromation 해줌, 그렇기 때문에 결과를 확률처럼 이용할 수 있음.
 safety zone 이상에서는 아웃풋이 0, 1로 saturate됨, gradient가 0으로 계산됨.    
 
@@ -143,7 +143,7 @@ Ex) 개 or 고양이 / spam or not spam
 It's not make the result as an 0 or 1, (so doesn't match to binary classification.)   
 그래서 결과를 0 or 1로 만드는 방법이 필요하고, linear function 보다 정교한 cost function을 사용해야함.    
 -> It's the Sigmoid Function or Logistic Function.    
-$g(H_{L}(x)) = frac{1}{(1 + e^{-x})}$    
+$g(H_{L}(x)) = \frac{1}{(1 + e^{-x})}$    
 
 그래서 결과값이 [0, 1] 사이의 확률값으로 나올 수 있게 된다.   
 
