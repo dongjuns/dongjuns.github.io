@@ -3,6 +3,13 @@ title: "recipe : top quark mass in dilepton channel (1)"
 date: 2018-12-18 14:11:00 +0900
 categories: TopQuarkMass
 ---
+
+CERN의 입자물리 실험 중에서 탑 쿼크의 질량을 측정하기 위한 방법    
+
+Dongjun Jeong, "Measurement of the top quark mass using charmed meson in b-jet"    
+<https://academic.naver.com/article.naver?doc_id=630648558>
+
+
 Github repository : 
 ```
 CPLUOS           https://github.com/CPLUOS/nano 
