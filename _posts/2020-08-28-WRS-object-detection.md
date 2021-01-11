@@ -20,7 +20,7 @@ code clean up and commit
 
 
 ## 0. Overview
-Detecting the WRS objects for the robot arm to solve pick&place task    
+Detecting the WRS objects for the robot arm to solve pick & place task    
 
 ## 1. Dataset
 <https://github.com/RasmusHaugaard/wrs-data-collection>    
