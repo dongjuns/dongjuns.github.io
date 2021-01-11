@@ -1,7 +1,8 @@
 ---
 title: "Machine Learning Recipe & Dictionary"
 date: 2019-04-09 17:27:00 +0900
-categories: Machine Learning
+categories: Machine_Learning
+use_math: true
 ---
 
 
