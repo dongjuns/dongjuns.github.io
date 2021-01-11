@@ -14,7 +14,7 @@ Based on the Mathematicl principles in Machine Learning
 feature와 class에 대한 정보를 담고있는 dataset을 평면위에 연이어 찍어보면,   
 각각의 class들을 잘 나누는 function 혹은 plane을 찾을 수 있다.   
 2D에서는 선으로, 3D에서는 면으로 Hyperplane을 구할 수 있으며,   
-이것을 이용하여 기준을 정하고, feature들의 정보만 보고 class를 분류한다.   
+이것을 이용하여 기준을 정하고, feature들을 이용하여 class를 분류한다.   
 
 그렇다면, hyperplane을 어떻게 찾을까?    
 컴퓨터에게 굉장히 반복적인 계산을 시켜서 찾는다.   
