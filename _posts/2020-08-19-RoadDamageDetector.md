@@ -181,4 +181,3 @@ If you want to get much more higher score,
 Make a detector with various resolution such as 416, 448, 480, ....    
 Then ensemble them 10 or 20 models.    
 You could get a score up to 0.67.    
-Then ensemble them 10 or 20 models.      
