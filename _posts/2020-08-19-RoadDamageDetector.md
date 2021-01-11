@@ -29,7 +29,7 @@ wget -c https://mycityreport.s3-ap-northeast-1.amazonaws.com/02_RoadDamageDatase
 
 tar xzvf train.tar.gz
 tar xzvf test1.tar.gz
-tar xzvf test1.tar.gz
+tar xzvf test2.tar.gz
 ```
 
 then you could get a data structure like this.
