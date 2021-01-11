@@ -58,7 +58,7 @@ W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 �
 실제로 계산할 때의 방정식은 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
 
 ### Sum Squared Error 
-(SSE) = sum(x - m)^{2},    
+$SSE = sum(x - m)^{2}$,    
 Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
 ### Cross Entropy
