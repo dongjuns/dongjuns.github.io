@@ -104,7 +104,7 @@ Understand the correlation between the input features and target feature.
 쉽게 생각하면 2D x-y 좌표계에서 x,y 값들을 point out 한다.    
 그러면, x-y 사이에 관련된 방정식을 찾아낼 수 있고, 이것을 바탕으로 Hypothesis를 세우고, x값이 주어졌을 때 y값을 예측해볼 수 있다.   
 보통, feautres가 여러개인 Multiple linear regression의 경우가 많다.    
-1D linear regression : Hypothesis $H(x1) = x1W1 + b$    
+1D linear regression : Hypothesis $H(x1) = x_1 W_1 + b$    
 2D linear regression : Hypothesis $H(x1, x2) = x_1 W_1 + x_2 W_2 + b$   
 이렇게 보았을 때, y에 관련된 x1, x2의 영향력을 볼 수 있고, 이것은 W1, W2를 통해 방정식에 반영된다.    
 최종적으로 계산값에 대해서 Sigmoid function을 사용한다.    
@@ -116,7 +116,7 @@ Logistic regression : 0~1
 data1 = x_11, x_12, x_13, y_1     
 data2 = x_21, x_22, x_23, y_2   
 이런 식으로 값이 있을 것이고,   
-X = (x_11, x_12, x_13)으로 두고, W = (w_1, w_2, w_3)에 대해서 matrix 연산을 하면 더 빠르게 계산할 수 있다.   
+$X = (x_11, x_12, x_13)$으로 두고, $W = (w_1, w_2, w_3)$에 대해서 matrix 연산을 하면 더 빠르게 계산할 수 있다.   
 
 
 - SVM, Support Vector Machine regression
