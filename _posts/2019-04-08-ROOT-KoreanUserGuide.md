@@ -1,13 +1,13 @@
 ---
-title: "ROOT: Tutorial"
+title: "CERN ROOT tutorial"
 date: 2019-04-08 13:50:00 +0900
 categories: ROOT
 ---
 
+CERN의 ROOT를 사용할 때 알아두면 좋은 명령어들과 코드들을 정리했습니다.
+
 ROOT Data Analysis FrameWork
 https://root.cern.ch/root/htmldoc/guides/users-guide/ROOTUsersGuide.html
-
-ROOT를 사용할 때 알아두면 좋은 명령어들과 코드들을 정리했습니다.
 
 ### Install
 ROOT 설치: <https://root.cern.ch>    
