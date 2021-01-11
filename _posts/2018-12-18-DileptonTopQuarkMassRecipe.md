@@ -1,5 +1,5 @@
 ---
-title: "recipe : Measurement of the top quark mass in dilepton channel"
+title: "Measurement of the top quark mass in dilepton channel"
 date: 2018-12-18 14:11:00 +0900
 categories: TopQuarkMass
 ---
