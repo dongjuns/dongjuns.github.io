@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "dongjun's data lab"
+title                    : "DJ-LAB"
 title_separator          : "-"
 name                     : "Dongjun Jeong"
-description              : "Statistics, DeepLearning, ComputerVision, Python, C++"
+description              : "Machine_Learning, Deep_Learning, Computer_Vision, Python, C++"
 url                      : "https://dongjuns.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -105,11 +105,11 @@ analytics:
 author:
   name             : "Dongjun Jeong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Particle Physics, Image Processing"
-  location         : "Odese SØ, Denmark"
+  bio              : "Particle Physics, Deep learning, Vision"
+  location         : "Seoul, South Korea"
   email            :
   links:
-    - label: "doj@mmmi.sdu.dk"
+    - label: "jdj0715@gmail.com"
       icon: "fas fa-fw fa-envelope-square"
       # url: mailto:your.name@email.com
     - label: "Website"
@@ -121,18 +121,18 @@ author:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       url: https://gitlab.com/dongjuns
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
+    #- label: "Instagram"
+    #  icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
+    #- label: "Twitter"
+    #  icon: "fab fa-fw fa-twitter-square"
       # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
+    #- label: "Facebook"
+    #  icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -140,11 +140,11 @@ footer:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
        #url: https://gitlab.com/dongjuns
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
+    #- label: "Bitbucket"
+    #  icon: "fab fa-fw fa-bitbucket"
       # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
+    #- label: "Instagram"
+    #  icon: "fab fa-fw fa-instagram"
       # url:
 
 
