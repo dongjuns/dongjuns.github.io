@@ -27,6 +27,8 @@ total prediction boxes는 7x7x2 = 98 개다.
 # YOLOv2
 YOLO9000: Better, Faster, Stronger (2016, <https://arxiv.org/abs/1612.08242>)   
 
+9 pages (1 page is for references)   
+
 Input image resizes to 416 x 416.    
 Total prediction tensor는 13x13xB(Cx,Cy,w,h,confidence,class probabilities)가 되고,    
 S=13, B=5, number of class=80 일 때 13x13x5(Cx,Cy,w,h,confidence,class probabilities)이 되며,    
