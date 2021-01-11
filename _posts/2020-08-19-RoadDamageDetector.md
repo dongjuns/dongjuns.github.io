@@ -177,3 +177,8 @@ You can find more detailed information in this paper.
 <https://www.researchgate.net/publication/345196850_Road_Damage_Detection_Using_YOLO_with_Smartphone_Images>    
 DOI: <10.13140/RG.2.2.11013.58089>
 
+If you want to get much more higher score,    
+Make a detector with various resolution such as 416, 448, 480, ....    
+Then ensemble them 10 or 20 models.    
+You could get a score up to 0.67.    
+Then ensemble them 10 or 20 models.      
