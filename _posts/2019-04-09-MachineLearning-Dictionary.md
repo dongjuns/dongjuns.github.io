@@ -57,10 +57,10 @@ cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고�
 W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
 실제로 계산할 때의 방정식은 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
 
-### Sum Squared Error $(SSE) = sum(x - m)^{2}$
+### Sum Squared Error (SSE) = sum(x - m)^{2}
 Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
-### Cross Entropy = $(-x*log(m) - (1-x)*log(1-m))$
+### Cross Entropy = (-x*log(m) - (1-x)*log(1-m))
 
 Classification, Logistic Regression 에서 자주 쓰임
 
