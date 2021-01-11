@@ -38,28 +38,28 @@ Hypothesis H(x) = xW + b 일 때, data의 x값에 가중치 W를 이용하여,
 target값과 최대한 비슷한 값을 예측해내는 Hypothesis를 만듦.
 
 ### Cost Function, Loss function, 손실 함수, 비용 함수
-cost(W, b) = (1/n)Sum(H(x) - y)^2
-cost function : data와 hypothesis 간에 차이가 얼마나 나는 지를 측정한다.   
-Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight 가중치 이다. b = bias.    
+cost(W, b) = $(1/n)Sum(H(x) - y)^2$
+cost function : data와 hypothesis 간에 차이가 얼만큼 나는 지를 측정한다.   
+Hypothesis = xW + b로 나타낼 수 있고, x가 데이터, W가 weight 가중치, b는 bias.    
 model이 잘 맞는지 안 맞는지에 대해 cost function을 minimization 해가면서 minimum error를 가진 정확한 모델을 만들고자 함.   
 그렇기 때문에, cost function is the optimization objective.   
 그러면 cost function을 어떻게 줄이냐 ->  Gradient Descent.    
 
 ### Gradient Descent algorithm, Iterative Descent algorithm, 경사 하강법
 Minimize(cost function)을 위한 방법. 미분을 이용한다.   
-W := W - r * a/aW 1/2m Sum(xW - Y)^2
-W := W - r * 1/2m 2Sum(xW - Y)x
-W := W - r * 1/m Sum(xW - Y)x
+$W := W - r * a/aW 1/2m Sum(xW - Y)^2$
+$W := W - r * 1/2m 2Sum(xW - Y)x$
+$W := W - r * 1/m Sum(xW - Y)x$
 이때, cost function이 convex (밥그릇 모양 함수) 하지 않으면 optimize minimize가 잘 안된다, 잘못할 수도 있다.   
 cost function을 minimize하기 위해, W값을 조절하고 cost를 줄이고자 하고, 계속 반복적으로 수행 = Iterative algorithm.    
 최종적으로는 기울기가 0으로, 미분값이 0으로, function이 수렴하는 방향으로 찾아가고자 함.   
 W와 b에 대해서 따로 편미분해서 cost function의 minimum을 찾는 방법을 사용하지 않는 이유는,   
 실제로 계산할 때의 방정식은 굉장한 다항식으로 나오기 때문에, 각각의 모든 항에 대해서 편미분하는 것이 더 expensive하기 때문.   
 
-### Sum Squared Error (SSE) = sum(x - m)^{2}
+### Sum Squared Error $(SSE) = sum(x - m)^{2}$
 Regression 회귀분석에서 자주 쓰임. But, SSE is not convex. It means, SSE doesn't sure about global minimum.
 
-### Cross Entropy = (-x*log(m) - (1-x)*log(1-m))
+### Cross Entropy = $(-x*log(m) - (1-x)*log(1-m))$
 
 Classification, Logistic Regression 에서 자주 쓰임
 
@@ -71,7 +71,7 @@ Multi-layer에서 모델을 activation function으로 나타내면, Non-linearit
 
 ### Activation function, 활성 함수
 - Sigmoid Function, Logistic Function
-z = f(x) = 1 / (1 + e^{-x})   
+$z = f(x) = 1 / (1 + e^{-x})$   
 값을 0~1 사이의 값으로 transfromation 해줌, 그렇기 때문에 결과를 확률처럼 이용할 수 있음.
 safety zone 이상에서는 아웃풋이 0, 1로 saturate됨, gradient가 0으로 계산됨.    
 
@@ -101,8 +101,8 @@ Understand the correlation between the input features and target feature.
 쉽게 생각하면 2D x-y 좌표계에서 x,y 값들을 point out 한다.    
 그러면, x-y 사이에 관련된 방정식을 찾아낼 수 있고, 이것을 바탕으로 Hypothesis를 세우고, x값이 주어졌을 때 y값을 예측해볼 수 있다.   
 보통, feautres가 여러개인 Multiple linear regression의 경우가 많다.    
-1D linear regression : Hypothesis H(x1) = x1W1 + b    
-2D linear regression : Hypothesis H(x1, x2) = x1W1 + x2W2 + b   
+1D linear regression : Hypothesis $H(x1) = x1W1 + b$    
+2D linear regression : Hypothesis $H(x1, x2) = x_1 W_1 + x_2 W_2 + b$   
 이렇게 보았을 때, y에 관련된 x1, x2의 영향력을 볼 수 있고, 이것은 W1, W2를 통해 방정식에 반영된다.    
 최종적으로 계산값에 대해서 Sigmoid function을 사용한다.    
 Classification : 0 or 1   
@@ -110,10 +110,10 @@ Logistic regression : 0~1
 
 하지만, 주로 H(X) = XW 로 두고, matrix로 계산한다.   
 그 이유는 실제로 데이터를 보았을 때,   
-data1 = x11, x12, x13, y1     
-data2 = x21, x22, x23, y2   
+data1 = x_11, x_12, x_13, y_1     
+data2 = x_21, x_22, x_23, y_2   
 이런 식으로 값이 있을 것이고,   
-X = (x11, x12, x13)으로 두고, W = (w1, w2, w3)에 대해서 matrix 연산을 하면 더 빠르게 계산할 수 있다.   
+X = (x_11, x_12, x_13)으로 두고, W = (w_1, w_2, w_3)에 대해서 matrix 연산을 하면 더 빠르게 계산할 수 있다.   
 
 
 - SVM, Support Vector Machine regression
@@ -140,11 +140,11 @@ Ex) 개 or 고양이 / spam or not spam
 It's not make the result as an 0 or 1, (so doesn't match to binary classification.)   
 그래서 결과를 0 or 1로 만드는 방법이 필요하고, linear function 보다 정교한 cost function을 사용해야함.    
 -> It's the Sigmoid Function or Logistic Function.    
-g(H_{L}(x)) = 1 / (1 + e^{-x})    
+$g(H_{L}(x)) = 1 / (1 + e^{-x})$    
 
 그래서 결과값이 [0, 1] 사이의 확률값으로 나올 수 있게 된다.   
 
-H_{R}(x) = g(H_{L}(x))    
+$H_{R}(x) = g(H_{L}(x)) $   
 Logistic regression 에서 linear regression의 cost function SSE 같은 것을 cost function으로 그냥 써버릴경우에는,    
 non-convex & 여러개의 local minimum을 가질 수 있음    
 ->local minima에 빠짐 & global minimum을 찾기 굉장히 어려움 & cost function minimize 힘듦.    
