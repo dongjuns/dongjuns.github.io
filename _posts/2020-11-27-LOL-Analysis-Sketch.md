@@ -6,6 +6,11 @@ categories: Deep_learning Data_Analysis
 
 데이터를 직접 받아올 수 있는 것들 
 
+FPS 몇까지?    
+Metric은 어떤 것을 사용할 것인가?    
+Inference환경은?    
+베이스 모델은?    
+
 1. 데이터셋을 어떻게 구축할 것인가? dataset    
 
 LOL 게임 영상에서 특정 부분들을 분류하고 데이터를 축적할 수 있어야 함.    
@@ -23,3 +28,6 @@ To do list:
 2. 데이터셋 축적에 따른 모델 업데이트를 어떻게 자동화할 것인가? Life-long learning, offline / online learning    
 
 3. 서비스 연계의 측면에서, 모델 서빙 방식에 대한 고민?    
+
+4. 실시간 중계 영상 분석 시, 하이라이트 화면으로 넘어갔을 때 현재 게임 상황과 괴리가 생기는 부분.    
+
