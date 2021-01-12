@@ -23,7 +23,7 @@ OpenCV를 이용, 영상의 미니맵 부분에 대한 좌표를 수동으로 �
 
 
 To do list:    
-1. 챔피언 얼굴 겹쳤을 때, 어떻게 해결할 것인가? occlusion    
+1. 챔피언 얼굴 겹쳤을 때, 어떻게 할 것인가? occlusion    
 
 2. 데이터셋 축적에 따른 모델 업데이트를 어떻게 자동화할 것인가? Life-long learning, offline / online learning    
 
