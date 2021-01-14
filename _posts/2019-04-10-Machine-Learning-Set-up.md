@@ -338,7 +338,8 @@ docker system prune -a -f
 (1-5) Anaconda 패키지를 푼다.
 ```
 cd Downloads
-sudo bash Anaconda_file.sh
+bash Anaconda_file.sh
+#sudo bash Anaconda_file.sh
 
 source ~/.bashrc
 
@@ -355,7 +356,9 @@ conda 4.8.3
 (2-2) Linux terminal에서 wget and install it.
 ```
 $wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
-$sudo bash Anaconda3-5.3.1-Linux-x86_64.sh
+$bash Anaconda3-5.3.1-Linux-x86_64.sh
+
+#$sudo bash Anaconda3-5.3.1-Linux-x86_64.sh
 
 *맨마지막에 MS 스폰서 광고 들어있네요.
 ...
