@@ -259,7 +259,7 @@ vi .jupyter/jupyter_notebook_config.py
     
 ```
 c = get_config()
-c.NotebookApp.ip = #"$.$.$.$"
+c.NotebookApp.ip = "$.$.$.$" # your server ip, ifconfig
 c.NotebookApp.port_retries = 8888
 c.NotebookApp.password = '$$$$' # paste your SHA key value on here
 c.NotebookApp.open_browser = False
