@@ -245,7 +245,7 @@ conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 
 ### jupyter notebbok / lab in linux server   
 원격 서버에서 주피터를 사용하기 위한 세팅.    
-````
+```
 ipython
 from IPython.lib import passwd
 passwd()
