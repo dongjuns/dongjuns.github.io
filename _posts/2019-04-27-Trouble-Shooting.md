@@ -244,25 +244,27 @@ conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 - - -
 
 ### jupyter notebbok / lab in linux server   
-If you meet some problems about GPU using pyTorch,    
-you need to install pytorch again.
+원격 서버에서 주피터를 사용하기 위한 세팅.    
 ````
-jupyter passwd
+ipython
+from IPython.lib import passwd
+passwd()
+#copy your SHA key value
 ```
 
 ```
 jupyter notebook --config 
-vi jupyter_notebook_config.py
+vi .jupyter/jupyter_notebook_config.py
 ```
     
 ```
 c = get_config()
 c.NotebookApp.ip = #"$.$.$.$"
 c.NotebookApp.port_retries = 8888
-c.NotebookApp.password = #'$$$$'
+c.NotebookApp.password = '$$$$' # paste your SHA key value on here
 c.NotebookApp.open_browser = False
 ```
 
 ```
-jupyter notebook —ip=$.$.$.$ —no-browser
+jupyter notebook --ip=$.$.$.$ --no-browser
 ```
