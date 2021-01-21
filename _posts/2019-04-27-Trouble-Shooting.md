@@ -223,7 +223,7 @@ then make again.
 
 - - -
 
-### pyTorch, gpu problem
+### PyTorch, gpu problem
 If you meet some problems about GPU using pyTorch,    
 you need to install pytorch again.
 ```
@@ -239,4 +239,30 @@ and check the proper options.
 ```
 # for example
 conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+```
+
+- - -
+
+### jupyter notebbok / lab in linux server   
+If you meet some problems about GPU using pyTorch,    
+you need to install pytorch again.
+````
+jupyter passwd
+```
+
+```
+jupyter notebook --config 
+vi jupyter_notebook_config.py
+```
+    
+```
+c = get_config()
+c.NotebookApp.ip = #"$.$.$.$"
+c.NotebookApp.port_retries = 8888
+c.NotebookApp.password = #'$$$$'
+c.NotebookApp.open_browser = False
+```
+
+```
+jupyter notebook —ip=$.$.$.$ —no-browser
 ```
