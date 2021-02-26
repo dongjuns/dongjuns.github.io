@@ -267,3 +267,18 @@ c.NotebookApp.open_browser = False
 ```
 jupyter notebook --ip=$.$.$.$ --no-browser
 ```
+
+- - -
+
+### tqdm 
+tqdm을 import할 때 생기는 문제    
+```
+import tqdm
+tqdm(total=int(length))
+```
+TypeError: 'module' object is not callable
+
+import 구문을 수정해서 쉽게 해결할 수 있다.    
+```
+from tqdm import tqdm
+```
