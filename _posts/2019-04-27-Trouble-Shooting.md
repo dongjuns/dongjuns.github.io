@@ -4,7 +4,7 @@ date: 2019-04-27 21:19:00 +0900
 categories: Trouble Shooting
 ---
 
-### matplotlib import 에러
+### import matplotlib
 주피터 노트북을 사용할 때, matplotlib을 import하다가 에러날 때가 있다.
 ```
 In [] import matplotlib.pyplot as plt
@@ -270,7 +270,7 @@ jupyter notebook --ip=$.$.$.$ --no-browser
 
 - - -
 
-### tqdm 
+### import tqdm
 tqdm을 import할 때 생기는 문제    
 ```
 import tqdm
