@@ -282,3 +282,21 @@ import 구문을 수정해서 쉽게 해결할 수 있다.
 ```
 from tqdm import tqdm
 ```
+
+- - -
+
+### import ray
+ray를 import할 때 생기는 문제    
+
+It could be caused by the python version,    
+you should check out the range for using the ray.    
+Do downgrade your python.    
+```
+pip install ray
+```
+ERROR: Could not find a version that satisfies the requirement ray ERROR: No matching distribution found for ray
+   
+```
+conda install python=3.8
+pip install ray
+```
