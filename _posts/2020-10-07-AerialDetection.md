@@ -6,7 +6,7 @@ categories: AerialDetection Dacon
 
 <https://dacon.io/competitions/official/235644/overview/>
 
-Let's slice it to four parts.
+Let's slice it into four parts.
 
 # Install
 
