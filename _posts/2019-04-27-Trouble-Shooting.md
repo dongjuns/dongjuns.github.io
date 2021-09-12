@@ -322,11 +322,53 @@ loc를 사용하자.
 file.loc[17, 'blue_kda_mid'] = "['010/5']"
 ```
 
+      
 - - -
-GPU memory 안빠질 때
+      
+### GPU memory 안빠질 때      
       1. nvidia-smi 로 확인    
       2. kill -9 PID 로 끄기
       or
       
       sudo fuser -v /dev/nvidia*
       kill -9 PID 로 끄기
+
+      
+      
+      
+- - -
+      
+### RuntimeError: Unable to find a valid cuDNN algorithm to run convolution
+GPU code running error,    
+```
+Traceback (most recent call last):
+  File "/home/june/analysis-lol-minimap-yolov5/train.py", line 602, in <module>
+    main(opt)
+  File "/home/june/analysis-lol-minimap-yolov5/train.py", line 500, in main
+    train(opt.hyp, opt, device)
+  File "/home/june/analysis-lol-minimap-yolov5/train.py", line 317, in train
+    pred = model(imgs)  # forward
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/june/analysis-lol-minimap-yolov5/models/yolo.py", line 123, in forward
+    return self.forward_once(x, profile, visualize)  # single-scale inference, train
+  File "/home/june/analysis-lol-minimap-yolov5/models/yolo.py", line 155, in forward_once
+    x = m(x)  # run
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/june/analysis-lol-minimap-yolov5/models/common.py", line 136, in forward
+    return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), dim=1))
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/june/analysis-lol-minimap-yolov5/models/common.py", line 44, in forward
+    return self.act(self.bn(self.conv(x)))
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 423, in forward
+    return self._conv_forward(input, self.weight)
+  File "/home/june/anaconda3/envs/ws/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 419, in _conv_forward
+    return F.conv2d(input, weight, self.bias, self.stride,
+RuntimeError: Unable to find a valid cuDNN algorithm to run convolution      
+```
+
+A: Batch size를 줄여주거나, VRAM 사용량을 줄여야 한다.    
