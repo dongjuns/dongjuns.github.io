@@ -372,3 +372,14 @@ RuntimeError: Unable to find a valid cuDNN algorithm to run convolution
 ```
 
 A: Batch size를 줄여주거나, VRAM 사용량을 줄여야 한다.    
+
+- - -
+      
+### MAC에서 분할압축파일 해제해야할 때 z01 zip
+다른 방법 다 해도 안됨.
+```
+      unable to exapand "$.zip". it is an unsupported format.
+```
+1. appstore에서 the unarchiver 다운로드    
+      
+- - -
