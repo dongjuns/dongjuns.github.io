@@ -383,3 +383,13 @@ A: Batch size를 줄여주거나, VRAM 사용량을 줄여야 한다.
 1. appstore에서 the unarchiver 다운로드    
       
 - - -
+      
+### 많은 파일들을 cp해야할 때
+```
+      cp ~
+      -bash: /usr/bin/cp: Argument list too long
+```
+
+```
+      find ./from_directory/ -name "*" -exec cp {} ./to_directory/ \; -print
+```
