@@ -393,3 +393,27 @@ A: Batch size를 줄여주거나, VRAM 사용량을 줄여야 한다.
 ```
       find ./from_directory/ -name "*" -exec cp {} ./to_directory/ \; -print
 ```
+
+- - -
+      
+### 많은 파일들을 wc -l 해야할 때
+```
+      ls ~ | wc -l
+      -bash: /usr/bin/ls: Argument list too long
+```
+
+```
+      find 2021_data_boucher_qualified -type f -name '*.png'  | wc -l
+```
+- - -
+      
+### 많은 파일들을 rm 해야할 때
+```
+      rm ~
+      -bash: /usr/bin/rm: Argument list too long
+```
+
+```
+      find ./from_directory/ -name '.*.png' -type f -delete
+```
+      
