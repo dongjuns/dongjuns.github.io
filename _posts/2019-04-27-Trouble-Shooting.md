@@ -418,3 +418,12 @@ Solution: appstore에서 the unarchiver 다운로드
       find ./from_directory/ -name '.*.png' -type f -delete
 ```
       
+      
+      
+- - -
+    
+### Docker issue
+    ```
+    $ docker run hello-world
+      docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+      ```
