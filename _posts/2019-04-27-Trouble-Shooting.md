@@ -323,3 +323,19 @@ file.loc[17, 'blue_kda_mid'] = "['010/5']"
 ```
       
 - - -
+
+
+### GPU memory 안빠질 때
+```
+(1) nvidia-smi 로 확인    
+(2) kill -9 PID 로 끄기
+
+or
+
+(1) sudo fuser -v /dev/nvidia*
+(2) kill -9 PID 로 끄기
+```
+      
+- - -
+      
+
