@@ -328,12 +328,12 @@ file.loc[17, 'blue_kda_mid'] = "['010/5']"
 ### GPU memory 안빠질 때      
       1. nvidia-smi 로 확인    
       2. kill -9 PID 로 끄기
-
       or
       
       sudo fuser -v /dev/nvidia*
       kill -9 PID 로 끄기
 
+      
       
       
 - - -
@@ -380,8 +380,7 @@ A: Batch size를 줄여주거나, VRAM 사용량을 줄여야 한다.
 ```
       unable to exapand "$.zip". it is an unsupported format.
 ```
-
-Solution: appstore에서 the unarchiver 다운로드    
+1. appstore에서 the unarchiver 다운로드    
       
 - - -
       
