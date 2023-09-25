@@ -301,5 +301,25 @@ conda install python=3.8
 pip install ray
 ```
 
+- - -
 
+### pandas 값 바꾸기
+pandas file의 값을 바꿀 때 생기는 워닝 메시지    
+ 
+```
+file['blue_kda_mid'][17] = "['010/1']"
+
+<ipython-input-80-256c6f241f8e>:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  file['blue_kda_mid'][17] = "['010/1']"
+
+```   
+
+loc를 사용하자.    
+
+```
+file.loc[17, 'blue_kda_mid'] = "['010/5']"
+```
+      
 - - -
