@@ -12,3 +12,7 @@ It definitely learn the multi-language sequences, so there would be the priority
 
 This is the important point!    
 If your question was in the training dataset, you can get the perfect result whether your question is much difficult or not.    
+
+
+MOHO    
+User query에서 모호한 부분들을 sLLM이 물어봐서 문장의 context를 충만하게 함.
