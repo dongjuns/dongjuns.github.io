@@ -15,4 +15,5 @@ If your question was in the training dataset, you can get the perfect result whe
 
 
 MOHO    
-User query에서 모호한 부분들을 sLLM이 물어봐서 문장의 context를 충만하게 함.
+User query에서 모호한 부분들을 sLLM이 물어봐서 문장의 context를 충만하게 함.    
+incomplete -> complete task로 볼 수 있을듯?
